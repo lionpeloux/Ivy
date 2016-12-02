@@ -75,15 +75,16 @@ namespace IvyCore.Parametric
 
         private void SetInterval(double t0, double t1)
         {
-            if (t1 < t0)
-            {
-                throw new System.ArgumentException("t1 must be >= to t0");
-            }
-            else
+            if (t1 > t0)
             {
                 this.t0 = t0;
                 this.t1 = t1;
                 length = t1 - t0;
+                
+            }
+            else
+            {
+                throw new System.ArgumentException("t1 must be strictly superior to t0");
             }
         }
 

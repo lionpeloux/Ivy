@@ -27,7 +27,10 @@ namespace IvyCore.Parametric
             :base(grid, coordinates)
         {
             this.Tuple = Tuple.CreateNodeTuple(grid, tuple);
+            this.Index = this.Tuple.Index;
         }
+        public Node(Grid grid, IList<int> tuple)
+            : this(grid, tuple, new double[grid.Dim]) { }
 
         public IList<Node> List
         {
@@ -44,6 +47,10 @@ namespace IvyCore.Parametric
                 s += ", " + coordinates[i];
             }
             return s += ")";
+        }
+        public override string Info()
+        {
+            return "NODE[" + this.Index + "|" + this.Tuple + "] = " + this.ToString();
         }
 
     }

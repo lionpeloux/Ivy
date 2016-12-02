@@ -74,15 +74,18 @@ namespace IvyGh
 
             var shell = new Shell(ToList(vertices), ToList(faces), properties);
 
-            var X3D = new double[3][]{
+            var X3D = new double[4][]{
                                 new double[2] {1,2},
                                 new double[4] {10,-4,2,-15},
                                 new double[3] {5,6,7},
+                                new double[3] {-6.3,2.343,-23},
                             };
 
             var grid3D = new Grid(X3D);
-            DA.SetData(0, shell.ToString());
-            DA.SetData(1, grid3D.ToString());
+            DA.SetData(0, shell.ToString()); //
+            DA.SetData(1, grid3D.Info()); //
+
+            var s = 3;
         }
     
         public static List<int> ToList(IList<GH_Integer> list)

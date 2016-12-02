@@ -73,5 +73,9 @@ namespace IvyCore.Parametric
             this.Coord = coordinates; 
         }
 
+        public virtual string Info()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

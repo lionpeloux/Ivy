@@ -16,10 +16,10 @@ namespace IvyCore.Parametric
     /// Concrete GridTuple are of type NodeTuple and CellTuple
     /// </summary>
     public abstract class Tuple : ITuple, IGridElement
-    {     
+    {   
         public TupleType Type { get; protected set; }
         public Grid Grid { get; protected set; }
-        public abstract double Index { get; }
+        public abstract int Index { get; }
 
         protected Tuple(Grid grid, IList<int> tuple) : base(tuple)
         {
@@ -34,17 +34,23 @@ namespace IvyCore.Parametric
             return new CellTuple(grid, tuple);
         }
 
+        public string Info()
+        {
+            return ToString();
+        }
+
         /// <summary>
         /// Conrete NodeTuple that exposes the Tuple interface.
         /// A NodeTuple belongs to a grid so it can be associated with a unique contigous index.
         /// </summary>
         private sealed class NodeTuple : Tuple
         {
-            public override double Index
+            public override int Index
             {
                 get
                 {
-                    return base.IndexFromTuple(this.Grid.NodeDimCount);
+                    //return base.IndexFromTuple(this.Grid.NodeDimCount);
+                    return base.FastIndexFromTuple(this.Grid.NodeIndexBasis);
                 }
             }
             public NodeTuple(Grid grid, IList<int> tuple) : base(grid, tuple)
@@ -64,11 +70,12 @@ namespace IvyCore.Parametric
         /// </summary>
         private sealed class CellTuple : Tuple
         {
-            public override double Index
+            public override int Index
             {
                 get
                 {
-                    return base.IndexFromTuple(this.Grid.CellDimCount);
+                    //return base.IndexFromTuple(this.Grid.CellDimCount);
+                    return base.FastIndexFromTuple(this.Grid.CellIndexBasis);
                 }
             }
             public CellTuple(Grid grid, IList<int> tuple) : base(grid, tuple)

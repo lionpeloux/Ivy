@@ -17,5 +17,11 @@ namespace IvyCore.Parametric
         /// Grid Dimension.
         /// </summary>
         int Dim { get; }
+
+        /// <summary>
+        /// Get detailed informations on a given Grid Element
+        /// </summary>
+        /// <returns></returns>
+        string Info();
     }
 }
