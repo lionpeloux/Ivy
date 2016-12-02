@@ -6,78 +6,42 @@ using System.Threading.Tasks;
 
 namespace IvyCore.Parametric
 {
-    public class Node
+    public class Node : Point, ISortedGridElement<Node>
     {
-        private int dim;
-        private double[] node;
+        /// <summary>
+        /// The index in the Grid list of nodes.
+        /// </summary>
+        public int Index { get; protected set; }
 
         /// <summary>
-        /// State dimension.
+        /// The tuple representing the position of the node in the Grid.
         /// </summary>
-        public int Dim
+        public Tuple Tuple { get; protected set; }
+
+        /// <summary>
+        /// Create a new Node instance.
+        /// </summary>
+        /// <param name="grid">The Grid that node belongs to.</param>
+        /// <param name="coordinates">Node coordinates</param>
+        public Node(Grid grid, IList<int> tuple, double[] coordinates)
+            :base(grid, coordinates)
         {
-            get { return dim; }
-            protected set { dim = value; }
+            this.Tuple = Tuple.CreateNodeTuple(grid, tuple);
         }
 
-        /// <summary>
-        /// State value as double[] of length Dim.
-        /// </summary>
-        public double[] Value
+        public IList<Node> List
         {
-            get { return node; }
-            protected set {
-                int dim = value.Length;
-                if (dim != this.Dim)
-                {
-                    throw new System.IndexOutOfRangeException("This NState is of dimension " + this.Dim + " but the given double array is of length " + dim + ".");
-                }
-                else
-                {
-                    node = value;
-                }             
-            }
-        }
-
-        /// <summary>
-        /// State value for a particular dimension.
-        /// Idem as calling Value[d].
-        /// </summary>
-        public double this[int d]
-        {
-            get {
-                return node[d];
-            }
-            set
+            get
             {
-                node[d] = value;
+                return Grid.Nodes;
             }
         }
-
-        /// <summary>
-        /// Create a new NState with an actual state.
-        /// </summary>
-        /// <param name="state">The actual state.</param>
-        public Node(double[] state)
-        {
-            this.Dim = state.Length;
-            this.Value = state;
-        }
-
-        /// <summary>
-        /// Create a new NState with an actual state of zeros.
-        /// </summary>
-        /// <param name="dim">The dimension of the state.</param>
-        public Node(int dim) : this(new double[dim])
-        {
-        }
-        
         public override string ToString()
         {
-            var s = "(" + node[0];
-            for (int i = 1; i < node.Length; i++)
+            var s = "(" + coordinates[0];
+            for (int i = 1; i < coordinates.Length; i++)
             {
-                s += ", " + node[i];
+                s += ", " + coordinates[i];
             }
             return s += ")";
         }
