@@ -17,7 +17,6 @@ namespace IvyCore.Factory
         public Grid ActuationGrid { get; set; }
         public int ActuationDim { get { return ActuationGrid.Dim; } }
 
-
         /// <summary>
         /// Basis of TopologyInstance.
         /// A list of TopologyInstance for each ActuationNode in the ActuationGrid of the InstanceFactory.
