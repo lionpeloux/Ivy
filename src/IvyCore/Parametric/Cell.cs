@@ -54,62 +54,51 @@ namespace IvyCore.Parametric
         /// <returns>The 2^D Nodes bounding the cell.</returns>
         public Node[] Bounds()
         {
-            var nperm = (int)Math.Pow(2, Dim);
+            var nperm = Grid.PermutationCount;
             var nodes = new Node[nperm];
-            var permutations = new List<int[]>();
 
-            /// Compute the perumtation tuples to construct the bounding nodes
+            /// Une cellule est un polytope (ou hypercube) à 2^D sommets
+            /// Chaque sommet est obtenu par addition des permutations élémentaires
+            /// sur le tuple de la cellule considérée.
             /// 
-            /// For Dim = 2 :
-            /// (0,0)
-            /// (1,0)
-            /// (0,1)
-            /// (1,1)
-            ///
-            /// For Dim = 3
-            /// (0,0,0)
-            /// (1,0,0)
-            /// (0,1,0)
-            /// (1,1,0)
-            /// (0,0,1)
-            /// (1,0,1)
-            /// (0,1,1)
-            /// (1,1,1)
+            /// Examples :
             /// 
-            /// For Dim = D, this leads to 2^D permutations
+            ///     D=1             D=2             D=3
             /// 
-            var dimCount = new int[Dim];
-            for (int i = 0; i < Dim; i++) dimCount[i] = 1;
-            DoTupleRecursion(dimCount, new List<int>(), ref permutations);
+            ///     base:  (i)      base:  (i,j)    base:  (i,j,k)
+            ///     i=0 : +(0)      i=0 : +(0,0)    i=0 : +(0,0,0)
+            ///     i=1 : +(1)      i=1 : +(1,0)    i=1 : +(1,0,0)
+            ///                     i=2 : +(0,1)    i=2 : +(0,1,0)
+            ///                     i=3 : +(1,1)    i=3 : +(1,1,0)
+            ///                                     i=4 : +(0,0,1)
+            ///                                     i=5 : +(1,0,1)
+            ///                                     i=6 : +(0,1,1)
+            ///                                     i=7 : +(1,1,1)
+            /// 
+            /// On note :
+            ///     
+            ///     i   :   l'indice de la permutation i ∈ [0,2^D - 1]
+            ///             peut également être reprenté par un tuple de dimension D 
+            ///             avec des 0 ou 1 (cf example)
+            /// 
+            ///     X{i}:   le noeud i de coordoonées [x{i}_1, x{i}_2, ..., x{i}_{D-1}] ∈ R^D
+            ///     
+            ///     Y{i}:   la valeur du champs ∈ R^n (n > 0) à interpoler au noeud X{i}
+            ///             Y{i} = f(X{i}) avec f : R^D -> R^n 
+        
+            ///     V   :   le volume du polytope = 
+
+
+            for (int i = 0; i < nperm; i++)
+            {
+                var perm = Grid.Permutations[i];
+                var tuple = this.Tuple.Add(perm);
+
+                var index = Grid.NodeIndex(tuple);
+                var node = Grid.Nodes[index];
+            }
 
             return nodes;
-        }
-        private void DoTupleRecursion(int[] dimCount, List<int> indices, ref List<int[]> permutations)
-        {
-            int rank = dimCount.Length - indices.Count;
-
-            if (rank == 1)
-            {
-                var tuple = new List<int>();
-                tuple.Add(0);
-                tuple.AddRange(indices);
-
-                // append tuples
-                for (int k = 0; k < dimCount[0]; k++)
-                {
-                    tuple[0] = k;
-                    permutations.Add(tuple.ToArray<int>());
-                }
-            }
-            else
-            {
-                for (int l = 0; l < dimCount[rank - 1]; l++)
-                {
-                    var indices_l = indices.ToList<int>();
-                    indices_l.Insert(0, l);
-                    DoTupleRecursion(dimCount, indices_l, ref permutations);
-                }
-            }
         }
 
 

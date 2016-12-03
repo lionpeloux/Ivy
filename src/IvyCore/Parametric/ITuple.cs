@@ -124,6 +124,16 @@ namespace IvyCore.Parametric
             return tuple;
         }
 
+        public IList<int> Add(IList<int> tuple)
+        {
+            var tuple2 = this.tuple.ToArray<int>();
+            for (int i = 0; i < Dim; i++)
+            {
+                tuple2[i] += tuple[i];
+            }
+            return tuple2;
+        }
+
         public static string ToString(IList<double> array)
         {
             var s = "(" + array[0];
@@ -142,7 +152,6 @@ namespace IvyCore.Parametric
             }
             return s += ")";
         }
-
 
         /// <summary>
         /// String representation of a tuple.

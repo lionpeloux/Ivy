@@ -105,7 +105,7 @@ namespace IvyCore.Parametric
         /// <summary>
         /// Get the 2^D permutations nedded to compute cell bounding nodes.
         /// </summary>
-        public int[][] Permutaions { get { return permutations; } }
+        public int[][] Permutations { get { return permutations; } }
 
         /// <summary>
         /// Ordered list of Intervals in the Grid.
