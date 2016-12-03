@@ -74,15 +74,17 @@ namespace IvyGh
 
             var shell = new Shell(ToList(vertices), ToList(faces), properties);
 
-            var X3D = new double[4][]{
-                                new double[2] {1,2},
-                                new double[4] {10,-4,2,-15},
-                                new double[3] {5,6,7},
-                                new double[3] {-6.3,2.343,-23},
+            var X3D = new double[2][]{
+                                new double[3] {0,1,3},
+                                new double[3] {0,1,3}
                             };
 
+            
+
             var grid3D = new Grid(X3D);
-            DA.SetData(0, shell.ToString()); //
+            var p = new IvyCore.Parametric.Point(grid3D, new double[2] { 1, 1 });
+
+            DA.SetData(0, p.CellIndex() + ""); //
             DA.SetData(1, grid3D.Info()); //
 
             var s = 3;

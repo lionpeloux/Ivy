@@ -33,6 +33,17 @@ namespace IvyCore.Parametric
         /// </summary>
         public int Dim { get { return this.Grid.Dim; } }
 
+        /// <summary>
+        /// Return the index of the Nodes that bound the Cell.
+        /// This array is ordered according to the permutation scheme.
+        /// </summary>
+        public int[] VerticesIndex { get; protected set; }
+
+        /// <summary>
+        /// Cell Volume for Lerp.
+        /// </summary>
+        public double Volume { get; protected set; }
+
         public IList<Cell> List
         {
             get
@@ -46,16 +57,39 @@ namespace IvyCore.Parametric
             this.Grid = grid;
             this.Tuple = Tuple.CreateCellTuple(grid, tuple);
             this.Index = this.Tuple.Index;
+
+            var nperm = Grid.PermutationCount;
+            var nodes = new Node[nperm];
+
+            // Compute the Cell Volume
+            double V = 1;
+            for (int d = 0; d < Dim; d++)
+            {
+                int i = this.Tuple[d];
+                double x0 = Grid.Data[d][i];
+                double x1 = Grid.Data[d][i + 1];
+                V *= (x1 - x0);
+            }
+            this.Volume = V;
+
+            // Compute Cell's Bounding Nodes Index
+            var nodesIndex = new int[Grid.PermutationCount];
+            for (int i = 0; i < nodesIndex.Length; i++)
+            {
+                var index = Grid.NodeIndex(this.Tuple.Add(Grid.Permutations[i]));
+                nodesIndex[i] = index;
+            }
+            this.VerticesIndex = nodesIndex;
         }
 
         /// <summary>
-        /// Returns the nodes that bounds the given cell in the given dimension.
+        /// Multi-Linear interpolation inside the Cell.
         /// </summary>
-        /// <returns>The 2^D Nodes bounding the cell.</returns>
-        public Node[] Bounds()
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public double[] LerpCoefficients(Point p)
         {
-            var nperm = Grid.PermutationCount;
-            var nodes = new Node[nperm];
+            // assume that p is in the cell.
 
             /// Une cellule est un polytope (ou hypercube) à 2^D sommets
             /// Chaque sommet est obtenu par addition des permutations élémentaires
@@ -112,19 +146,42 @@ namespace IvyCore.Parametric
             /// 
             ///     Y = Y{0} * N{0} +  Y{1} * N{1} + ... + Y{2^D -1} * N{2^D -1}
             ///
-            
-            for (int i = 0; i < nperm; i++)
-            {
-                var perm = Grid.Permutations[i];
-                var tuple = this.Tuple.Add(perm);
 
-                var index = Grid.NodeIndex(tuple);
-                var node = Grid.Nodes[index];
+            var nperm = Grid.PermutationCount;
+            var N = new double[nperm];
+
+            // Precompute quantities
+            // TODO : cell volume could be done only once
+            var v0 = new double[Dim];
+            var v1 = new double[Dim];
+
+            for (int d = 0; d < Dim; d++)
+            {
+                int i = this.Tuple[d];
+
+                double x = p[d];
+                double x0 = Grid.Data[d][i];
+                double x1 = Grid.Data[d][i + 1];
+
+                v0[d] = x - x0;
+                v1[d] = x1 - x;
             }
 
-            return nodes;
-        }
+            for (int i = 0; i < nperm; i++)
+            {
+                double Vi = 1;
+                int[] perm = Grid.Permutations[i];
 
+                for (int d = 0; d < Dim; d++)
+                {
+                    var σ = perm[d];
+                    Vi *= v0[d] * σ + (1 - σ) * v1[d];
+                    //Vi *= (v0[d]- v1[d]) * σ + v1[d];
+                }
+                N[i] = Vi / Volume;
+            }
+            return N;
+        }
 
         public override string ToString()
         {
@@ -132,7 +189,7 @@ namespace IvyCore.Parametric
         }
         public string Info()
         {
-            return "CELL[" + this.Index + "|" + this.Tuple + "]";
+            return "CELL[" + this.Index + "|" + this.Tuple + "] : volume = " + Volume;
         }
     }
 }

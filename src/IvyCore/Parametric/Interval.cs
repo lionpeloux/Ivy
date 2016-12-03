@@ -80,7 +80,6 @@ namespace IvyCore.Parametric
                 this.t0 = t0;
                 this.t1 = t1;
                 length = t1 - t0;
-                
             }
             else
             {
@@ -125,11 +124,11 @@ namespace IvyCore.Parametric
         }
 
         /// <summary>
-        /// Normalized a given parameter in [0,1].
+        /// Normalize a given parameter in [0,1].
         /// </summary>
         /// <param name="t">The parameter to normalize in [T0,T1].</param>
         /// <returns>The normalized parameter in [0,1].</returns>
-        public double Normalized(double t)
+        public double Normalize(double t)
         {
             if (!IsLegal(t))
             {

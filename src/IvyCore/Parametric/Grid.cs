@@ -33,6 +33,8 @@ namespace IvyCore.Parametric
             protected set;
         }
 
+        public double[][] Data { get { return data; } }
+
         /// <summary>
         /// Number of Nodes in the grid.
         /// </summary>
@@ -99,7 +101,7 @@ namespace IvyCore.Parametric
         /// </summary>
         public int PermutationCount
         {
-            get { return Permutaions.Length; }
+            get { return Permutations.Length; }
         }
 
         /// <summary>
@@ -259,19 +261,19 @@ namespace IvyCore.Parametric
         {
             int index;
 
+            // Precompute CELL PERMUTAIONS
+            index = 0;
+            var dimCount = new int[Dim];
+            for (int i = 0; i < Dim; i++) dimCount[i] = 2;
+            DoTupleRecursion(ref index, dimCount, new List<int>(), AddPermutation);
+
             // Populate NODES        
             index = 0;
             DoTupleRecursion(ref index, NodeDimCount, new List<int>(), AddNode);
 
             // Populate CELLS     
             index = 0;
-            DoTupleRecursion(ref index, CellDimCount, new List<int>(), AddCell);
-
-            // Precompute CELL PERMUTAIONS
-            index = 0;
-            var dimCount = new int[Dim];
-            for (int i = 0; i < Dim; i++) dimCount[i] = 2;
-            DoTupleRecursion(ref index, dimCount, new List<int>(), AddPermutation);
+            DoTupleRecursion(ref index, CellDimCount, new List<int>(), AddCell);        
         }
         private void DoTupleRecursion(ref int index, int[] dimCount, List<int> indices, Action<Grid, IList<int>, int> f)
         {
@@ -324,6 +326,8 @@ namespace IvyCore.Parametric
             grid.permutations[index] = perm;
         }
 
+        // Lerp
+
 
         // info
         public override string ToString()
@@ -338,7 +342,7 @@ namespace IvyCore.Parametric
             s.Add("==========================");
             for (int i = 0; i < Dim; i++)
             {
-                s.Add(String.Format("D{0} = {1}", i + 1, ITuple.ToString(data[i])));
+                s.Add(String.Format("DATA[{0}] = {1}", i, ITuple.ToString(data[i])));
             }
             s.Add("");
             s.Add("NODES");
@@ -359,7 +363,7 @@ namespace IvyCore.Parametric
             s.Add("==========================");
             for (int i = 0; i < PermutationCount; i++)
             {
-                s.Add("PERM[" + i + "] = " + Tuple.ToString(Permutaions[i]));
+                s.Add("PERM[" + i + "] = " + Tuple.ToString(Permutations[i]));
             }
 
             return String.Join(Environment.NewLine, s);
