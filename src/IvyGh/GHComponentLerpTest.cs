@@ -21,8 +21,6 @@ namespace IvyGh
               "",
               "Ivy", "Test")
         {
-
-            
         }
 
         /// <summary>
@@ -84,14 +82,13 @@ namespace IvyGh
             int cellIndex = gp.CellIndex();
             var cell = gp.Grid.Cells[cellIndex];
 
-            double[] LERP = cell.LerpCoefficients(gp);
-
-            double zlerp = 0;
-            for (int i = 0; i < LERP.Length; i++)
-            {
-                int index = cell.VerticesIndex[i];
-                zlerp += LERP[i] * Z[index];
-            }
+            Interpolant interp = cell.GetInterpolant(gp);
+            double zlerp = interp.Lerp(Z);
+            //for (int i = 0; i < LERP.Length; i++)
+            //{
+            //    int index = cell.VerticesIndex[i];
+            //    zlerp += LERP[i] * Z[index];
+            //}
 
             var cellPts = new Point3d[5];
             double[] node;

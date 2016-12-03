@@ -87,7 +87,7 @@ namespace IvyCore.Parametric
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
-        public double[] LerpCoefficients(Point p)
+        public Interpolant GetInterpolant(Point p)
         {
             // assume that p is in the cell.
 
@@ -148,7 +148,7 @@ namespace IvyCore.Parametric
             ///
 
             var nperm = Grid.PermutationCount;
-            var N = new double[nperm];
+            var LERP = new double[nperm];
 
             // Precompute quantities
             // TODO : cell volume could be done only once
@@ -178,9 +178,9 @@ namespace IvyCore.Parametric
                     Vi *= v0[d] * σ + (1 - σ) * v1[d];
                     //Vi *= (v0[d]- v1[d]) * σ + v1[d];
                 }
-                N[i] = Vi / Volume;
+                LERP[i] = Vi / Volume;
             }
-            return N;
+            return new Interpolant(LERP, VerticesIndex);
         }
 
         public override string ToString()

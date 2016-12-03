@@ -67,6 +67,7 @@
     <Compile Include="Factory\Field\Gradient.cs" />
     <Compile Include="Factory\Field\ShellActuationScalarField.cs" />
     <Compile Include="Parametric\Cell.cs" />
+    <Compile Include="Parametric\Interpolant.cs" />
     <Compile Include="Parametric\ISortedGridElement.cs" />
     <Compile Include="Parametric\Tuple.cs" />
     <Compile Include="Parametric\IGridElement.cs" />
