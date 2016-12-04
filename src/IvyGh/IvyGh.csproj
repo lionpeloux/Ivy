@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="GHComponentLerpTest.cs" />
     <Compile Include="GHComponentLoadOneTopo.cs" />
+    <Compile Include="GHComponentGridSlider.cs" />
     <Compile Include="IvyGhInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
