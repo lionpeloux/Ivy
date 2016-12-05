@@ -145,7 +145,8 @@ namespace IvyCore.Parametric
         #region CONSTRUCTORS
 
         /// <summary>
-        /// Initialize a N-Grid of dimension D.
+        /// Initialize a N-Grid of dimension D. With string labels for each dimension.
+        /// Does a deep copy of input parameters.
         /// </summary>
         /// <param name="X">
         /// X is a 2 dimensionnal array that gives for each dimension the discrete states to consider :
@@ -160,17 +161,25 @@ namespace IvyCore.Parametric
         /// Where N is the dimension of the N-Grid.
         /// X[i] = [x{i}_0, x{i}_1, ..., x{i}_(N{i}-1)] must be sorted in ascending order.
         /// </param>
-        public Grid(double[][] X)
+        /// <param name="labels">
+        /// A list of string labels, one for each dimension.
+        /// </param>
+        public Grid(double[][] X, IList<string> labels)
         {
             this.Dim = X.Length;
+
+            if (labels.Count != X.Length)
+            {
+                throw new System.ArgumentOutOfRangeException("Lables must be of size " + Dim);
+            }
             
             nodeIndexBasis = new int[this.Dim];
             cellIndexBasis = new int[this.Dim];
 
-            data = new double[this.Dim][];
-            nodeCount = new int[this.Dim];
-            cellCount = new int[this.Dim];
-            
+            this.data = new double[this.Dim][]; // DeepCopy of data
+            this.nodeCount = new int[this.Dim];
+            this.cellCount = new int[this.Dim];
+            this.labels = labels.ToArray<string>(); // DeepCopy of labels
             intervals = new Interval[Dim];
 
             int nperm = (int)Math.Pow(2, this.Dim);
@@ -220,6 +229,31 @@ namespace IvyCore.Parametric
             cells = new Cell[nc];
             permutations = new int[nperm][];
             Populate();
+        }
+
+        /// <summary>
+        /// Initialize a N-Grid of dimension D. With empty string labels for each dimension.
+        /// Does a deep copy of input parameters.
+        /// </summary>
+        /// <param name="X">
+        /// X is a 2 dimensionnal array that gives for each dimension the discrete states to consider :
+        /// 
+        ///     - X[0]      = [x{0}_0, x{0}_1, ..., x{0}_(N{0}-1)]
+        ///     - X[1]      = [x{1}_0, x{1}_1, ..., x{1}_(N{1}-1)]
+        ///     - ...       ...
+        ///     - X[i]      = [x{i}_0, x{i}_1, ..., x{i}_(N{i}-1)]
+        ///     - ...       ...
+        ///     - X[D-1]    = [x{D-1}_0, x{D-1}_1, ..., x{D-1}_(N{D-1}-1)]
+        /// 
+        /// Where N is the dimension of the N-Grid.
+        /// X[i] = [x{i}_0, x{i}_1, ..., x{i}_(N{i}-1)] must be sorted in ascending order.
+        /// </param>
+        public Grid(double[][] X):this(X, new string[X.Length])
+        {
+            for (int d = 0; d < Dim; d++)
+            {
+                labels[d] = "";
+            }
         }
 
         /// <summary>
@@ -368,6 +402,27 @@ namespace IvyCore.Parametric
 
             return new Grid(data);
         }
+
+        /// <summary>
+        /// Deep copy. 
+        /// </summary>
+        /// <returns>An identic grid as an independent object.</returns>
+        public Grid DeepCopy()
+        {
+            // as far as Grid is itself deep copying data & labels, this should work.
+            return new Grid(this.data, this.labels);
+        }
+
+        /// <summary>
+        /// Shallow copy. The new instance will hold a reference to the data and the labels of the same grid. 
+        /// </summary>
+        /// <returns>An identic grid as an independent object.</returns>
+        public Grid ShallowCopy()
+        {
+            // Do I need to provide something like this ??
+            throw new NotImplementedException();
+        }
+
         public override string ToString()
         {
             return String.Format("GRID (dim = {0} | nodes = {1} | cells = {2}", Dim, NodeCount, CellCount);
@@ -380,7 +435,14 @@ namespace IvyCore.Parametric
             s.Add("==========================");
             for (int i = 0; i < Dim; i++)
             {
-                s.Add(String.Format("DATA[{0}] = {1}", i, ITuple.ToString(data[i])));
+                if(Labels[i] != "")
+                {
+                    s.Add(String.Format("DATA[{0}|{1}] = {2}", i, Labels[i], ITuple.ToString(data[i])));
+                }
+                else
+                {
+                    s.Add(String.Format("DATA[{0}] = {1}", i, ITuple.ToString(data[i])));
+                }
             }
             s.Add("");
             s.Add("NODES");
@@ -494,7 +556,50 @@ namespace IvyCore.Parametric
 
             return new Grid(data);
         }
-             
+
+        /// <summary>
+        /// Test if the data is equal in the two grids.
+        /// </summary>
+        /// <param name="grid1">First Grid.</param>
+        /// <param name="grid2">Second Grid.</param>
+        /// <returns>True if data are equal. False otherwise.</returns>
+        public static bool IsEqualData(Grid grid1, Grid grid2)
+        {
+            if (grid1.Data.Length != grid2.Data.Length)
+                return false;
+
+            for (int i = 0; i < grid1.Data.Length; i++)
+            {
+                if (grid1.Data[i].Length != grid2.Data[i].Length)
+                    return false;
+
+                for (int j = 0; j < grid1.Data[i].Length; j++)
+                {
+                    if (grid1.Data[i][j] != grid1.Data[i][j])
+                        return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Test if the labels are equal in the two grids.
+        /// </summary>
+        /// <param name="grid1">First Grid.</param>
+        /// <param name="grid2">Second Grid.</param>
+        /// <returns>True if all labels are equal. False otherwise.</returns>
+        public static bool IsEqualLabels(Grid grid1, Grid grid2)
+        {
+            if (grid1.Dim != grid2.Dim)
+                return false;
+
+            for (int d = 0; d < grid1.Data.Length; d++)
+            {
+                if (grid1.Labels[d] != grid2.Labels[d])
+                    return false;
+            }
+            return true;
+        }
         #endregion
 
         #region INDEX HELPER

@@ -11,24 +11,27 @@ using Grasshopper.Kernel.Parameters;
 using System.Windows.Forms;
 using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Types;
+using IvyGh.Type;
 
 namespace IvyGh
 {
-    public class GHComponentGridSlider : GH_Component, IGH_VariableParameterComponent
+    public class Comp_GridSlider : GH_Component, IGH_VariableParameterComponent
     {
-        Grid grid;
-        IvyCore.Parametric.Point point;
-        GH_Structure<GH_Number> range;
+        private GH_Grid ghGrid, ghGridCache;
+        private IvyCore.Parametric.Point point;
+        private GH_Structure<GH_Number> range;
 
-        bool hasValidGrid = false;
-        bool hasValidControls = false;
+        private bool hasValidPoint = false;
+        private bool hasValidControls = false;
+        private bool hasListener = false;
+        private double[] coord_cache;
 
         public override Guid ComponentGuid
         {
             get { return new Guid("{479434ce-3e14-4f0b-abec-2bc675c40eb4}"); }
         }
 
-        public GHComponentGridSlider()
+        public Comp_GridSlider()
           : base("Grid Slider", "Slider",
               "Construct a multidimensional grid from a tree. Gives controls to explore the grid (see right clic menu).",
               "Ivy", "Test")
@@ -37,112 +40,109 @@ namespace IvyGh
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddNumberParameter(
-                "Range",
-                "range",
-                "Grid definition as a tree. Branch i correspond to dimension i with ni values.",
-                GH_ParamAccess.tree
-                );
+            pManager.AddGenericParameter("Grid", "grid", "The grid to browse.", GH_ParamAccess.item);
             pManager[0].Optional = false;
+
+            this.Params.ParameterSourcesChanged += OnParameterSourcesChanged;
+        }
+
+        private void OnParameterSourcesChanged(object sender, GH_ParamServerEventArgs e)
+        {
+            // It's happening on Params.Input
+            if (e.ParameterSide == GH_ParameterSide.Input)
+            {
+                // it's happening on Params.Input[0]
+                if (e.ParameterIndex == 0)
+                {
+                    //  at least one source exists
+                    if (Params.Input[0].SourceCount > 0)
+                    {
+                        // thus the grid may have changed ...
+                        // we request refresh from the user
+                        hasValidControls = false;
+                        hasValidPoint = false;
+                        this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Grid Has Changed. Reset Controls via Menu.");
+                        this.Message = "Select Controls in Menu";
+                    }
+                    else
+                    {
+                        // no more source is connected to Inpur[0]
+                        hasValidPoint = false;
+                    }
+
+                }
+            }
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddTextParameter("Info", "info", "Grid info.", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Active Point", "C", "Selected point on the grid.", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Active Cell", "P", "Active cell index.", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Active Point", "P", "Selected point on the grid.", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Active Cell", "C", "Active cell index.", GH_ParamAccess.item);
             pManager.AddNumberParameter("Grid Nodes", "N", "All the nodes from the grid.", GH_ParamAccess.tree);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            if (!DA.GetDataTree(0, out range)) {
-                return;
-            }
-            var X = GridFromTree(range);
+            ghGrid = new GH_Grid();
 
-            // test if a valid grid exists
-            if (!hasValidGrid)
-            {             
-                CreateGrid(X);
-                DA.SetData(0, grid.Info());
-                return;
-            }
+            if (!DA.GetData(0,ref ghGrid)) return;
 
-            // Test if the grid has changed
-            if (GridHasChanged(X))
+            // Grid has changed and a new point must be attributed
+            if (!hasValidPoint)
             {
-                CreateGrid(X);
-                DA.SetData(0, grid.Info());
-                return;
+                point = new IvyCore.Parametric.Point(ghGrid.Value);
+                hasValidPoint = true;
             }
 
             // If controls are valid, the compute the point
             if (hasValidControls)
             {
                 UpdatePoint(DA);
-                DA.SetData(0, grid.Info());
                 DA.SetDataList(1, point.Coord);
                 DA.SetData(2, point.CellIndex());
-                return;
-            }        
+            }
+            else
+            {
+                
+                this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Grid Has Changed. Reset Controls via Menu.");
+                this.Message = "Select Controls in Menu";
+            }
+
+            DA.SetData(0, ghGrid.Value.Info());
         }
 
         private void UpdatePoint(IGH_DataAccess DA)
         {
-            for (int d = 0; d < grid.Dim; d++)
+            for (int d = 0; d < ghGrid.Value.Dim; d++)
             {
                 DA.GetData<double>(1 + d, ref point.Coord[d]);
             }
         }
-        private bool GridHasChanged(double[][] X)
-        {
-            if (grid.Data.Length != X.Length)
-                return true;
+        //private bool GridHasChanged()
+        //{
+        //    if (ghGridCache == null)
+        //        ghGridCache = grid
+        //        return false;
+        //    ghGridCache
 
-            for (int i = 0; i < grid.Data.Length; i++)
-            {
-                if (grid.Data[i].Length != X[i].Length)
-                    return true;
+        //    if (grid.Data.Length != X.Length)
+        //        return true;
 
-                for (int j = 0; j < grid.Data[i].Length; j++)
-                {
-                    if (grid.Data[i][j] != X[i][j])
-                        return true;
-                }
-            }
-            return false;
-        }
-        private double[][] GridFromTree(GH_Structure<GH_Number> range)
-        {
-            int dim = range.Branches.Count;
-            var X = new double[dim][];
-            for (int d = 0; d < dim; d++)
-            {
-                var branche = range.Branches[d];
-                X[d] = new double[branche.Count];
+        //    for (int i = 0; i < grid.Data.Length; i++)
+        //    {
+        //        if (grid.Data[i].Length != X[i].Length)
+        //            return true;
 
-                for (int i = 0; i < X[d].Length; i++)
-                {
-                    X[d][i] = branche[i].Value;
-                }
-                Array.Sort<double>(X[d]);
-            }
-            return X;
-        }
-        private void CreateGrid(double[][] X)
-        {
-            grid = new Grid(X);
-            point = new IvyCore.Parametric.Point(grid);
+        //        for (int j = 0; j < grid.Data[i].Length; j++)
+        //        {
+        //            if (grid.Data[i][j] != X[i][j])
+        //                return true;
+        //        }
+        //    }
+        //    return false;
+        //}
 
-            hasValidGrid = true;
-            hasValidControls = false;
-
-            this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Grid Has Changed. Reset Controls via Menu.");
-            this.Message = "Select Controls in Menu";
-        }
-
-        
         #region DYNAMIC GENERATION OF CONTROLS
         protected override void AppendAdditionalComponentMenuItems(ToolStripDropDown menu)
         {
@@ -162,7 +162,7 @@ namespace IvyGh
             if (ghdoc != null)
             {
                 // Create a new slider for each dimension
-                for (int d = 0; d < grid.Dim; d++)
+                for (int d = 0; d < ghGrid.Value.Dim; d++)
                 {
                     IGH_Param control = createControl(d);
 
@@ -213,8 +213,8 @@ namespace IvyGh
             
             // setup the slider according to the grid
             // each slider account for one grid dimension
-            var t0 = grid.Intervals[d].T0;
-            var t1 = grid.Intervals[d].T1;
+            var t0 = ghGrid.Value.Intervals[d].T0;
+            var t1 = ghGrid.Value.Intervals[d].T1;
             slider.Slider.Type = Grasshopper.GUI.Base.GH_SliderAccuracy.Float;
             slider.Slider.DecimalPlaces = 2;
             slider.Slider.Minimum = (decimal)t0;
@@ -238,9 +238,9 @@ namespace IvyGh
 
             //populate value list with our own data
             valueList.ListItems.Clear();
-            for (int i = 0; i < grid.NodeDimCount[d]; i++)
+            for (int i = 0; i < ghGrid.Value.NodeDimCount[d]; i++)
             {
-                var val = String.Format("{0:F3}", grid.Data[d][i]);
+                var val = String.Format("{0:F3}", ghGrid.Value.Data[d][i]);
                 var item = new GH_ValueListItem(val, val);
                 valueList.ListItems.Add(item);
             }
@@ -262,7 +262,7 @@ namespace IvyGh
 
             //populate value list with our own data
             valueList.ListItems.Clear();
-            for (int i = 0; i < grid.NodeDimCount[d]; i++)
+            for (int i = 0; i < ghGrid.Value.NodeDimCount[d]; i++)
             {
                 var val = "" + i;
                 var item = new GH_ValueListItem(val, val);
@@ -278,8 +278,8 @@ namespace IvyGh
 
             // setup the slider according to the grid
             // each slider account for one grid dimension
-            var t0 = grid.Intervals[d].T0;
-            var t1 = grid.Intervals[d].T1;
+            var t0 = ghGrid.Value.Intervals[d].T0;
+            var t1 = ghGrid.Value.Intervals[d].T1;
             slider.Slider.Type = Grasshopper.GUI.Base.GH_SliderAccuracy.Integer;
             slider.Slider.Minimum = (decimal)t0;
             slider.Slider.Maximum = (decimal)t1 - 1;
@@ -303,6 +303,7 @@ namespace IvyGh
             // add a number parameter to the component
             var param = new Param_Number();
             param.NickName = "D" + (index - 1);
+            param.Access = GH_ParamAccess.item;
             this.Params.RegisterInputParam(param);
             return param;
         }
