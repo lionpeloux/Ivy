@@ -14,15 +14,21 @@ namespace IvyCore.Parametric
     /// </summary>
     public class Grid
     {
+
+        #region FIELDS
         private double[][] data;    
         private int[] nodeCount;
         private int[] cellCount;
         private int[] nodeIndexBasis;
         private int[] cellIndexBasis;
         private int[][] permutations;
+        private string[] labels;
         private Interval[] intervals;
         private Node[] nodes;
         private Cell[] cells;
+        #endregion
+
+        #region PROPERTIES
 
         /// <summary>
         /// Grid dimension.
@@ -33,7 +39,16 @@ namespace IvyCore.Parametric
             protected set;
         }
 
+        /// <summary>
+        /// Internal data as a sorted double[][] array.
+        /// </summary>
         public double[][] Data { get { return data; } }
+
+        /// <summary>
+        /// A list of labels, one for each dimension. Optional.
+        /// Can be used for some UI functionalities.
+        /// </summary>
+        public string[] Labels { get { return labels; } }
 
         /// <summary>
         /// Number of Nodes in the grid.
@@ -124,6 +139,10 @@ namespace IvyCore.Parametric
         /// Ordered list of Cells in the Grid.
         /// </summary>
         public Cell[] Cells { get { return cells; } }
+
+        #endregion
+
+        #region CONSTRUCTORS
 
         /// <summary>
         /// Initialize a N-Grid of dimension D.
@@ -325,11 +344,30 @@ namespace IvyCore.Parametric
             var perm = tuple.ToArray<int>();
             grid.permutations[index] = perm;
         }
+        #endregion
 
-        // Lerp
+        #region INSTANCE METHODS
+        /// <summary>
+        /// Get a normalized version of this grid.
+        /// </summary>
+        /// <returns>A normalized grid.</returns>
+        public Grid Normalize()
+        {
+            // create a new double[][] representation
+            var data = new double[Dim][];
 
+            for (int d = 0; d < data.Length; d++)
+            {
+                int nd = Data[d].Length;
+                data[d] = new double[nd];
+                for (int i = 0; i < data[d].Length; i++)
+                {
+                    data[d][i] = Intervals[i].Normalize(Data[d][i]);
+                }
+            }
 
-        // info
+            return new Grid(data);
+        }
         public override string ToString()
         {
             return String.Format("GRID (dim = {0} | nodes = {1} | cells = {2}", Dim, NodeCount, CellCount);
@@ -368,8 +406,98 @@ namespace IvyCore.Parametric
 
             return String.Join(Environment.NewLine, s);
         }
+        #endregion
 
-        // Index Helper
+        #region OPERATOR
+        public static Grid operator *(Grid grid1, Grid grid2)
+        {
+            return CartesianProduct(grid1, grid2);
+        }
+        #endregion
+
+        #region STATIC METHODS
+
+        /// <summary>
+        /// Cartesian product of 2 grids I1 x I2 = I
+        /// (I1{0}xI1{1}x...xI1{N1-1}) x (I2{0}xI2{1}x...xI2{N2-1})
+        /// = I1{0}xI1{1}x...xI1{N1-1}xI2{0}xI2{1}x...xI2{N2-1}
+        /// </summary>
+        /// <param name="grid1">First Grid I1{0}xI1{1}x...xI1{N1-1}.</param>
+        /// <param name="grid2">Second Grid I2{0}xI2{1}x...xI2{N2-1}.</param>
+        /// <returns>The cartesian product as a new Grid.</returns>    
+        public static Grid CartesianProduct(Grid grid1, Grid grid2)
+        {
+            int dim1 = grid1.Dim;
+            int dim2 = grid2.Dim;
+
+            var data = new double[dim1 + dim2][];
+            var labels = new string[dim1 + dim2];
+
+            for (int d = 0; d < dim1; d++)
+            {
+                data[d] = grid1.Data[d].ToArray<double>();
+                labels[d] = grid1.Labels[d];
+            }
+            for (int d = 0; d < dim2; d++)
+            {
+                data[dim1 + d] = grid2.Data[d].ToArray<double>();
+                labels[dim1 + d] = grid2.Labels[d];
+            }
+            return new Grid(data);
+        }
+
+        /// <summary>
+        /// Cartesian product of 2 or more Grids.
+        /// </summary>
+        /// <param name="grids">2 or more Grids : I0, I1, ..., I{N-1}</param>
+        /// <returns>The cartesian product as a Grid :  I0xI1x...xI{N-1}.</returns>
+        public static Grid CartesianProduct(params Grid[] grids)
+        {
+            return CartesianProduct(grids);
+        }
+
+        /// <summary>
+        /// Cartesian product of 2 or more Grids.
+        /// </summary>
+        /// <param name="grids">2 or more Grids : I0, I1, ..., I{N-1}</param>
+        /// <returns>The cartesian product as a Grid :  I0xI1x...xI{N-1}.</returns>
+        public static Grid CartesianProduct(IList<Grid> grids)
+        {
+            int n = grids.Count;
+
+            if (n < 2)
+            {
+                throw new System.ArgumentOutOfRangeException("The number of input grids must be > 1.");
+            }
+
+            int dim = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                dim += grids[i].Dim;
+            }
+
+            var data = new double[dim][];
+            var labels = new string[dim];
+            int count = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                var di = grids[i].Dim;
+                for (int d = 0; d < di; d++)
+                {
+                    data[count + d] = grids[i].Data[d].ToArray<double>();
+                    labels[count + d] = grids[i].Labels[d];
+                }
+                count += di;
+            }
+
+            return new Grid(data);
+        }
+             
+        #endregion
+
+        #region INDEX HELPER
         public int NodeIndex(IList<int> tuple)
         {
             return Tuple.FastIndexFromTuple(this.NodeIndexBasis, tuple);
@@ -378,5 +506,6 @@ namespace IvyCore.Parametric
         {
             return Tuple.FastIndexFromTuple(this.CellIndexBasis, tuple);
         }
+        #endregion
     }
 }

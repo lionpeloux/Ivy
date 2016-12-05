@@ -11,20 +11,26 @@ namespace IvyCore.Parametric
         Node,
         Cell,
     }
+
     /// <summary>
     /// A Tuple that belongs to a given Grid.
     /// Concrete GridTuple are of type NodeTuple and CellTuple
     /// </summary>
     public abstract class Tuple : ITuple, IGridElement
-    {   
+    {
+        #region FIELDS
         public TupleType Type { get; protected set; }
         public Grid Grid { get; protected set; }
         public abstract int Index { get; }
+        #endregion
 
+        #region CONSTRUCTORS
         protected Tuple(Grid grid, IList<int> tuple) : base(tuple)
         {
             this.Grid = grid;
         }
+
+        // FACTORY
         public static Tuple CreateNodeTuple(Grid grid, IList<int> tuple)
         {
             return new NodeTuple(grid, tuple);
@@ -33,12 +39,23 @@ namespace IvyCore.Parametric
         {
             return new CellTuple(grid, tuple);
         }
+        #endregion
 
+        #region OPERATORS    
+        #endregion
+
+        #region INSTANCE METHODS
         public string Info()
         {
             return ToString();
         }
+        #endregion
 
+        #region STATIC METHOD
+        
+        #endregion  
+
+        #region PRIVATE SUBCLASSES
         /// <summary>
         /// Conrete NodeTuple that exposes the Tuple interface.
         /// A NodeTuple belongs to a grid so it can be associated with a unique contigous index.
@@ -63,7 +80,6 @@ namespace IvyCore.Parametric
                 return new NodeTuple(this.Grid, this.tuple);
             }
         }
-
         /// <summary>
         /// Conrete CellTuple that exposes the Tuple interface.
         /// A CellTuple belongs to a grid so it can be associated with a unique contigous index.
@@ -88,5 +104,6 @@ namespace IvyCore.Parametric
                 return new CellTuple(this.Grid, this.tuple);
             }
         }
+        #endregion
     }
 }

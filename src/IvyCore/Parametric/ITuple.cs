@@ -11,7 +11,11 @@ namespace IvyCore.Parametric
     /// </summary>
     public abstract class ITuple : ICloneable, IComparable<ITuple>
     {
+        #region FIELDS
         protected int[] tuple;
+        #endregion
+
+        #region PROPERTIES   
 
         /// <summary>
         /// Tuple dimension.
@@ -20,6 +24,7 @@ namespace IvyCore.Parametric
         {
             get { return tuple.Length; }
         }
+
         public int this[int i]
         {
             get
@@ -31,13 +36,19 @@ namespace IvyCore.Parametric
                 this.tuple[i] = value; 
             }
         }
+
         public int[] Value { get { return tuple.ToArray<int>(); } }
 
+        #endregion
+
+        #region CONSTRUCTORS
         protected ITuple(IList<int> tuple)
         {
             this.tuple = tuple.ToArray<int>();
         }
+        #endregion
 
+        #region INSTANCE METHODS
         /// <summary>
         /// For a given indexRange, compute the contiguous index of this tuple.
         /// i{0} ∈ [0,n{0}-1] | i{1} ∈ [0,n{1}-1] | ... | i{D-1} ∈ [0,n{D-1}-1]
@@ -84,15 +95,6 @@ namespace IvyCore.Parametric
             }
             return index;
         }
-        public static int FastIndexFromTuple(IList<int> basis, IList<int> tuple)
-        {
-            int index = 0;
-            for (int d = 0; d < tuple.Count; d++)
-            {
-                index += basis[d] * tuple[d];
-            }
-            return index;
-        }
 
         /// <summary>
         /// Get a tuple from its contiguous index.
@@ -108,7 +110,7 @@ namespace IvyCore.Parametric
         /// Count = [n{0}, n{1}, ..., n{D-1}]
         /// </param>
         /// <returns>The tuple corresponding to the given index.</returns>
-        protected static IList<int> TupleFromIndex(int index, IList<int> count)
+        protected static int[] TupleFromIndex(int index, IList<int> count)
         {
             int n = count.Count;
             var tuple = new int[n];
@@ -124,49 +126,11 @@ namespace IvyCore.Parametric
             return tuple;
         }
 
-        public IList<int> Add(IList<int> tuple)
+        public int[] Add(IList<int> tuple)
         {
-            var tuple2 = this.tuple.ToArray<int>();
-            for (int i = 0; i < Dim; i++)
-            {
-                tuple2[i] += tuple[i];
-            }
-            return tuple2;
+            return Add(this.tuple, tuple);
         }
-
-        public static string ToString(IList<double> array)
-        {
-            var s = "(" + array[0];
-            for (int i = 1; i < array.Count; i++)
-            {
-                s += ", " + array[i];
-            }
-            return s += ")";
-        }
-        public static string ToString(IList<int> array)
-        {
-            var s = "(" + array[0];
-            for (int i = 1; i < array.Count; i++)
-            {
-                s += ", " + array[i];
-            }
-            return s += ")";
-        }
-
-        /// <summary>
-        /// String representation of a tuple.
-        /// </summary>
-        /// <param name="tuple">The tuple.</param>
-        /// <returns>A string representing the tuple (i0,i1,...,in-1).</returns>
-        public override string ToString()
-        {
-            var s = "(" + this.tuple[0];
-            for (int i = 1; i < this.tuple.Length; i++)
-            {
-                s += ", " + tuple[i];
-            }
-            return s += ")";
-        }
+        
         public int CompareTo(ITuple tuple)
         {
             int dim = tuple.Dim;
@@ -195,6 +159,99 @@ namespace IvyCore.Parametric
             return 0;
         }
         public abstract object Clone();
+
+        /// <summary>
+        /// String representation of a tuple.
+        /// </summary>
+        /// <param name="tuple">The tuple.</param>
+        /// <returns>A string representing the tuple (i0,i1,...,in-1).</returns>
+        public override string ToString()
+        {
+            var s = "(" + this.tuple[0];
+            for (int i = 1; i < this.tuple.Length; i++)
+            {
+                s += ", " + tuple[i];
+            }
+            return s += ")";
+        }
+
+        #endregion
+
+        #region STATIC METHODS
+
+        public static int FastIndexFromTuple(IList<int> basis, IList<int> tuple)
+        {
+            int index = 0;
+            for (int d = 0; d < tuple.Count; d++)
+            {
+                index += basis[d] * tuple[d];
+            }
+            return index;
+        }
+
+        /// <summary>
+        /// Addition 2 tuples of same dimension.
+        /// (i1{0}, i1{1}, ..., i1{N-1}) + (i2{0}, i2{1}, ..., i2{N-1})
+        /// = (i1{0} + i2{0}, i1{1} + i2{1}, ..., i1{N1-1} + i2{N-1})
+        /// </summary>
+        /// <param name="tuple1">First tuple (i1{0}, i1{1}, ..., i1{N-1}).</param>
+        /// <param name="tuple2">Second tuple (i2{0}, i2{1}, ..., i2{N-1}).</param>
+        /// <returns>The sum as.</returns>
+        public static int[] Add(IList<int> tuple1, IList<int> tuple2)
+        {
+            var tuple = tuple1.ToArray<int>();
+            for (int i = 0; i < tuple.Length; i++)
+            {
+                tuple[i] += tuple2[i];
+            }
+            return tuple;
+        }
+
+        /// <summary>
+        /// Cartesian product of 2 tuples.
+        /// (i1{0}, i1{1}, ..., i1{N1-1}) x (i2{0}, i2{1}, ..., i2{N2-1})
+        /// = (i1{0}, i1{1}, ..., i1{N1-1}, i2{0}, i2{1}, ..., i2{N2-1})
+        /// </summary>
+        /// <param name="tuple1">First tuple (i1{0}, i1{1}, ..., i1{N1-1}).</param>
+        /// <param name="tuple2">Second tuple (i2{0}, i2{1}, ..., i2{N2-1}).</param>
+        /// <returns>A tuple.</returns>
+        public static int[] CartesianProduct(IList<int> tuple1, IList<int> tuple2)
+        {
+            int n1 = tuple1.Count;
+            int n2 = tuple2.Count;
+            var tuple = new int[n1 + n2];
+            for (int i = 0; i < n1; i++)
+            {
+                tuple[i] = tuple1[i];
+            }
+            for (int i = 0; i < n2; i++)
+            {
+                tuple[n1 + i] = tuple2[i];
+            }
+            return tuple;
+        }
+
+
+        public static string ToString(IList<double> array)
+        {
+            var s = "(" + array[0];
+            for (int i = 1; i < array.Count; i++)
+            {
+                s += ", " + array[i];
+            }
+            return s += ")";
+        }
+        public static string ToString(IList<int> array)
+        {
+            var s = "(" + array[0];
+            for (int i = 1; i < array.Count; i++)
+            {
+                s += ", " + array[i];
+            }
+            return s += ")";
+        }
+
+        #endregion    
     }
 
 
