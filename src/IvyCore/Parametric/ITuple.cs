@@ -231,13 +231,36 @@ namespace IvyCore.Parametric
             return tuple;
         }
 
+        /// <summary>
+        /// Cartesian product of 2 tuples.
+        /// (i1{0}, i1{1}, ..., i1{N1-1}) x (i2{0}, i2{1}, ..., i2{N2-1})
+        /// = (i1{0}, i1{1}, ..., i1{N1-1}, i2{0}, i2{1}, ..., i2{N2-1})
+        /// </summary>
+        /// <param name="tuple1">First tuple (i1{0}, i1{1}, ..., i1{N1-1}).</param>
+        /// <param name="tuple2">Second tuple (i2{0}, i2{1}, ..., i2{N2-1}).</param>
+        /// <returns>A tuple.</returns>
+        public static double[] CartesianProduct(IList<double> tuple1, IList<double> tuple2)
+        {
+            int n1 = tuple1.Count;
+            int n2 = tuple2.Count;
+            var tuple = new double[n1 + n2];
+            for (int i = 0; i < n1; i++)
+            {
+                tuple[i] = tuple1[i];
+            }
+            for (int i = 0; i < n2; i++)
+            {
+                tuple[n1 + i] = tuple2[i];
+            }
+            return tuple;
+        }
 
         public static string ToString(IList<double> array)
         {
-            var s = "(" + array[0];
+            var s = "(" + String.Format("{0:F2}", array[0]);
             for (int i = 1; i < array.Count; i++)
             {
-                s += ", " + array[i];
+                s += ", " + String.Format("{0:F2}", array[i]);
             }
             return s += ")";
         }

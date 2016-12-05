@@ -74,7 +74,7 @@ namespace IvyCore.Parametric
 
             // make sure this point is in the grid domain.
             this.Legalize();
-        }
+        }        
         public Point(Grid grid) 
             : this(grid, new double[grid.Dim]){}
 

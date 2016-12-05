@@ -54,6 +54,12 @@ namespace IvyGh.Type
             return new GH_Grid(this.Value.DeepCopy());
         }
 
+        public GH_Grid DeepCopy()
+        {
+            // should I make a deep copy or not ?
+            return new GH_Grid(this.Value.DeepCopy());
+        }
+
         public override object ScriptVariable()
         {
             return this.Value;

@@ -65,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Component\Comp_CreateGrid.cs" />
+    <Compile Include="Component\Comp_GridNormalize.cs" />
+    <Compile Include="Component\Comp_GridPoint.cs" />
+    <Compile Include="Component\Comp_CartesianProduct.cs" />
     <Compile Include="Component\Comp_GridProduct.cs" />
     <Compile Include="Parameter\Param_Grid.cs" />
     <Compile Include="GHComponentLerpTest.cs" />

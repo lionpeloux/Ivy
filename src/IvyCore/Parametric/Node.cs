@@ -41,10 +41,10 @@ namespace IvyCore.Parametric
         }
         public override string ToString()
         {
-            var s = "(" + coordinates[0];
+            var s = "(" + String.Format("{0:F2}", coordinates[0]);
             for (int i = 1; i < coordinates.Length; i++)
             {
-                s += ", " + coordinates[i];
+                s += ", " + String.Format("{0:F2}", coordinates[i]);
             }
             return s += ")";
         }

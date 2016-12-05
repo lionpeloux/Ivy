@@ -189,7 +189,7 @@ namespace IvyCore.Parametric
         }
         public string Info()
         {
-            return "CELL[" + this.Index + "|" + this.Tuple + "] : volume = " + Volume;
+            return "CELL[" + this.Index + "|" + this.Tuple + "] : volume = " + String.Format("{0:F2}", Volume);
         }
     }
 }

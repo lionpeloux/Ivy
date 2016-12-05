@@ -8,7 +8,7 @@ using IvyGh.Type;
 
 namespace IvyGh.Component
 {
-    public class Param_Grid : GH_Param<GH_Grid>
+    public class Param_Grid : GH_Param<GH_Grid> // TODO : implement GH_ExpressionParam for normalized
     {
         /// <summary>
         /// Initializes a new instance of the MyComponent1 class.

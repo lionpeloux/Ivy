@@ -19,12 +19,7 @@ namespace IvyGh
     {
         private GH_Grid ghGrid, ghGridCache;
         private IvyCore.Parametric.Point point;
-        private GH_Structure<GH_Number> range;
-
-        private bool hasValidPoint = false;
         private bool hasValidControls = false;
-        private bool hasListener = false;
-        private double[] coord_cache;
 
         public override Guid ComponentGuid
         {
@@ -34,7 +29,7 @@ namespace IvyGh
         public Comp_GridSlider()
           : base("Grid Slider", "Slider",
               "Construct a multidimensional grid from a tree. Gives controls to explore the grid (see right clic menu).",
-              "Ivy", "Test")
+              "Ivy", "Grid")
         {
         }
 
@@ -43,35 +38,52 @@ namespace IvyGh
             pManager.AddGenericParameter("Grid", "grid", "The grid to browse.", GH_ParamAccess.item);
             pManager[0].Optional = false;
 
-            this.Params.ParameterSourcesChanged += OnParameterSourcesChanged;
+            //this.Params.ParameterSourcesChanged += OnParameterSourcesChanged;
         }
 
         private void OnParameterSourcesChanged(object sender, GH_ParamServerEventArgs e)
         {
-            // It's happening on Params.Input
-            if (e.ParameterSide == GH_ParameterSide.Input)
-            {
-                // it's happening on Params.Input[0]
-                if (e.ParameterIndex == 0)
-                {
-                    //  at least one source exists
-                    if (Params.Input[0].SourceCount > 0)
-                    {
-                        // thus the grid may have changed ...
-                        // we request refresh from the user
-                        hasValidControls = false;
-                        hasValidPoint = false;
-                        this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Grid Has Changed. Reset Controls via Menu.");
-                        this.Message = "Select Controls in Menu";
-                    }
-                    else
-                    {
-                        // no more source is connected to Inpur[0]
-                        hasValidPoint = false;
-                    }
+            //// It's happening on Params.Input
+            //if (e.ParameterSide == GH_ParameterSide.Input)
+            //{
+            //    // it's happening on Params.Input[0]
+            //    if (e.ParameterIndex == 0)
+            //    {
+            //        int n = Params.Input[0].SourceCount;
 
-                }
-            }
+            //        if (n == 0)
+            //        {
+            //            // no more source is connected to Inpur[0]
+            //            hasValidPoint = false;
+            //            return;
+            //        }
+
+            //        //  one source is connected
+            //        if (n == 1)
+            //        {
+            //            // thus the grid may have changed ...
+            //            // we request refresh from the user
+            //            hasValidControls = false;
+            //            hasValidPoint = false;
+
+                        
+            //            Params.Input[0]..SolutionExpired += OnGridExpired;
+
+            //            this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Grid Has Changed. Reset Controls via Menu.");
+            //            this.Message = "Select Controls in Menu";
+            //        }
+
+            //        //  more than one source is not allowed : disconnect them
+            //        for (int i = 1; i < n; i++)
+            //        {
+            //            Params.Input[0].RemoveSource(Params.Input[0].Sources[i]);
+            //        }
+            //    }
+            //}
+        }
+        private void OnGridExpired(IGH_DocumentObject sender, GH_SolutionExpiredEventArgs e)
+        {
+           // throw new NotImplementedException();
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
@@ -79,7 +91,6 @@ namespace IvyGh
             pManager.AddTextParameter("Info", "info", "Grid info.", GH_ParamAccess.item);
             pManager.AddNumberParameter("Active Point", "P", "Selected point on the grid.", GH_ParamAccess.list);
             pManager.AddNumberParameter("Active Cell", "C", "Active cell index.", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Grid Nodes", "N", "All the nodes from the grid.", GH_ParamAccess.tree);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -88,14 +99,17 @@ namespace IvyGh
 
             if (!DA.GetData(0,ref ghGrid)) return;
 
-            // Grid has changed and a new point must be attributed
-            if (!hasValidPoint)
+            if(GridHasChanged())
             {
+                hasValidControls = false;
                 point = new IvyCore.Parametric.Point(ghGrid.Value);
-                hasValidPoint = true;
+                // cache a DeepCopy
+                ghGridCache = ghGrid.DeepCopy();
+                this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Grid Has Changed. Reset Controls via Menu.");
+                this.Message = "Select Controls in Menu";
             }
 
-            // If controls are valid, the compute the point
+            // If controls are valid, then compute the point
             if (hasValidControls)
             {
                 UpdatePoint(DA);
@@ -103,8 +117,7 @@ namespace IvyGh
                 DA.SetData(2, point.CellIndex());
             }
             else
-            {
-                
+            {          
                 this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Grid Has Changed. Reset Controls via Menu.");
                 this.Message = "Select Controls in Menu";
             }
@@ -119,29 +132,20 @@ namespace IvyGh
                 DA.GetData<double>(1 + d, ref point.Coord[d]);
             }
         }
-        //private bool GridHasChanged()
-        //{
-        //    if (ghGridCache == null)
-        //        ghGridCache = grid
-        //        return false;
-        //    ghGridCache
+        private bool GridHasChanged()
+        {
+            if (ghGridCache == null)
+            {
+                // cache a DeepCopy
+                ghGridCache = ghGrid.DeepCopy();
+                return true;
+            }
 
-        //    if (grid.Data.Length != X.Length)
-        //        return true;
+            var b1 = Grid.IsEqualData(ghGrid.Value, ghGridCache.Value);
+            var b2 = Grid.IsEqualLabels(ghGrid.Value, ghGridCache.Value);
 
-        //    for (int i = 0; i < grid.Data.Length; i++)
-        //    {
-        //        if (grid.Data[i].Length != X[i].Length)
-        //            return true;
-
-        //        for (int j = 0; j < grid.Data[i].Length; j++)
-        //        {
-        //            if (grid.Data[i][j] != X[i][j])
-        //                return true;
-        //        }
-        //    }
-        //    return false;
-        //}
+            return !(b1 && b2);
+        }
 
         #region DYNAMIC GENERATION OF CONTROLS
         protected override void AppendAdditionalComponentMenuItems(ToolStripDropDown menu)
@@ -167,7 +171,7 @@ namespace IvyGh
                     IGH_Param control = createControl(d);
 
                     // description
-                    control.NickName = "D" + d;
+                    control.NickName = "D" + d + " | " + ghGrid.Value.Labels[d];
                    
                     // position the new control on the caneva, relative to this component
                     var x = (float)this.Attributes.DocObject.Attributes.Bounds.Left - control.Attributes.Bounds.Width - 30;

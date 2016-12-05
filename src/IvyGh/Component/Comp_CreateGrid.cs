@@ -23,8 +23,8 @@ namespace IvyGh.Component
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddNumberParameter("Input Range", "data", "The data to create the grid from. As a tree of numbers.", GH_ParamAccess.tree);
-            pManager.AddTextParameter("Labels", "label", "A list of labels, one for each dimension", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Input Range", "D", "The data to create the grid from. As a tree of numbers.", GH_ParamAccess.tree);
+            pManager.AddTextParameter("Labels", "L", "A list of labels, one for each dimension", GH_ParamAccess.list);
             pManager[0].Optional = false;
             pManager[1].Optional = true;
         }
@@ -32,7 +32,7 @@ namespace IvyGh.Component
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddTextParameter("Grid Info", "info", "Detailed information about the Grid.", GH_ParamAccess.item);
-            pManager.AddGenericParameter("Grid", "grid", "A N-dimensional grid.", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Grid", "G", "A N-dimensional grid.", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)

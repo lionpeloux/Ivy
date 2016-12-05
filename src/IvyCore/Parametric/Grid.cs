@@ -396,7 +396,7 @@ namespace IvyCore.Parametric
                 data[d] = new double[nd];
                 for (int i = 0; i < data[d].Length; i++)
                 {
-                    data[d][i] = Intervals[i].Normalize(Data[d][i]);
+                    data[d][i] = Intervals[d].Normalize(Data[d][i]);
                 }
             }
 
@@ -575,7 +575,7 @@ namespace IvyCore.Parametric
 
                 for (int j = 0; j < grid1.Data[i].Length; j++)
                 {
-                    if (grid1.Data[i][j] != grid1.Data[i][j])
+                    if (grid1.Data[i][j] != grid2.Data[i][j])
                         return false;
                 }
             }
