@@ -389,11 +389,13 @@ namespace IvyCore.Parametric
         {
             // create a new double[][] representation
             var data = new double[Dim][];
+            var labels = new string[Dim];
 
             for (int d = 0; d < data.Length; d++)
             {
                 int nd = Data[d].Length;
                 data[d] = new double[nd];
+                labels[d] = this.labels[d];
                 for (int i = 0; i < data[d].Length; i++)
                 {
                     data[d][i] = Intervals[d].Normalize(Data[d][i]);
@@ -505,7 +507,7 @@ namespace IvyCore.Parametric
                 data[dim1 + d] = grid2.Data[d].ToArray<double>();
                 labels[dim1 + d] = grid2.Labels[d];
             }
-            return new Grid(data);
+            return new Grid(data, labels);
         }
 
         /// <summary>
@@ -554,7 +556,7 @@ namespace IvyCore.Parametric
                 count += di;
             }
 
-            return new Grid(data);
+            return new Grid(data, labels);
         }
 
         /// <summary>
