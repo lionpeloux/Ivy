@@ -50,7 +50,7 @@ namespace IvyCore.Parametric
         }
         public override string Info()
         {
-            return "NODE[" + this.Index + "|" + this.Tuple + "] = " + this.ToString();
+            return String.Format("NODE[{0,3}|{1}] = {2}", this.Index, this.Tuple, this.ToString());
         }
 
     }
