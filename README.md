@@ -1,4 +1,4 @@
-#Ivy
+# Ivy
 Ivy is a small parametric design tool to explore simple system composed of :
 - a doubly-cruved shell
 - two linear actuators
@@ -15,7 +15,9 @@ Results can be imported back into **Rhino & Grasshopper** for further benchmarki
 
 Mainly, this tool is provided to compare environmental performances of shading devices and find some optimal solutions of efficient shading.
 
-##Authors
+## Authors
 Lionel du Peloux - 2016
+
 @PrincetonUniversity - USA
+
 @Navier - France
