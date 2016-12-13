@@ -21,7 +21,7 @@ namespace IvyGh.Type
 
         public override string TypeDescription { get { return "A N-dimensional Grid of numbers."; } }
 
-        public override string TypeName { get { return "NGrid"; } }
+        public override string TypeName { get { return "Grid"; } }
         
         #endregion
 

@@ -5,15 +5,17 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D9D3B74C-4D08-497E-91F7-E42C5EE42A52}</ProjectGuid>
+    <ProjectGuid>{DA457C27-66D9-40D4-9D16-C9F75428145D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IvyGh</RootNamespace>
-    <AssemblyName>IvyGh</AssemblyName>
+    <RootNamespace>ShadingDevice</RootNamespace>
+    <AssemblyName>ShadingDevice</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug32|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,8 +45,26 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.103.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.103\lib\net451\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.103.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.103\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="RhinoCommon">
@@ -64,28 +84,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Component\Comp_CreateGrid.cs" />
-    <Compile Include="Component\Comp_GridNormalize.cs" />
-    <Compile Include="Component\Comp_GridPoint.cs" />
-    <Compile Include="Component\Comp_CartesianProduct.cs" />
-    <Compile Include="Component\Comp_GridProduct.cs" />
-    <Compile Include="Parameter\Param_Node.cs" />
-    <Compile Include="Parameter\Param_Grid.cs" />
-    <Compile Include="GHComponentLerpTest.cs" />
-    <Compile Include="GHComponentLoadOneTopo.cs" />
-    <Compile Include="Component\Comp_GridSlider.cs" />
-    <Compile Include="IvyGhInfo.cs" />
+    <Compile Include="Component\ShadingDeviceComponent.cs" />
+    <Compile Include="Kernel\AbaqusProblemBuilder.cs" />
+    <Compile Include="Kernel\AbaqusShellElementProperty.cs" />
+    <Compile Include="Kernel\AbaqusTrussElementProperty.cs" />
+    <Compile Include="Kernel\Actuator.cs" />
+    <Compile Include="Kernel\BoundaryCondition.cs" />
+    <Compile Include="Kernel\IAbaqusMaterial.cs" />
+    <Compile Include="ShadingDeviceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Type\GH_Node.cs" />
-    <Compile Include="Type\GH_Grid.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IvyCore\IvyCore.csproj">
       <Project>{eac59114-1935-4853-8e6c-13b3fddc89e5}</Project>
       <Name>IvyCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IvyGh\IvyGh.csproj">
+      <Project>{d9d3b74c-4d08-497e-91f7-e42c5ee42a52}</Project>
+      <Name>IvyGh</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -95,7 +117,8 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"</PostBuildEvent>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
+Erase "$(TargetPath)"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug32|AnyCPU' ">
     <StartArguments>
@@ -114,4 +137,11 @@
     <StartAction>Program</StartAction>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets'))" />
+  </Target>
 </Project>

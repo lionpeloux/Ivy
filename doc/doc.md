@@ -1,5 +1,9 @@
 # Data Structure
 
+<!-- to convert this doc run
+$ pandoc -f markdown doc.md -o doc.pdf
+-->
+
 We introduce the notion of **$D$-grid** representation, where **$D$** is the grid dimension, for the purpose of parametric studies. This formalism is a methodological effort and contribution to the field of parametric design and analysis.
 
 In such a study a **system** is analyzed regarding several variables named **parameter**. Each parameter can vary in a discrete  or continuous range of scalar values. If not, the modeling of the system can easily be reinterpreted in that way. For instance a (x,y,z) point parameter can be understood as 3 scalar parameters.
@@ -36,7 +40,7 @@ $S$ will indifferently be referred to as a *$N$-tuple* or simply a **tuple**.
 
 
 ## Grid
-Let $G = S_1 \times S_2 \times \cdots \times S_{N}$ be a $D$-grid or simply a **grid**, defined as the **cartesian product** of $D$ finite and strictly ordered sets :
+Let $G = S_1 \times S_2 \times \cdots \times S_{D}$ be a $D$-grid or simply a **grid**, defined as the **cartesian product** of $D$ finite and strictly ordered sets :
 
 $$
 G = \prod_{j \in [1,D]}  S_j  ~~,~~
@@ -54,7 +58,8 @@ We denote :
 
 A $D$-grid can be seen as an **hyperrectangle**, also known as a  [**$D$-orthotope**](https://www.wikiwand.com/en/Hyperrectangle). It's a particular kind of convex  [**polytope**](https://www.wikiwand.com/en/Polytope) of $\mathbb{R}^d$.
 
-> This is a generalization from the easy-to-understand $\mathbb{R}^1$, $\mathbb{R}^2$ and  $\mathbb{R}^3$ cases where :
+>This is a generalization from the easy-to-understand $\mathbb{R}^1$, $\mathbb{R}^2$ and  $\mathbb{R}^3$ cases where :
+>
 >* a 1-grid is a segments divided into smaller segment called edge
 >* a 2-grid is a rectangle divided into smaller rectangles called face
 >* a 3-grid is a parallelepiped divided into smaller parallelepipeds called cell
@@ -105,52 +110,48 @@ Fore sure, not all ways of numbering this nodes are made equals in terms of conv
 The proposed numbering is the following :
 
 $$
-\begin{array}{c|cccccccccc}
-    n°            & i^1       & i^1     & \cdots  & i^{D}     \\
-    \hline
-
-    1             & 1         & 1       & \cdots  & 1         \\
-    2             & 2         & 1       & \cdots  & 1         \\
-    3             & 3         & 1       & \cdots  & 1         \\
-                  & \vdots    & \vdots  &         & \vdots    \\
-    N_0           &  N_0      & 1       & \cdots  & 1         \\
-
-    \hline
-
-    +1            & 1         & 1       & \cdots  & 1         \\
-    +2            & 1         & 1       & \cdots  & 1         \\
-                  & \vdots    & \vdots  &         & \vdots      \\
-    2*N_0         & N_0       & 1       & \cdots  & 1         \\
-
-    \hline
-
-    +1            & 1         & 2       & \cdots  & 1         \\
-    +2            & 2         & 2       & \cdots  & 1         \\
-    +3            & 3         & 2       & \cdots  & 1         \\
-                  & \vdots    & \vdots  &         & \vdots      \\
-    3*N_0         & N_0       & 2       & \cdots  & 1         \\
-
-    \hline
-
-    \hline
-                  & \vdots    & \vdots  &         & \vdots      \\
-
-    N_1* N_0      & N_0       & N_1     & \cdots  & 1           \\
-
-                  & \vdots    & \vdots  &         & \vdots      \\
-    \hline
-
-    N-N_0         & N_0       & N_1     & \cdots  & 1           \\
-
-    \hline
-
-    +1            & 1       & N_1     & \cdots    & N_D           \\
-    +2            & 2       & N_1     & \cdots    & N_D           \\
-    +3            & 3       & N_1     & \cdots    & N_D           \\
-                  & \vdots  & \vdots  &           & \vdots        \\
-    N             & N_0     & N_1     & \cdots    & N_D           \\
-
-  \end{array}
+\begin{array}{c|ccccc}
+  n°            & i^1       & i^1     & i^2     & \cdots  & i^{D}     \\
+  \hline
+  1             & 1         & 1       & 1       & \cdots  & 1         \\
+  2             & 2         & 1       & 1       & \cdots  & 1         \\
+  3             & 3         & 1       & 1       & \cdots  & 1         \\
+                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+  N_0           &  N_0      & 1       & 1       & \cdots  & 1         \\
+  \hline
+  +1            & 1         & 2       & 1       & \cdots  & 1         \\
+  +2            & 1         & 2       & 1       & \cdots  & 1         \\
+  +3            & 1         & 2       & 1       & \cdots  & 1         \\
+                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+  2*N_0         & N_0       & 2       & 1       & \cdots  & 1         \\
+  \hline
+                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+  (N_1-1) * N_0 & N_0       & N_1-1   & 1       & \cdots  & 1         \\
+  \hline
+  +1            & 1         & N_1     & 1       & \cdots  & 1         \\
+  +2            & 2         & N_1     & 1       & \cdots  & 1         \\
+  +3            & 3         & N_1     & 1       & \cdots  & 1         \\
+                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+  N_1*N_0       & N_0       & N_1     & 1       & \cdots  & 1         \\
+  \hline
+  +1            & 1         & 1       & 2       & \cdots  & 1         \\
+  +2            & 2         & 1       & 2       & \cdots  & 1         \\
+  +3            & 3         & 1       & 2       & \cdots  & 1         \\
+                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+  2*(N_1* N_0)  & N_0       & 1       & 2       & \cdots  & 1         \\
+  \hline
+                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+  N_2*N_1* N_0  & N_0       & N_1     & N_2     & \cdots  & 1         \\
+  \hline
+                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+  N-N_0         & N_0       & N_1     & N_2     & \cdots  & N_D       \\
+  \hline
+  +1            & 1         & N_1     & N_2     & \cdots  & N_D       \\
+  +2            & 2         & N_1     & N_2     & \cdots  & N_D       \\
+  +3            & 3         & N_1     & N_2     & \cdots  & N_D       \\
+                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+  N             & N_0       & N_1     & N_2     & \cdots  & N_D           
+\end{array}
 $$
 
 
