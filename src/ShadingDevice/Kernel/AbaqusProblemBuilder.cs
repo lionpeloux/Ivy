@@ -1,4 +1,5 @@
 ﻿using Grasshopper;
+using IvyCore.Parametric;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
@@ -23,18 +24,52 @@ namespace ShadingDevice.Kernel
             ShellFaces = shellFaces;
 
             ShellProperties = new AbaqusShellElementProperty[ShellFaces.Length];
-            var shellProp = new AbaqusShellElementProperty(0.01, 210e9, 8, 1e-4);
+            var shellProp = new AbaqusShellElementProperty(0.01, 5e9, 1, 0);
             for (int i = 0; i < ShellFaces.Length; i++)
             {
                 ShellProperties[i] = shellProp;
             }
 
             int nodeNum = shellVertices.Length;
-            var trussProp = new AbaqusTrussElementProperty(1e-2, 210e9, 8, 1e-4);
 
+
+            // actuator length (in m)
+            double[] pta_0, pta_1;
+            double sec, l, alpha, E, density;
+            AbaqusTrussElementProperty trussProp;
+
+            // A1
+            pta_0 = shellVertices[a1[0]];
+            pta_1 = shellVertices[a1[1]];
+            l = Math.Sqrt(
+                (pta_1[0] - pta_0[0]) * (pta_1[0] - pta_0[0]) +
+                (pta_1[1] - pta_0[1]) * (pta_1[1] - pta_0[1]) +
+                (pta_1[2] - pta_0[2]) * (pta_1[2] - pta_0[2])
+                );
+
+            E = 210e9;
+            density = 8;
+            sec = Math.PI * Math.Pow(0.1, 2);
+
+            alpha = 1e-3 / l;
+            trussProp = new AbaqusTrussElementProperty(sec, E, density, alpha);
             A1 = new Actuator(a1[0], a1[1], nodeNum, nodeNum + 1, trussProp);
+
+            // A1
+            pta_0 = shellVertices[a2[0]];
+            pta_1 = shellVertices[a2[1]];
+            l = Math.Sqrt(
+                (pta_1[0] - pta_0[0]) * (pta_1[0] - pta_0[0]) +
+                (pta_1[1] - pta_0[1]) * (pta_1[1] - pta_0[1]) +
+                (pta_1[2] - pta_0[2]) * (pta_1[2] - pta_0[2])
+                );
+
+
+            alpha = 1e-3 / l;
+            trussProp = new AbaqusTrussElementProperty(sec, E, density, alpha);
             A2 = new Actuator(a2[0], a2[1], nodeNum+2, nodeNum + 3, trussProp);
 
+            // BC
             BC = new BoundaryCondition[bc.Count];
             for (int i = 0; i < bc.Count; i++)
             {
@@ -43,7 +78,151 @@ namespace ShadingDevice.Kernel
         }
 
         #region PY BUILDER
-        public List<string> GetPy() { return new List<string>(); }
+
+        public static List<string> GetPy(string dir, Grid actuationGrid)
+        {
+            List<string> s = new List<String>();
+            var heading = GetHeading();
+            var functions = GetFunctions();
+            var stepProp = GetStepProperties(true, 200, 0.01, 1e-6, 0.05);
+            var actuNodes = GetActuation(actuationGrid);
+
+            s.AddRange(heading);
+            s.Add("  ");
+
+            s.AddRange(functions);
+            s.Add("  ");
+
+            s.Add("# ACTUATION NODES");
+            s.AddRange(actuNodes);
+            s.Add("  ");
+
+            s.Add("# STEP PROPERTIES");
+            s.AddRange(stepProp);
+            s.Add("  ");
+
+            s.Add("# WORKING DIRECTORY");
+            s.Add("wkdir = '" + dir + "'");
+            s.Add("  ");
+
+            s.Add("# GENERATE ABAQUS MODELS FROM INP FILES");
+            s.Add("for subdir in GetSubdirectories(wkdir):");
+            s.Add("  ");
+
+            s.Add("  " + "# LOAD INP FILE");
+            s.Add("  " + "path = wkdir + '\\\\' + subdir");
+            s.Add("  " + "mdb.ModelFromInputFile(inputFileName = path + '\\\\' + 'model.inp', name = 'model')");
+            s.Add("  ");
+
+            s.Add("  " + "# DELETE ALL OTHER EXISTING MODELS");
+            s.Add("  " + "for k in mdb.models.keys():");
+            s.Add("    " + "if k <> 'model': del mdb.models[k]");
+            s.Add("  ");
+
+            s.Add("  " + "# CREATE FIELDS");
+            s.Add("  " + "# T1 : actuation field 1 | +1K => 1mm expansion | -1K => 1mm skrinkage");
+            s.Add("  " + "# T2 : actuation field 2 | +1K => 1mm expansion | -1K => 1mm skrinkage");
+            s.Add("  " + "mdb.models['model'].Temperature(createStepName = 'Initial', crossSectionDistribution = CONSTANT_THROUGH_THICKNESS, distributionType = UNIFORM, magnitudes = (0.0, ), name = 'T1', region = mdb.models['model'].rootAssembly.instances['Instance A'].sets['A1'])");
+            s.Add("  " + "mdb.models['model'].Temperature(createStepName = 'Initial', crossSectionDistribution = CONSTANT_THROUGH_THICKNESS, distributionType = UNIFORM, magnitudes = (0.0, ), name = 'T2', region = mdb.models['model'].rootAssembly.instances['Instance A'].sets['A2'])");
+            s.Add("  ");
+
+            s.Add("  " + "# CREATE STEPS");
+            s.Add("  " + "stepName_prev = 'Initial'");
+            s.Add("  " + "stepName = ''");
+            s.Add("  " + "for i in range(len(actu)):");
+            s.Add("    " + "a = actu[i]");
+            s.Add("    " + "if i > 0: stepName_prev = stepName");
+            s.Add("    " + "stepName = '(' + str(int(a[0])) + ',' + str(int(a[1])) + ')'");
+            s.Add("    " + "mdb.models['model'].StaticStep(nlgeom = nlgeom, maxNumInc = maxNumInc, initialInc = initialInc, maxInc = maxInc, minInc = minInc, name = stepName, previous = stepName_prev)");
+            s.Add("    " + "mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes = (a[0], ), stepName = stepName)");
+            s.Add("    " + "mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes = (a[1], ), stepName = stepName)");
+            s.Add("  ");
+
+            s.Add("  " + "# CREATE NEW JOB");
+            s.Add("  " +    "mdb.Job(atTime = None, contactPrint = OFF, description = '', echoPrint = OFF, " +
+                            "explicitPrecision = SINGLE, getMemoryFromAnalysis = True, historyPrint = OFF, memory = 90, " +
+                            "memoryUnits = PERCENTAGE, model = 'model', modelPrint = OFF, multiprocessingMode = DEFAULT, name = 'job', " +
+                            "nodalOutputPrecision = SINGLE, numCpus = 1, numGPUs = 0, queue = None, scratch = '', type = ANALYSIS, userSubroutine = '', " +
+                            "waitHours = 0, waitMinutes = 0)"
+                            );
+            s.Add(" ");
+            s.Add("  " + "# SAVE CAE MODEL");
+            s.Add("  " + "mdb.saveAs(pathName = path + '\\\\' + 'model.cae')");
+            return s;
+        }
+        private static string[] GetHeading()
+        {
+            List<string> s = new List<string>();
+
+            // imports
+            s.Add("from part import *");
+            s.Add("from material import *");
+            s.Add("from section import *");
+            s.Add("from assembly import *");
+            s.Add("from step import *");
+            s.Add("from interaction import *");
+            s.Add("from load import *");
+            s.Add("from mesh import *");
+            s.Add("from optimization import *");
+            s.Add("from job import *");
+            s.Add("from sketch import *");
+            s.Add("from visualization import *");
+            s.Add("from connectorBehavior import *");
+
+            return s.ToArray();
+        }
+        private static List<string> GetFunctions()
+        {
+            List<string> s = new List<string>();
+
+            // imports
+            s.Add("def GetSubdirectories(dir):");
+            s.Add("\t return [name for name in os.listdir(dir)");
+            s.Add("\t\t if os.path.isdir(os.path.join(dir, name))]");
+            s.Add("");
+
+
+            return s;
+        }
+        private static List<string> GetStepProperties(
+            bool nlgeom, 
+            int maxNumInc,
+            double initialInc,
+            double minInc,
+            double maxInc
+            )
+        {
+            List<string> s = new List<string>();
+
+            if (nlgeom)
+                s.Add("nlgeom = ON");
+            else
+                s.Add("nlgeom = OFF");
+
+            s.Add("maxNumInc = " + maxNumInc);
+            s.Add("initialInc = " + initialInc);
+            s.Add("minInc = " + minInc);
+            s.Add("maxInc = " + maxInc);
+
+            return s;
+        }
+        private static List<string> GetActuation(Grid grid)
+        {
+            List<string> s = new List<string>();
+
+            // imports
+            s.Add("actu = [");
+            for (int i = 0; i < grid.NodeCount; i++)
+            {
+                var node = grid.Nodes[i];
+                s.Add("\t" + String.Format("({0:F3}, {1:F3}), ", node.Coord[0], node.Coord[1]));
+            }
+            s.Add("\t]");
+
+
+            return s;
+        }
+
         #endregion
 
         #region INP BUILDER
@@ -62,7 +241,7 @@ namespace ShadingDevice.Kernel
             var materials = GetMaterials(2, 2);
             var bc = GetBoudaryConditions();
 
-            s.AddRange(header);
+            s.AddRange(heading);
 
             s.Add("**");
             s.Add("** =============================================================================");
@@ -164,33 +343,30 @@ namespace ShadingDevice.Kernel
         private List<string> GetActuatorNodes(string format = "F6")
         {
             List<string> s = new List<string>();
+            double[] pt;
+
+            var A = new Actuator[2] { A1, A2 };
+            for (int i = 0; i < A.Length; i++)
+            {
+                s.Add("*Node, nset=\"A" + (i + 1) + "\"");
+                pt = ShellVertices[A[i].ShellNode_0];
+                s.Add(
+                    String.Format("{0,6},{1,12},{2,12},{3,12}",
+                    A[i].TrussNode_0 + 1,
+                    pt[0].ToString(format),
+                    pt[1].ToString(format),
+                    pt[2].ToString(format))
+                );
+                pt = ShellVertices[A[i].ShellNode_1];
+                s.Add(
+                    String.Format("{0,6},{1,12},{2,12},{3,12}",
+                    A[i].TrussNode_1 + 1,
+                    pt[0].ToString(format),
+                    pt[1].ToString(format),
+                    pt[2].ToString(format))
+                );
+            }
             
-            s.Add("*Node, nset=\"A1\"");
-            foreach (int shellIndex in new int[2] { A1.ShellNode_0, A1.ShellNode_1 })
-            {
-                var pt = ShellVertices[shellIndex];
-                s.Add(
-                    String.Format("{0,6},{1,12},{2,12},{3,12}",
-                    shellIndex + 1,
-                    pt[0].ToString(format),
-                    pt[1].ToString(format),
-                    pt[2].ToString(format))
-                );
-            }
-
-            s.Add("*Node, nset=\"A2\"");
-            foreach (int shellIndex in new int[2] { A2.ShellNode_0, A2.ShellNode_1 })
-            {
-                var pt = ShellVertices[shellIndex];
-                s.Add(
-                    String.Format("{0,6},{1,12},{2,12},{3,12}",
-                    shellIndex + 1,
-                    pt[0].ToString(format),
-                    pt[1].ToString(format),
-                    pt[2].ToString(format))
-                );
-            }
-
             return s;
         }
         private List<string> GetActuatorElements()
@@ -199,19 +375,17 @@ namespace ShadingDevice.Kernel
 
             int elNum = ShellFaces.Length;
 
-            s.Add("*Element, type=T3D2H, elset=\"A1\"");
-            s.Add(String.Format("{0,6},{1,6},{2,6}",
-              elNum + 1,
-              A1.TrussNode_0,
-              A1.TrussNode_1)
-              );
-
-            s.Add("*Element, type=T3D2H, elset=\"A2\"");
-            s.Add(String.Format("{0,6},{1,6},{2,6}",
-              elNum + 1,
-              A2.TrussNode_0,
-              A2.TrussNode_1)
-              );
+            var A = new Actuator[2] { A1, A2 };
+            for (int i = 0; i < A.Length; i++)
+            {
+                elNum += 1;
+                s.Add("*Element, type=T3D2H, elset=\"A" + (i + 1) + "\"");
+                s.Add(String.Format("{0,6},{1,6},{2,6}",
+                  elNum,
+                  A[i].TrussNode_0 + 1,
+                  A[i].TrussNode_1 + 1)
+                  );
+            }
 
             return s;
         }
@@ -220,21 +394,20 @@ namespace ShadingDevice.Kernel
             List<string> s = new List<string>();
 
             // SHELL
-            //for (int i = 0; i < ShellFaces.Length; i++)
-            //{
-                s.Add("*Shell Section, elset=\"shell\", material=\"shell\"");
-                s.Add("0.01, 5"); // thickness, thickness integration points
-                s.Add("");
-            //}
-            
+            for (int i = 0; i < ShellProperties.Length; i++)
+            {
+                var prop = ShellProperties[i];
+                s.Add("*Shell Section, elset=\"shell-" + (i + 1) + "\", material=\"shell-" + (i + 1) + "\"");
+                s.Add(String.Format("{0:e2}, {1}", prop.AbaqusShellThickness, 5)); // thickness, thickness integration points
+            }
 
-            // ACTUATOR 1
-            s.Add("*Solid Section, elset=\"A1\", material=\"actuator\"");
-            s.Add(String.Format("{0:e2}", A1.Property.AbaqusTrussSectionArea)); // section
-
-            // ACTUATOR 2
-            s.Add("*Solid Section, elset=\"A2\", material=\"actuator\"");
-            s.Add(String.Format("{0:e2}", A2.Property.AbaqusTrussSectionArea)); // section
+            // ACTUATORS
+            var A = new Actuator[2] { A1, A2 };
+            for (int i = 0; i < A.Length; i++)
+            {
+                s.Add("*Solid Section, elset=\"A" + (i + 1) + "\", material=\"actuator-" + (i + 1) + "\"");
+                s.Add(String.Format("{0:e2}", A[i].Property.AbaqusTrussSectionArea)); // section
+            }
 
             return s;
         }
@@ -242,27 +415,27 @@ namespace ShadingDevice.Kernel
         {
             List<string> s = new List<string>();
 
-            // ACTUATOR 1
-            s.Add("*Nset, nset=\"A1-1-shell\"");
-            s.Add(String.Format("{0}", A1.ShellNode_0 + 1));
-            s.Add("*Nset, nset=\"A1-1-beam\"");
-            s.Add(String.Format("{0}", A1.TrussNode_0 + 1));
+            // SHELL
+            for (int i = 0; i < ShellFaces.Length; i++)
+            {
+                s.Add("*Elset, elset=\"shell-" + (i + 1) + "\", internal");
+                s.Add(String.Format("{0}", i + 1));
+            }
 
-            s.Add("*Nset, nset=\"A1-2-shell\"");
-            s.Add(String.Format("{0}", A1.ShellNode_1 + 1));
-            s.Add("*Nset, nset=\"A1-2-beam\"");
-            s.Add(String.Format("{0}", A1.TrussNode_1 + 1));
+            // ACTUATORS
+            var A = new Actuator[2] { A1, A2 };
+            for (int i = 0; i < A.Length; i++)
+            {
+                s.Add("*Nset, nset=\"A" + (i + 1) + "-1-shell\"");
+                s.Add(String.Format("{0}", A[i].ShellNode_0 + 1));
+                s.Add("*Nset, nset=\"A" + (i + 1) + "-1-beam\"");
+                s.Add(String.Format("{0}", A[i].TrussNode_0 + 1));
 
-            // ACTUATOR 2
-            s.Add("*Nset, nset=\"A2-1-shell\"");
-            s.Add(String.Format("{0}", A2.ShellNode_0 + 1));
-            s.Add("*Nset, nset=\"A2-1-beam\"");
-            s.Add(String.Format("{0}", A2.TrussNode_0 + 1));
-
-            s.Add("*Nset, nset=\"A2-2-shell\"");
-            s.Add(String.Format("{0}", A2.ShellNode_1 + 1));
-            s.Add("*Nset, nset=\"A2-2-beam\"");
-            s.Add(String.Format("{0}", A2.TrussNode_1 + 1));
+                s.Add("*Nset, nset=\"A" + (i + 1) + "-2-shell\"");
+                s.Add(String.Format("{0}", A[i].ShellNode_1 + 1));
+                s.Add("*Nset, nset=\"A" + (i + 1) + "-2-beam\"");
+                s.Add(String.Format("{0}", A[i].TrussNode_1 + 1));
+            }
 
             // BOUNDARY CONDITIONS
             var bc = new int[BC.Length];
@@ -326,20 +499,28 @@ namespace ShadingDevice.Kernel
             List<string> s = new List<string>();
 
             // SHELL
-            s.Add("*Material, name=\"shell\"");
-            s.Add("*Density");
-            s.Add(String.Format("{0:F2},", 1));
-            s.Add("*Elastic");
-            s.Add(String.Format("{0:e3}, {1:F2}", 5e+09, 0.3));
+            for (int i = 0; i < ShellProperties.Length; i++)
+            {
+                var prop = ShellProperties[i];
+                s.Add("*Material, name=\"shell-" + (i + 1) + "\"");
+                s.Add("*Density");
+                s.Add(String.Format("{0:F2},", prop.Density));
+                s.Add("*Elastic");
+                s.Add(String.Format("{0:e3}, {1:F2}", prop.E, 0.3));
+            }
 
             // ACTUATORS
-            s.Add("*Material, name=\"actuator\"");
-            s.Add("*Density");
-            s.Add(String.Format("{0:F2},", 8));
-            s.Add("*Elastic");
-            s.Add(String.Format("{0:e3}, {1:F2}", 210e+09, 0.3));
-            s.Add("*Expansion");
-            s.Add(String.Format("{0:e3},", aT1));
+            var A = new Actuator[2] { A1, A2 };
+            for (int i = 0; i < A.Length; i++)
+            {
+                s.Add("*Material, name=\"actuator-" + (i + 1) + "\"");
+                s.Add("*Density");
+                s.Add(String.Format("{0:F2},", A[i].Property.Density));
+                s.Add("*Elastic");
+                s.Add(String.Format("{0:e3}, {1:F2}", A[i].Property.E, 0.3));
+                s.Add("*Expansion");
+                s.Add(String.Format("{0:e3},", A[i].Property.Alpha));
+            }
 
             return s;
         }

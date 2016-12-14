@@ -84,7 +84,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Component\ShadingDeviceComponent.cs" />
+    <Compile Include="Component\Comp_Reader.cs" />
+    <Compile Include="Component\Comp_ProblemBuilder.cs" />
     <Compile Include="Kernel\AbaqusProblemBuilder.cs" />
     <Compile Include="Kernel\AbaqusShellElementProperty.cs" />
     <Compile Include="Kernel\AbaqusTrussElementProperty.cs" />

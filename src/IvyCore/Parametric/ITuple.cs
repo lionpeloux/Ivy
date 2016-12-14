@@ -255,6 +255,26 @@ namespace IvyCore.Parametric
             return tuple;
         }
 
+        public static bool TryParseDouble(string str, out double[] tuple)
+        {
+            var values = str.TrimStart('(').TrimEnd(')').Split(',');
+            tuple = new double[values.Length];
+            for (int i = 0; i < tuple.Length; i++)
+                if (!Double.TryParse(values[i], out tuple[i]))
+                    return false;
+
+            return true;
+        }
+        public static bool TryParseInt(string str, out int[] tuple)
+        {
+            var values = str.TrimStart('(').TrimEnd(')').Split(',');
+            tuple = new int[values.Length];
+            for (int i = 0; i < tuple.Length; i++)
+                if (!Int32.TryParse(values[i], out tuple[i]))
+                    return false;
+            return true;
+        }
+
         public static string ToString(IList<double> array)
         {
             var s = "(" + String.Format("{0:F2}", array[0]);
