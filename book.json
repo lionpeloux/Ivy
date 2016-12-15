@@ -1,0 +1,37 @@
+{
+    "gitbook": ">= 3.2.2",
+    "plugins": [
+        "mathjax",
+        "-katex",
+        "numbered-headings",
+        "-theme-api",
+        "image-captions",
+        "-toggle-chapters",
+        "video"
+    ],
+    "pluginsConfig": {
+        "theme-api": {
+            "split": true,
+            "theme": "light",
+            "showLevel": true
+        },
+        "theme-default": {
+             "showLevel": false
+        },
+        "image-captions": {
+          "caption": "Figure _PAGE_IMAGE_NUMBER_ : _CAPTION_",
+          "align": "center"
+      }
+    },
+    "structure": {
+        "readme": "readme.md",
+        "summary": "summary.md"
+    },
+    "styles": {
+      "website": "./styles/website.css"
+    },
+    "root": "./doc/gitbook",
+    "title": "Ivy : a .NET library for parametric design",
+    "author": "Lionel du Peloux",
+    "language" : "en"
+}
