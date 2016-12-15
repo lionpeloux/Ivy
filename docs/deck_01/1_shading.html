@@ -1,0 +1,798 @@
+<!--
+=====================================
+	Grids for Parametric Analysis
+=====================================
+-->
+
+<section class="header">
+		<h2> Shading </h2>
+		<aside class="notes">
+			I'm in princeton university for a couple of weeks. 3 months to be exact.
+			I'm working in the formfinding lab of Prof. Sigrid Adriaenssen with Victor Charpentier, a phd student in its 2nd year.
+		</aside>
+</section>
+
+<section class="center">
+	<h6><b>Context</b></h6>
+	<aside class="notes">
+		Innovative Shading device is quite a trendy subject at the moment.
+		Victor tries to find a metric to evaluate shading devices, mainly their energetic impact.
+		And he also studies bio-inspired mechanisms to improve shading panel kinematics.
+	</aside>
+</section>
+
+<!-- <section class="center">
+	<a data-pin-do="embedBoard" data-pin-lang="fr" data-pin-board-width="1200" data-pin-scale-height="600" data-pin-scale-width="80" href="https://fr.pinterest.com/lionpeloux/shading-device/"></a>
+</section> -->
+
+<section class="center">
+	Environmental
+	<h6><b>Impact</b></h6>
+	<aside class="notes">
+		Just a few words on the evaluation of energetic impact.
+	</aside>
+</section>
+
+<section>
+	<img width="100%" data-src = "img/vic/south_facade.png">
+	<aside class="notes">
+		This is a typical figure illustrating the sky area that the sun will travel during a year.
+		He added the exclusion zone, were the sun does not shine through the sudied orientation.
+	</aside>
+</section>
+
+<section>
+	<img width="100%" data-src = "img/vic/east_facade.png">
+	<aside class="notes">
+		Same for a east oriented facade.
+		If you look at a given hour in the day, the sun would describe a typicall 8 shape from winter to summer, back to winter.
+	</aside>
+</section>
+
+<section>
+	<img width="45%" data-src = "img/vic/east_ns.png">
+	<img width="45%" data-src = "img/vic/east_top.png">
+	<aside class="notes">
+		Left : is showing the direct solar radiation that goes through a 1m2 window for the given orientation.
+		Right : the relative reduction in this intensity due to a top shading panel.
+	</aside>
+</section>
+
+<section>
+	<img width="45%" data-src = "img/vic/east_left.png">
+	<img width="45%" data-src = "img/vic/east_right.png">
+	<aside class="notes">
+		Left : relative reduction for a left shading panel
+		Right : relative reduction for a rigth shading panel
+	</aside>
+</section>
+
+<section data-math>
+		<p> What's the <b>energetic</b> impact of shading ?<p>
+		<p> How to construct a coherent <b>objective</b> function ?</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+		<p> <b>Over</b> shading leads to over <b>heating</b><p>
+		<p> <b>Under</b> shading leads to over <b>cooling</b><p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+		<p> The problem highly depends on the <b>local climat</b>
+		and the <b>building</b> itself.</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+		<p> <b>Under</b> shading provokes <b>glare</b><p>
+		<p> <b>Over</b> shading increases the demande in <b>lighting</b><p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section class="center">
+	<h6><b>Kinematic</b></h6>
+	<aside class="notes">
+		When speaking about robots, we always think about axis.
+		Mainly rotational or translational axis.
+		And you would probably find that having a 5 axis ABB robot in you lab is super trendy.
+		And I would probably agree with you too.
+	</aside>
+</section>
+
+<section data-background-image="img/hand_radio.jpg" class="grayscale">
+	<aside class="notes">
+		But wat is truely super crazy is this.
+		And the good news is : most of us probably have it twice.
+		This is a radiography of a wrist.
+		There is absoluetly not rotation axis in it.
+		It is closer to a compound mechanism, made of compression and tension parts.
+		That reminds us the concept of tensegrity.
+		But we are not stuck into this axis-thing way of thinking.
+	</aside>
+</section>
+
+<section data-background-image="img/hand_robot.jpg" class="grayscale">
+	<aside class="notes">
+		So my work here at princeton is to investigate new kinematic structures.
+		And I'm looking at a particular system that Victor identified in he's litterature analysis about biomimetic.
+	</aside>
+</section>
+
+<section>
+	<img width="100%" data-src = "img/abaqus_1.png">
+	<aside class="notes">
+		You see here the system we are studying. Approximately 600mm wide.
+		It's a doubly curved shell with two linear actuators modeled as truss elements.
+		We're interested in knowing how this shape deforms when actuators extend or shrink.
+	</aside>
+</section>
+
+<section>
+	<img width="100%" data-src = "mov/shell_up_down.gif">
+	<aside class="notes">
+		up down movement achieved with symetric actuation.
+	</aside>
+</section>
+
+<section>
+	<img width="100%" data-src = "mov/shell_right.gif">
+	<aside class="notes">
+		right movement achieved with asymetric actuation.
+	</aside>
+</section>
+
+<section>
+	<img width="100%" data-src = "mov/shell_left.gif">
+	<aside class="notes">
+		left movement achieved with asymetric actuation.
+	</aside>
+</section>
+
+<section>
+	<img width="100%" data-src = "img/ivy/shape.gif">
+	<aside class="notes">
+		We wan't to study this system regarding various actuation states and topologic parameters,
+		such as radius of curvature. In particular, we want to find shapes that have a high amplification ratio.
+	</aside>
+</section>
+
+
+
+
+
+<section class="center">
+	<h6><b>methodology</b></h6>
+	<aside class="notes">
+		I would like to introduce a formalism for the purpose of parametric studies.
+		This formalism is a methodological effort and contribution to the field of parametric design and analysis.
+	</aside>
+</section>
+
+<section>
+	<img width="60%" data-src = "img/ivy/grid_num.png">
+	<aside class="notes">
+		In such a study a system is analyzed regarding several variables named pa- rameter.
+		Each parameter can vary in a discrete or continuous range of scalar values.
+
+		If not, the modeling of the system can easily be reinterpreted in that way.
+		For instance a (x,y,z) point parameter can be understood as 3 scalar parameters.
+
+	</aside>
+</section>
+
+<section data-math>
+	States of a <b>parameter</b> are modeled as a finite and strictly ordered set :
+	<p class="formula-source" style="font-size:1.5em; text-align:center">
+		$S=\{s_1< s_2<~...< s_{N}\}$
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		 $s_i \in \mathbb{R} ~~,~~ i \in [1,N]$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	A <b>grid</b> is the cartesian product of several sets :
+	<p class="formula-source" style="font-size:1.5em; text-align:center">
+		$G = S_1 \times S_2 \times \cdots \times S_{D}$
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		 $
+		 \begin{aligned}
+		 	S_j	&=\{s_1^j< s_2^j<~...< s_{N_j}^j\} \\
+		 	N 	&= N_1 \times N_2 \times \cdots \times N_{D}
+			\end{aligned}
+		$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	A <b>node</b> is a grid vertex :
+
+	<p class="formula-source" style="font-size:1.5em; text-align:center">
+		$g_{i^1i^2~\cdots~i^{D}} = (s_{i^1}, s_{i^2}, ..., s_{i^{D}})$
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		 $s_{i^j} \in S_j ~~|~~ i \in [1,N_j] ~~,~~ j \in [1,D]$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	A node is <b>identified</b> its a unique <b>tuple address</b> :
+
+	<p class="formula-source" style="font-size:1.5em; text-align:center">
+		$ i^1i^2~\cdots~i^{D}  \Leftrightarrow (i^1,i^2,\cdots,i^{D}) $
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$i^j \in [1,N_j]$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-background-transition="" slide-template="">
+	<p>There are <b>many</b> ways to <b>order</b> a list of N nodes </p>
+	<aside class="notes">
+  </aside>
+</section>
+
+<section data-math>
+	<p class="formula-source" style="font-size:3em; text-align:center">
+		$N!$
+	</p>
+	<aside class="notes">
+		N! to be exact.
+	</aside>
+</section>
+
+<section data-background-transition="" slide-template="">
+	<p>Not all ways are made equals in terms of <b>convenience</b>.</p>
+	<p class="fragment">Especially when it comes to <b>defining cells</b>.</p>
+	<aside class="notes">
+  </aside>
+</section>
+
+<section>
+	<img width="50%" data-src = "img/ivy/interp_cell.png">
+	<aside class="notes">
+	</aside>
+</section>
+
+<section>
+	<img width="60%" data-src = "img/ivy/grid_num.png">
+	<aside class="notes">
+		explain how nodes are numbered. For 3 dimension.
+		The grid is a cube but is more generally a hyperrectangle.
+		Cells are not cubes but parralelepiped.
+	</aside>
+</section>
+
+<section data-math>
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$
+		\begin{array}{r|cccc}
+		Node          & i^1       & i^1     & i^2     & \cdots  & i^{D}     \\
+																																			 	\\
+	  1             & 1         & 1       & 1       & \cdots  & 1         \\
+	  2             & 2         & 1       & 1       & \cdots  & 1         \\
+	  3             & 3         & 1       & 1       & \cdots  & 1         \\
+	                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+	  N_1           &  N_1      & 1       & 1       & \cdots  & 1
+		\end{array}
+		$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$
+		\begin{array}{r|cccc}
+		N_1           & N_1       & 1       & 1       & \cdots  & 1         \\
+	  +1            & 1         & 2       & 1       & \cdots  & 1         \\
+	  +2            & 1         & 2       & 1       & \cdots  & 1         \\
+	  +3            & 1         & 2       & 1       & \cdots  & 1         \\
+	                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+	  2*N_1         & N_1       & 2       & 1       & \cdots  & 1
+		\end{array}
+		$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$
+		\begin{array}{r|cccc}
+		2*N_1         & N_1       & 2       & 1       & \cdots  & 1         \\
+	                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+	  (N_2-1) * N_1 & N_1       & N_2-1   & 1       & \cdots  & 1					\\
+		+1            & 1         & N_2     & 1       & \cdots  & 1         \\
+	  +2            & 2         & N_2     & 1       & \cdots  & 1         \\
+	  +3            & 3         & N_2     & 1       & \cdots  & 1         \\
+	                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+	  N_2*N_1       & N_1       & N_2     & 1       & \cdots  & 1
+		\end{array}
+		$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$
+		\begin{array}{r|cccc}
+		N_2*N_1       & N_1       & N_2     & 1       & \cdots  & 1					\\
+									& \vdots    & \vdots  & \vdots  &         & \vdots    \\
+		2*(N_2* N_1)  & N_1       & N_2     & 2       & \cdots  & 1         \\
+									& \vdots    & \vdots  & \vdots  &         & \vdots    \\
+		3*(N_2* N_1)  & N_1       & N_2     & 3       & \cdots  & 1         \\
+	                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+	  N_3*N_2* N_2  & N_1       & N_2     & N_3     & \cdots  & 1
+		\end{array}
+		$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$
+		\begin{array}{r|cccc}
+		N/N_D					& 1      		& 1     	& 1     	& \cdots  & N_D				\\
+		  						& \vdots    & \vdots  & \vdots  &         & \vdots    \\
+
+		N_D-1\times \cdots \times N_{1}
+									& N_1      	& N_2     & N_3     & \cdots  & N_D-1			\\
+		  						& \vdots    & \vdots  & \vdots  &         & \vdots    \\
+		N-N_1					& 1       	& N_2     & N_3			& \cdots  & N_D     	\\
+		+1            & 1         & N_2     & N_3     & \cdots  & N_D       \\
+	  +2            & 2         & N_2     & N_3     & \cdots  & N_D       \\
+	  +3            & 3         & N_2     & N_3     & \cdots  & N_D       \\
+	                & \vdots    & \vdots  & \vdots  &         & \vdots    \\
+	  N       			& N_1       & N_2     & N_3     & \cdots  & N_D
+		\end{array}
+		$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	<p>Sorting the nodes is achived by a <b>recursive</b> algorithm.</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	Nodes can now be <b>indexed</b> :
+	<p class="formula-source" style="font-size:1.5em; text-align:center">
+		$
+		\begin{array}{rl}
+		i^1i^2~\cdots~i^{D}				& \Leftrightarrow (i^1,i^2,\cdots,i^{D})	\\
+  														& \Leftrightarrow n_{i^1i^2~\cdots~i^{D}}
+		\end{array}
+		$
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$n_{i^1i^2~\cdots~i^{D}}  \in [1,N]$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	Nodes can be <b>indexed</b> from their tuple adress :
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$
+		\begin{array}{rrl}
+		n_{i^1i^2~\cdots~i^{D}}	& 	=	& 0 									\\
+														&	 +=	&	i^1 								\\
+														&	 +=	&	i^2 * N_1  					\\
+														&	 +=	&	i^3 * N_2 * N_1 		\\
+														&	 		&	\cdots							\\
+														&	 +=	&	i^{D} * N_{D-1} * \cdots * N_1
+		\end{array}
+		$
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$i^j \in [1,N_j] ~~,~~ j \in [1,D]$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+
+<section data-math>
+	Recursive <b>euclidean division</b> leads back to the address :
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$
+		n_{i^1i^2~\cdots~i^{D}} = i^1 + N_1 * (i_2 + N_2 * (i_3 + ... + N_{D-2} * (i_{D-1} + N_{D-1}*i_D)))
+		$
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$
+		\left \{
+		\begin{aligned}
+			i^0 	&= 0 \\
+			q^0 	&= n \\
+										\\
+			i^1		&= q^0\;mod(N1) \\
+			q^1 	&= q^0 : N1 \\
+										\\
+			i^{j} &= q^{j-1} \;mod(N_j) \\
+			q^j 	&= q^{j-1} : N_j
+		\end{aligned}
+		\right.
+		$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-background-transition="" slide-template="">
+		<p>
+				We now have a robust way to construct and <b>browse</b> a grid from its nodes.
+				We can look at the construction of it <b>cells</b>.
+		</p>
+	<aside class="notes">
+  </aside>
+</section>
+
+<section data-background-transition="" slide-template="">
+		<p>
+				Constructing <b>cells matters</b> as we want to provide <b>interpolation</b> of data
+				at any point in the grid ; not only at nodes.
+		</p>
+	<aside class="notes">
+  </aside>
+</section>
+
+<section data-math>
+	<p>
+		A <b>cell</b> is defined by its corner nodes.
+	</p>
+	<p class="fragment">
+		It can be seen as <b>hyperrectangle</b> which is a <b>convex polytope</b>.
+	</p>
+	<p class="fragment">
+		Topologically a cell is also a grid with the minimal possible number of nodes.
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section>
+	<img width="50%" data-src = "img/ivy/interp_cell.png">
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	The <b>number of cells</b> in a grid is :
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$N_C 	= (N_1-1) \times (N_2-1) \times \cdots \times (N_{D}-1)$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	The <b>number of corner nodes</b> in a cell is :
+	<p class="formula-source" style="font-size:1.5em; text-align:center">
+		$2^D$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	Each cell is <b>indexed</b> relativelly to its <b>origin</b> node :
+	<p class="formula-source" style="font-size:1.5em; text-align:center">
+		$
+			n_{i^1i^2~\cdots~i^{D}} \rightarrow c_{i^1i^2~\cdots~i^{D}}
+		$
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$i^j \in [1,N_j-1] ~~,~~ j \in [1,D]$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	Like nodes, <b>cells</b> can be indexed regarding their tuple address.
+
+	<p class="formula-source" style="font-size:1.5em; text-align:center">
+		$ i^1i^2~\cdots~i^{D}  \Leftrightarrow (i^1,i^2,\cdots,i^{D}) $
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$i^j \in [1,N_j-1]$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+
+<section data-math>
+	<b>Corner nodes</b> ar obtained by a set of <b>permutations</b> about the origin :
+
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$
+		\begin{array}{r|cccc}
+		Origin        & i^1       & i^1     & i^2     & \cdots  & i^{D}     \\
+		\\
+		        			& +       	& +     	& +     	& \cdots  & +     		\\
+																																				\\
+	  k             & \sigma_k(i^1) & \sigma_k(i^1)  & \sigma_k(i^3) & \cdots  & \sigma_k(i^D)
+
+		\end{array}
+		$
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$\sigma_k(i^j) \in \{0,1\} ~~,~~ i^j \in [1,N_j-1] ~~,~~ j \in [1,D] ~~,~~ k \in [1,2^D]$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section>
+	<img width="60%" data-src = "img/ivy/grid_num.png">
+	<aside class="notes">
+		Explain corner nodes and permutations
+	</aside>
+</section>
+
+<section data-math>
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$
+		\begin{array}{r|cccc}
+		Origin        & i^1       & i^1     & i^2     & \cdots  & i^{D}     \\
+		        			& +       	& +     	& +     	& \cdots  & +     		\\
+	  1             & 0        	& 0      	& 0      	& \cdots  & 0         \\
+		2             & 1        	& 0      	& 0      	& \cdots  & 0         \\
+		3             & 0        	& 1      	& 0      	& \cdots  & 0         \\
+		4             & 1        	& 1      	& 0      	& \cdots  & 0         \\
+		5             & 0        	& 0      	& 1      	& \cdots  & 0         \\
+		6             & 1        	& 0      	& 1      	& \cdots  & 0         \\
+		7             & 0        	& 1      	& 1      	& \cdots  & 0         \\
+		8             & 1        	& 1      	& 1      	& \cdots  & 0         \\
+	                & \vdots    & \vdots  & \vdots  &         & \vdots		\\
+		2^D           & 1        	& 1      	& 1      	& \cdots  & 1
+
+		\end{array}
+		$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+
+<section data-background-transition="" slide-template="">
+		<p>
+				The grid is now <b>fully described</b> with a finite number of nodes and cells.
+				It is a well organized space where each state has it's own place.
+		</p>
+	<aside class="notes">
+  </aside>
+</section>
+
+<section data-background-transition="" slide-template="">
+		This gives a solid basis to :
+		<br>
+		<br>
+		<p class="fragment"> <b>data structure</b> to store analysis results</li>
+		<p class="fragment"> <b>browse</b> the results efficiently for analysis and visualization</p>
+		<p class="fragment"> <b>interpoate</b> results at any point in the grid space</p>
+	<aside class="notes">
+  </aside>
+</section>
+
+
+
+
+<section class="center">
+	data<br>
+	<h6><b>Visualization</b></h6>
+	<aside class="notes">
+		I'm also looking at solutions to vizualize how you move in the parametric space.
+	</aside>
+</section>
+
+<section class="">
+	<img width="80%" data-src = "img/ivy/grid_viz_slice.png">
+	<aside class="notes">
+		Slice the space in hyper planes of dimension less than 3, that can be represented in the 3D space.
+	</aside>
+</section>
+
+<section class="grayscale">
+	<img width="40%" data-src = "img/proj_2D.svg">
+	<aside class="notes">
+		A link with graphic static (in terms of geometry)
+
+		An n-cube can be projected inside a regular 2n-gonal polygon by a skew orthogonal projection, shown here from the line segment to the 12-cube.
+		Petrie polygon Orthographic projections
+  </aside>
+</section>
+<section class="grayscale">
+	<img width="40%" data-src = "img/proj_3D.svg">
+	<aside class="notes">
+		An n-cube can be projected inside a regular 2n-gonal polygon by a skew orthogonal projection, shown here from the line segment to the 12-cube.
+		Petrie polygon Orthographic projections
+	</aside>
+</section>
+<section class="grayscale">
+	<img width="40%" data-src = "img/proj_4D.svg">
+	<aside class="notes">
+		An n-cube can be projected inside a regular 2n-gonal polygon by a skew orthogonal projection, shown here from the line segment to the 12-cube.
+		Petrie polygon Orthographic projections
+	</aside>
+</section>
+<section class="grayscale">
+	<img width="40%" data-src = "img/proj_8D.svg">
+	<aside class="notes">
+		An n-cube can be projected inside a regular 2n-gonal polygon by a skew orthogonal projection, shown here from the line segment to the 12-cube.
+		Petrie polygon Orthographic projections
+	</aside>
+</section>
+
+
+
+
+<section class="center">
+	linear<br>
+	<h6><b>Interpolation</b></h6>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section>
+	<img width="60%" data-src = "img/ivy/grid_num.png">
+	<aside class="notes">
+	</aside>
+</section>
+
+
+<section data-math>
+	Lets consider a <b>cell</b> defined by its <b>corner nodes</b> :
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$
+		\begin{aligned}{}
+			g_{0000...0} 	& = (s_0^1,s_0^2,s_0^3,s_0^4,\cdots,s_0^D) \\
+			g_{1000...0} 	& = (s_1^1,s_0^2,s_0^3,s_0^4,\cdots,s_0^D) \\
+			g_{0100...0} 	& = (s_0^1,s_1^2,s_0^3,s_0^4,\cdots,s_0^D) \\
+			g_{1100...0} 	& = (s_1^1,s_1^2,s_0^3,s_0^4,\cdots,s_0^D) \\
+			g_{0010...0} 	& = (s_0^1,s_0^2,s_1^3,s_0^4,\cdots,s_0^D) \\
+			g_{1010...0} 	& = (s_1^1,s_0^2,s_1^3,s_0^4,\cdots,s_0^D) \\
+			g_{0110...0} 	& = (s_0^1,s_1^2,s_1^3,s_0^4,\cdots,s_0^D) \\
+			g_{1110...0} 	& = (s_1^1,s_1^2,s_1^3,s_0^4,\cdots,s_0^D) \\
+										&  													\\
+			g_{1111...1} 	& = (s_1^1,s_1^2,s_1^3,s_1^4,\cdots,s_1^D)
+		\end{aligned}
+		$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	Lets consider a <b>point</b> in that cell  :
+	<p class="formula-source" style="font-size:1.5em; text-align:center">
+		$X = (x_1,x_2,x_3,\cdots,x_D)$
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$x_j \in [s_0^j,s_1^j] ~~,~~  j \in [1,D]$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	This point <b>partition</b> the cell into a number of <b>sub-cells</b> :
+	<p class="formula-source" style="font-size:1.5em; text-align:center">
+		$ 2^D $
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section>
+	<img width="40%" data-src = "img/ivy/cell_partition.png">
+	<aside class="notes">
+
+	</aside>
+</section>
+
+<section data-math>
+	Lets define the <b>volume</b> of the cell as :
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$$
+		V = \prod_{j\in[1,D]} (s_1^j-s_0^j)
+		$$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	Lets define the <b>volume</b> of a sub-cell as :
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$$ V_{\sigma_1\sigma_2\sigma_3\cdots\sigma_{D}}(X)
+		=
+		\prod_{j\in[1,D]}
+			\small
+			\begin{cases}
+				s_1^j-x_j,& \sigma_j=0	\\
+				x_j-s_0^j,&	\sigma_j=1
+			\end{cases}
+		$$
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	<b>Linear interpolation</b> factors are given by :
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$$ L_{\sigma_1\sigma_2\sigma_3\cdots\sigma_{D}}(X)
+		= \frac{1}{V} * V_{\sigma_1\sigma_2\sigma_3\cdots\sigma_{D}}(X)
+		$$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section data-math>
+	A <b>scalar field</b> that is known at each node can thus be interpolated :
+	<p class="formula-source" style="font-size:1em; text-align:center">
+		$$
+		f(X) = \prod_{\sigma_1\sigma_2\sigma_3\cdots\sigma_{D}}
+		f_{\sigma_1\sigma_2\sigma_3\cdots\sigma_{D}} * V_{\sigma_1\sigma_2\sigma_3\cdots\sigma_{D}}(X)
+		$$
+	</p>
+	<p class="formula-source" style="font-size:0.75em; text-align:center">
+		$f_{\sigma_1\sigma_2\sigma_3\cdots\sigma_{D}} = F(g_{\sigma_1\sigma_2\sigma_3\cdots\sigma_{D}})$
+	</p>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section class="center">
+	<h6><b>Case Study</b></h6>
+	<aside class="notes">
+	</aside>
+</section>
+
+<section>
+	<img width="120%" data-src = "img/ivy/grid_topo.png">
+	<aside class="notes">
+	</aside>
+</section>
+
+<section>
+	<img width="120%" data-src = "img/ivy/grid_act.png">
+	<aside class="notes">
+
+	</aside>
+</section>
+
+<section>
+	<img width="80%" data-src = "img/ivy/grid_prod.png">
+	<aside class="notes">
+	</aside>
+</section>
