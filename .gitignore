@@ -275,7 +275,7 @@ __pycache__/
 # tools/
 
 # GitBok
-_book
+_book/
 
 # Reveal
-reveal.js
+reveal.js/
