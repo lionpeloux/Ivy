@@ -33,7 +33,7 @@ namespace IvyGh
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddNumberParameter("First Tuple", "T1", "The first tuple.", GH_ParamAccess.list);
-            pManager.AddGenericParameter("Second Tuple", "T2", "The second tuple.", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Second Tuple", "T2", "The second tuple.", GH_ParamAccess.list);
             pManager[0].Optional = false;
             pManager[1].Optional = false;
         }

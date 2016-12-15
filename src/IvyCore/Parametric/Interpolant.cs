@@ -29,7 +29,7 @@ namespace IvyCore.Parametric
         /// </summary>
         /// <param name="field"></param>
         /// <returns></returns>
-        public double Lerp(double[] field)
+        public double Lerp(IList<double> field)
         {
             int nperm = VerticesIndex.Length;
             double v = 0;
@@ -45,7 +45,7 @@ namespace IvyCore.Parametric
         /// </summary>
         /// <param name="field"></param>
         /// <returns></returns>
-        public double[] Lerp(double[][] field)
+        public double[] Lerp(IList<double[]> field)
         {
             int nperm = VerticesIndex.Length;
             int dim = field[0].Length;
@@ -60,5 +60,24 @@ namespace IvyCore.Parametric
             return v;
         }
 
+        /// <summary>
+        /// Interpolate a vector field.
+        /// </summary>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public double[] Lerp(double[,] field)
+        {
+            int nperm = VerticesIndex.Length;
+            int dim = field.GetLength(1);
+            var v = new double[dim];
+            for (int i = 0; i < nperm; i++)
+            {
+                for (int j = 0; j < dim; j++)
+                {
+                    v[j] += LERP[i] * field[VerticesIndex[i], j];
+                }
+            }
+            return v;
+        }
     }
 }

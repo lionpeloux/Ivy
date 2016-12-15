@@ -101,7 +101,13 @@ namespace ShadingDevice
                         {
                             var nodeActIndex = reader.GetInt32(0)-1;
                             var nodeShpIndex = reader.GetInt32(1)-1;
-                            var nodeGlbIndex = nodeActIndex + n_act * nodeShpIndex;
+
+                            var tuple_act = grid_act.Nodes[nodeActIndex].Tuple.Value;
+                            var tuple_shp = grid_shp.Nodes[nodeShpIndex].Tuple.Value;
+                            var tuple_glb = ITuple.CartesianProduct(tuple_act, tuple_shp);
+
+
+                            var nodeGlbIndex = grid_glb.NodeIndex(tuple_glb);
 
                             var nodeShell = reader.GetInt32(2) - 1;
 
@@ -126,27 +132,27 @@ namespace ShadingDevice
             }
 
             var field_tree = new DataTree<double>();
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < n_shell; i++)
             {
-                for (int j = 0; j < n_glb; i++)
+                for (int j = 0; j < n_glb; j++)
                 {
-                    //var values = new double[6];
-                    //var path = new GH_Path(new int[2] { i, j });
-                    //for (int k = 0; k < 6; k++)
-                    //{
-                    //    values[k] = Fields[i][j, k];
-                    //}
-                    //field_tree.AddRange(values, path);
+                    var values = new double[6];
+                    var path = new GH_Path(new int[2] { i, j });
+                    for (int k = 0; k < 6; k++)
+                    {
+                        values[k] = Fields[i][j, k];
+                    }
+                    field_tree.AddRange(values, path);
                 }
             }
 
             DA.SetData(0, grid_glb.Info());
-            DA.SetData(1, grid_glb);
-            DA.SetData(2, grid_act);
-            DA.SetData(3, grid_shp);
+            DA.SetData(1, new GH_Grid(grid_glb));
+            DA.SetData(2, new GH_Grid(grid_act));
+            DA.SetData(3, new GH_Grid(grid_shp));
             DA.SetDataList(4, topo_shell_node);
             DA.SetDataTree(5, topo_tree);
-            //DA.SetDataTree(6, field_tree);
+            DA.SetDataTree(6, field_tree);
 
         }
 

@@ -65,10 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Component\Comp_CreateGrid.cs" />
+    <Compile Include="Component\Comp_GridInfo.cs" />
+    <Compile Include="Component\Comp_NodeIndexFromAddress.cs" />
+    <Compile Include="Component\Comp_NodeProperties.cs" />
     <Compile Include="Component\Comp_GridNormalize.cs" />
+    <Compile Include="Component\Comp_GridNode.cs" />
+    <Compile Include="Component\Comp_InterpolateFields.cs" />
+    <Compile Include="Component\Comp_LerpInterpolant.cs" />
     <Compile Include="Component\Comp_GridPoint.cs" />
     <Compile Include="Component\Comp_CartesianProduct.cs" />
     <Compile Include="Component\Comp_GridProduct.cs" />
+    <Compile Include="Parameter\Param_Interpolant.cs" />
     <Compile Include="Parameter\Param_Node.cs" />
     <Compile Include="Parameter\Param_Grid.cs" />
     <Compile Include="GHComponentLerpTest.cs" />
@@ -76,6 +83,7 @@
     <Compile Include="Component\Comp_GridSlider.cs" />
     <Compile Include="IvyGhInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Type\GH_Interpolant.cs" />
     <Compile Include="Type\GH_Node.cs" />
     <Compile Include="Type\GH_Grid.cs" />
   </ItemGroup>

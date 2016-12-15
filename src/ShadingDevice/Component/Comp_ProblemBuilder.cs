@@ -217,7 +217,7 @@ namespace ShadingDevice
                 var face = mesh.Faces[i];
                 cmd.CommandText = String.Format(
                         "INSERT INTO TOPO_SHELL_FACE (FACE, N1,  N2,  N3,  N4) " +
-                        "VALUES ({0},{1},{2},{3},{3})",
+                        "VALUES ({0},{1},{2},{3},{4})",
                         i + 1,
                         face[0] + 1,
                         face[1] + 1,
