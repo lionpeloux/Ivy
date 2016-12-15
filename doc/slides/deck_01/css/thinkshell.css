@@ -1,0 +1,489 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+/*@import url(../../lib/font/source-sans-pro/source-sans-pro.css);*/
+section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
+  color: #fff; }
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #fff;
+  background-color: white ;
+}
+
+.reveal .fragment{
+  /*color: red;*/
+}
+
+.reveal {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: black;
+}
+
+::selection {
+  color: #fff;
+  background: #98bdef;
+  text-shadow: none; }
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  line-height: 1.3;
+  font-weight: inherit; }
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #51BAE8;
+  /*font-family: "Superstudio", Helvetica, sans-serif;*/
+  font-family: 'Cabin Sketch', cursive;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.reveal h1 {
+  font-size: 4em; }
+
+.reveal h2 {
+  font-size: 4em; }
+
+.reveal h3 {
+  font-size: 2.5em;
+  padding-bottom: 0.5em;
+}
+.reveal h4 {
+  color: red;
+  font-size: 3em;
+}
+.reveal h5 {
+  /*background-color: rgba(255,0,0,0.5);*/
+  font-family: 'Oswald', sans-serif !important;
+  font-size: 6em;
+  }
+.reveal h6 {
+  /*background-color: rgba(255,0,0,0.5);*/
+  font-family: 'Oswald', sans-serif !important;
+  font-size: 2.5em;
+  }
+.reveal h1 {
+  text-shadow: none; }
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  /*font-family: Roboto, Helvetica, sans-serif;*/
+  margin: 20px 0;
+  line-height: 1.3;
+  font-weight: 200;
+  font-size: 1.2em;
+  text-align: left;
+}
+
+.reveal i{
+  color:black;
+  font-size: 0.8em;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%; }
+
+.reveal strong,
+.reveal b {
+  color: red;
+  font-size: 1.0em;
+  font-weight: bold; }
+
+.reveal em {
+  font-style: italic; }
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em; }
+
+.reveal ol {
+  list-style-type: decimal; }
+
+.reveal ul {
+  text-align: left;
+  font-size: 1em;
+  list-style-type: disc; }
+
+.reveal ul ul {
+  list-style-type: square; }
+
+.reveal ul ul ul {
+  list-style-type: circle; }
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px; }
+
+.reveal dt {
+  font-weight: bold; }
+
+.reveal dd {
+  margin-left: 40px; }
+
+.reveal q,
+.reveal blockquote {
+  quotes: none; }
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: 20px auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block; }
+
+.reveal q {
+  font-style: italic; }
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
+
+.reveal code {
+  font-family: monospace; }
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal; }
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.reveal table th {
+  font-weight: bold; }
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid; }
+
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
+  text-align: center; }
+
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
+  text-align: right; }
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none; }
+
+.reveal sup {
+  vertical-align: super;
+  font-size: 0.6em;
+}
+
+.reveal sub {
+  vertical-align: sub; }
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top; }
+
+.reveal small * {
+  vertical-align: top; }
+
+.reveal .center p{
+  text-align: center;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #222222;
+  text-decoration: none;
+  -webkit-transition: color .15s ease;
+  -moz-transition: color .15s ease;
+  transition: color .15s ease; }
+
+.reveal a:hover {
+  color: #51BAE8;
+  text-shadow: none;
+  border: none; }
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #1a53a1; }
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  margin: 5px 0px;
+  /*background: rgba(255, 255, 255, 0.12);*/
+  border: 0px solid #222;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.15); }
+
+.reveal section img.plain {
+  border: 0;
+  box-shadow: none; }
+
+.reveal a img {
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  transition: all .15s linear; }
+
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #51BAE8;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #222222; }
+
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #222222; }
+
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #222222; }
+
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #222222; }
+
+.reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #51BAE8; }
+
+.reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #51BAE8; }
+
+.reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #51BAE8; }
+
+.reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #51BAE8; }
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  height: 3px;
+}
+
+.reveal .progress span {
+  background: red;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+.reveal .backgrounds {
+         /*-webkit-filter: blur(20px);
+         -moz-filter: blur(20px);
+         -o-filter: blur(5px);
+         -ms-filter: blur(5px);*/
+         /*filter: blur(0px) grayscale(60%) opacity(80%);*/
+     }
+
+
+/*********************************************
+* OVERVIEW MODE
+*********************************************/
+
+.reveal.overview .slides section:hover {
+  background-color: grey;
+  outline: 20px solid #51BAE8;
+  outline-offset: 10px;
+}
+.reveal.overview .slides section.present {
+  outline: 20px solid black;
+  outline-offset: 10px;
+}
+
+
+/*********************************************
+* CUSTOM SLIDES TEMPLATES
+*********************************************/
+/*.reveal .backgrounds:hover {
+     filter: none;
+     -webkit-filter: grayscale(0%);
+   }*/
+
+.reveal .slides section[slide-template="chapter"] {
+    /*background: rgba(255,250,250,.8);*/
+    border-radius: 0px;
+    text-align:left;
+    padding:15px;
+  }
+
+html.slide_type_2 .backgrounds  {
+      /*filter: blur(3px) grayscale(60%) opacity(60%);*/
+    }
+
+.imageposition-unilogo {
+    width: 5%;
+    display: block;
+    position: fixed;
+    top: 2.5%;
+    right: 2.5%;
+    z-index: 100;
+}
+
+.reveal .slide-menu-button {
+    /*position: fixed;
+    left: 2.5%;
+    bottom: 2.5%;
+    z-index: 30;*/
+    font-size: 45px;
+    color: #000 !important;
+}
+
+/*.reveal .slide-menu {
+    background-color: #fff !important;
+}*/
+
+
+/* TITLE
+*********************************************/
+
+.reveal .slide-background.cover  {
+    background-color: red;
+}
+.reveal .cover h1,
+.reveal .cover h2 {
+    color: #fff;
+}
+
+/* HEADER
+*********************************************/
+.reveal .slide-background.header  {
+    background-color: #333333;
+}
+.reveal .header h1,
+.reveal .header h2 {
+    color: #fff;
+}
+
+/* ELLIPSIS
+*********************************************/
+.reveal .slide-background.ellipsis  {
+    background-color: grey;
+    color: #fff;
+}
+.reveal .ellipsis p, i{
+  color: #fff;
+}
+.reveal .ellipsis strong {
+  color: black;
+}
+.reveal .ellipsis img{
+    border-radius:20px;
+}
+
+
+/* BLACK (BLACK BG)
+*********************************************/
+.reveal .slide-background.black  {
+    background-color: black;
+}
+.reveal .black i{
+  color:white;
+}
+
+/* GRAYSCALE (BLACK BG)
+*********************************************/
+
+.reveal .slide-background.grayscale {
+    -webkit-filter: grayscale(60%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(60%);
+}
+
+.reveal .grayscale img{
+    -webkit-filter: grayscale(60%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(60%);
+}
+
+
+
+.reveal .slide-background .gray  {
+    background-color: #999;
+}
+.reveal .gray{
+    color: #fff;
+}
+
+.reveal .slide-background .blue  {
+    background-color: black;
+}
+.reveal .blue h1,
+.reveal .blue h2 {
+    color: #fff;
+}
+
+/* KATEX
+*********************************************/
+
+.reveal .formula-source  {
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+}
+
+#map
+{
+    filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="g"><feColorMatrix type="matrix" values="0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0.3 0.3 0.3 0 0 0 0 0 1 0"/></filter></svg>#g');
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayScale=1);
+}

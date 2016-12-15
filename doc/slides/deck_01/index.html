@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Formfinding Lab 2016</title>
+
+		<link rel="stylesheet" href="../reveal/css/reveal.css">
+		<link rel="stylesheet" href="css/thinkshell.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+	</head>
+	<body>
+		<div class="reveal">
+				<div class="slides">
+
+				<!-- <section class="cover">
+					<h1>Shading Device</h1>
+					<aside class="notes">
+							Thank you for coming. It's been 3 weeks I'm here now. My english is emproving slowly but and I hope wou will understand me.
+							Please feel free to interrupt me if something is not clear in what I am saying.
+					</aside>
+				</section> -->
+
+				<section data-background-image="img/shading2.png" data-background-size="cover" class="center">
+					<aside class="notes">
+						Hello. Thank you for beeing here. I'm Lionel, from France. I'm glad to visit you, here at MIT, and share a little bit of what I've learned and done so far.
+						I'm here because of Pierre, a former collegue. And I also work closely with Romain Mesnil.
+						I'm a visiting scholar at Princeton until christmas and I decided to focus on what I'm doing with them, on shading devices.
+					</aside>
+				</section>
+
+				<section data-background-image="img/shading2.png" data-background-size="cover" class="center">
+						<h6><b>Shading Devices</b></h6>
+					<aside class="notes">
+						But before getting into details, as I'm around here this afternoon, and probably tomorrow too, available for any further discussions, I would like to
+						give you a quick outlook of my professional experience, both in terms of research, engineering and a little bit of teaching too.
+
+						If you find something that sounds pleasant to you, pick-it up and we can come back on that later.
+
+						Soma Pavillion - 2012 - Korea - Knipper ITKE Stugart
+					</aside>
+				</section>
+				<section data-external="1_shading.html"> </section>
+				</div>
+		</div>
+		<!--  PINTEREST -->
+		<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.js"></script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				slideNumber: true,
+				history: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+		    // Transition speed
+		    transitionSpeed: 'slow', // default/fast/slow
+		    // Transition style for full page slide backgrounds
+		    backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+				width: 1200,
+		    height: 780,
+		    margin: 0.2,
+		    // Bounds for smallest/largest possible scale to apply to content
+		    minScale: 0.2,
+		    maxScale: 1.5,
+
+				center: true,
+
+				math: {
+	        	enableGlobally: true,
+    		},
+				menu: {
+	        side: 'right',
+	        numbers: true,
+					titleSelector: 'h1, h2, h3, h4, h5, h6',
+					hideMissingTitles: false,
+        	markers: true,
+					custom: false,
+					themes:false,
+	        transitions: false,
+	        openButton: false,
+	        openSlideNumber: true,
+	        keyboard: true
+				},
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+        	{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+					// Interpret Markdown in <section> elements
+	        { src: '../reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+	        { src: '../reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+					{ src: '../reveal/plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+					{ src: '../reveal/plugin/tagcloud/tagcloud.js', async: true } ,
+					{ src: '../reveal/node_modules/reveal.js-menu/menu.js' },
+					{ src: '../reveal/plugin/math-katex/math-katex.js', async: true },
+					{ src: '../reveal/plugin/notes/notes.js', async: true },
+					{ src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				]
+			});
+		</script>
+
+
+	</body>
+</html>
