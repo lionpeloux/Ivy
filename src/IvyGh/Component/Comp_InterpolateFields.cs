@@ -98,11 +98,10 @@ namespace IvyGh
                             fieldIndex = path[0];
                             field.Clear();
                         }
-                        else
-                        {
-                            field.Add(ghFields.Branches[i].ConvertAll<double>(gh => gh.Value).ToArray());
-                            nodeIndex += 1;
-                        }
+                       
+                        field.Add(ghFields.Branches[i].ConvertAll<double>(gh => gh.Value).ToArray());
+                        nodeIndex += 1;
+                        
                     }
                     fval = interpolant.Lerp(field);
                     res.AddRange(fval, new GH_Path(k, fieldIndex));
