@@ -40,6 +40,8 @@ namespace ShadingDevice
             pManager.AddIntegerParameter("First Actuator", "A1", "Pair of shell nodes for the first actuator.", GH_ParamAccess.tree);
             pManager.AddIntegerParameter("Second Actuator", "A2", "Pair of shell nodes for the first actuator.", GH_ParamAccess.tree);
             pManager.AddIntegerParameter("Boundary Condition", "BC", "List of shell nodes or boundary condition.", GH_ParamAccess.tree);
+
+            pManager.AddBooleanParameter("Launch", "Launch", "Launch the Problem Builder. This will create some files in the working directoy. This may alter existing files.", GH_ParamAccess.item);
         }
 
 
@@ -50,124 +52,143 @@ namespace ShadingDevice
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            var path_wd = "";
+            var launch = false;
+            if (!DA.GetData(8, ref launch)) { return; }
 
-            var ghActuationGrid = new GH_Grid();
-            var ghShapeGrid = new GH_Grid();
-
-            var ghNode_list = new List<GH_Node>();
-            var mesh_list = new List<Mesh>();
-            var A1_tree = new GH_Structure<GH_Integer>();
-            var A2_tree = new GH_Structure<GH_Integer>();
-            var BC_tree = new GH_Structure<GH_Integer>();
-
-
-            if (!DA.GetData(0, ref path_wd)) { return; }
-            if (!DA.GetData(1, ref ghShapeGrid)) { return; }
-            if (!DA.GetData(2, ref ghActuationGrid)) { return; }
-
-            if (!DA.GetDataList(3,  ghNode_list)) { return; }
-            if (!DA.GetDataList(4,  mesh_list)) { return; }
-
-            if (!DA.GetDataTree(5, out A1_tree)) { return; }
-            if (!DA.GetDataTree(6, out A2_tree)) { return; }
-            if (!DA.GetDataTree(7, out BC_tree)) { return; }
-
-            string workingDir = Path.GetDirectoryName(path_wd.ToString());
-            string filename = Path.GetFileName(path_wd.ToString());
-
-            CleanWorkingDir(workingDir);
-
-            int n = ghNode_list.Count;
-            var inp_tree = new DataTree<string>();
-
-            var grid_actu = ghActuationGrid.Value;
-            var grid_shape = ghShapeGrid.Value;
-            var grid_global = grid_actu * grid_shape;
-            var culture = new CultureInfo("en-GB");
-
-            for (int i = 0; i < n; i++)
+            if (launch)
             {
-                var node = ghNode_list[i].Value;
-                var mesh = mesh_list[i];
-                var A1 = A1_tree[i].ConvertAll<int>(ghInt => ghInt.Value);
-                var A2 = A2_tree[i].ConvertAll<int>(ghInt => ghInt.Value);
-                var BC = BC_tree[i].ConvertAll<int>(ghInt => ghInt.Value);
-                
-                // HEADER
-                var localDate = DateTime.Now.ToString(culture);
-                var header = new List<string>();
-                header.Add("Author : Lionel du Peloux");
-                header.Add("email : lionel.dupeloux@gmail.com");
-                header.Add("date : " + localDate);
-                header.Add("node : " + node.Index.ToString("D2"));
+                var path_wd = "";
 
-                // CREATE INP BUILDER
-                var vertexList = AbaqusProblemBuilder.MeshVerticesToArray(mesh);
-                var faceList = AbaqusProblemBuilder.MeshFacesToArray(mesh);
-                var builder = new AbaqusProblemBuilder(vertexList, faceList, A1, A2, BC);
+                var ghActuationGrid = new GH_Grid();
+                var ghShapeGrid = new GH_Grid();
 
-                // CREATE INP CONTENT
-                var inp_str = builder.GetInp(header);
-                inp_tree.AddRange(inp_str, new GH_Path(i));
+                var ghNode_list = new List<GH_Node>();
+                var mesh_list = new List<Mesh>();
+                var A1_tree = new GH_Structure<GH_Integer>();
+                var A2_tree = new GH_Structure<GH_Integer>();
+                var BC_tree = new GH_Structure<GH_Integer>();
 
-                // CREATE SUBDIR FOR INP FILE
-                var subDir = Path.Combine(workingDir, node.Index.ToString("D2"));
-                Directory.CreateDirectory(subDir);
 
-                // WRITE INP FILE
-                var filePath = subDir + "\\" + "model" + ".inp";
-                File.WriteAllLines(filePath, inp_str);
-                File.Move(filePath, Path.ChangeExtension(filePath, ".inp"));
-            }
+                if (!DA.GetData(0, ref path_wd)) { return; }
+                if (!DA.GetData(1, ref ghShapeGrid)) { return; }
+                if (!DA.GetData(2, ref ghActuationGrid)) { return; }
 
-            // CREATE PY CONTENT
-            var py_str2 = AbaqusProblemBuilder.GetPy(workingDir, grid_actu);
+                if (!DA.GetDataList(3, ghNode_list)) { return; }
+                if (!DA.GetDataList(4, mesh_list)) { return; }
 
-            // WRITE PY FILE
-            var filePath2 = workingDir + "\\" + "model.py";
-            File.WriteAllLines(filePath2, py_str2);
-            File.Move(filePath2, Path.ChangeExtension(filePath2, ".py"));
+                if (!DA.GetDataTree(5, out A1_tree)) { return; }
+                if (!DA.GetDataTree(6, out A2_tree)) { return; }
+                if (!DA.GetDataTree(7, out BC_tree)) { return; }
 
-            // WRITE DB FILE
-            var dbPath = workingDir + "\\" + "data.db";
-            try
-            {
-                SQLiteConnection.CreateFile(dbPath);
-            }
-            catch (Exception)
-            {
-            }
+                string workingDir = Path.GetDirectoryName(path_wd.ToString());
+                string filename = Path.GetFileName(path_wd.ToString());
 
-            using (var connection = new SQLiteConnection("Data Source = " + dbPath))
-            {         
-                connection.Open();
+                //CleanWorkingDir(workingDir);
 
-                using (var cmd = new SQLiteCommand(connection))
+                int n = ghNode_list.Count;
+                var inp_tree = new DataTree<string>();
+
+                var grid_actu = ghActuationGrid.Value;
+                var grid_shape = ghShapeGrid.Value;
+                var grid_global = grid_actu * grid_shape;
+                var culture = new CultureInfo("en-GB");
+                string filePath;
+
+                for (int i = 0; i < n; i++)
                 {
-                    cmd.Transaction = connection.BeginTransaction();
+                    var node = ghNode_list[i].Value;
+                    var mesh = mesh_list[i];
+                    var A1 = A1_tree[i].ConvertAll<int>(ghInt => ghInt.Value);
+                    var A2 = A2_tree[i].ConvertAll<int>(ghInt => ghInt.Value);
+                    var BC = BC_tree[i].ConvertAll<int>(ghInt => ghInt.Value);
 
-                   
-                    // FIELD ACTU
-                    cmd.CommandText = "CREATE TABLE FIELD (ACT INT, SHP INT, NODE INT, X REAL, Y REAL, Z REAL, DX REAL, DY REAL, DZ REAL)";
-                    cmd.ExecuteNonQuery();
+                    // HEADER
+                    var localDate = DateTime.Now.ToString(culture);
+                    var header = new List<string>();
+                    header.Add("Author : Lionel du Peloux");
+                    header.Add("email : lionel.dupeloux@gmail.com");
+                    header.Add("date : " + localDate);
+                    header.Add("node : " + node.Index.ToString("D2"));
 
-                    // GRIDS
-                    SqlWriteGrid(grid_actu, "ACT", cmd);
-                    SqlWriteGrid(grid_shape, "SHP", cmd);
-                    SqlWriteGrid(grid_global, "GLB", cmd);
+                    // CREATE INP BUILDER
+                    var vertexList = AbaqusProblemBuilder.MeshVerticesToArray(mesh);
+                    var faceList = AbaqusProblemBuilder.MeshFacesToArray(mesh);
+                    var builder = new AbaqusProblemBuilder(vertexList, faceList, A1, A2, BC);
 
-                    // SHELL TOPO
-                    SqlWriteShellTopology(mesh_list[0], cmd);
+                    // CREATE INP CONTENT
+                    var inp_str = builder.GetInp(header);
+                    inp_tree.AddRange(inp_str, new GH_Path(i));
 
-                    SqlWriteShapeField(grid_shape.Nodes, mesh_list, cmd);
-                    cmd.Transaction.Commit();
+                    // CREATE SUBDIR FOR INP FILE
+                    var subDir = Path.Combine(workingDir, node.Index.ToString("D2"));
+                    Directory.CreateDirectory(subDir);
+
+                    // WRITE INP FILE
+                    filePath = subDir + "\\" + "model" + ".inp";
+                    File.WriteAllLines(filePath, inp_str);
+                    File.Move(filePath, Path.ChangeExtension(filePath, ".inp"));
                 }
-                connection.Close();
+
+                // CREATE PY CONTENT
+                List<string> py_str;
+
+                // WRITE PY FILE (MODEL_PRE)
+                py_str = AbaqusProblemBuilder.GetPy_PRE(grid_actu);
+                filePath = workingDir + "\\" + "model_pre.py";
+                File.WriteAllLines(filePath, py_str);
+                File.Move(filePath, Path.ChangeExtension(filePath, ".py"));
+
+                // WRITE PY FILE (MODEL_RUN)
+                py_str = AbaqusProblemBuilder.GetPy_RUN();
+                filePath = workingDir + "\\" + "model_run.py";
+                File.WriteAllLines(filePath, py_str);
+                File.Move(filePath, Path.ChangeExtension(filePath, ".py"));
+
+                // WRITE PY FILE (MODEL_ODB)
+                py_str = AbaqusProblemBuilder.GetPy_ODB();
+                filePath = workingDir + "\\" + "model_odb.py";
+                File.WriteAllLines(filePath, py_str);
+                File.Move(filePath, Path.ChangeExtension(filePath, ".py"));
+
+                // WRITE DB FILE
+                var dbPath = workingDir + "\\" + "data.db";
+                try
+                {
+                    SQLiteConnection.CreateFile(dbPath);
+                }
+                catch (Exception)
+                {
+                }
+
+                using (var connection = new SQLiteConnection("Data Source = " + dbPath))
+                {
+                    connection.Open();
+
+                    using (var cmd = new SQLiteCommand(connection))
+                    {
+                        cmd.Transaction = connection.BeginTransaction();
+
+
+                        // FIELD ACTU
+                        cmd.CommandText = "CREATE TABLE FIELD (ACT INT, SHP INT, NODE INT, X REAL, Y REAL, Z REAL, DX REAL, DY REAL, DZ REAL)";
+                        cmd.ExecuteNonQuery();
+
+                        // GRIDS
+                        SqlWriteGrid(grid_actu, "ACT", cmd);
+                        SqlWriteGrid(grid_shape, "SHP", cmd);
+                        SqlWriteGrid(grid_global, "GLB", cmd);
+
+                        // SHELL TOPO
+                        SqlWriteShellTopology(mesh_list[0], cmd);
+
+                        SqlWriteShapeField(grid_shape.Nodes, mesh_list, cmd);
+                        cmd.Transaction.Commit();
+                    }
+                    connection.Close();
+                }
+
+                DA.SetDataTree(0, inp_tree);
             }
-
-            DA.SetDataTree(0, inp_tree);
-
         }
 
 

@@ -79,18 +79,141 @@ namespace ShadingDevice.Kernel
 
         #region PY BUILDER
 
-        public static List<string> GetPy(string dir, Grid actuationGrid)
+        /// <summary>
+        /// Batch Run
+        /// </summary>
+        /// <returns></returns>
+        public static List<string> GetPy_ODB()
+        {
+            List<string> s = new List<String>();
+
+            s.AddRange(GetHeading());
+
+            s.Add(@"
+
+# OPEN DATA BASE
+conn = sqlite3.connect(wkdir + '\\' + 'data.db')
+c = conn.cursor()
+
+# CLEAR EXISTING results
+sql = 'DELETE FROM FIELD'
+try:
+    c.execute(sql)
+except sqlite3.IntegrityError:
+    print('ERROR : ATTEMPT TO EREASE ALL FIELD ENTRIES FAILED')
+
+# SQL QUERRY TEMPLATE FOR INSERTING RESULTS
+sql_insert_field = '''
+                        INSERT INTO FIELD(ACT, SHP, NODE, X, Y, Z, DX, DY, DZ)
+                        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    '''
+
+subdir_list = GetSubdirectories(wkdir)
+numShapeNodes = len(subdir_list)
+
+# GENERATE ABAQUS MODELS FROM INP FILES
+for shapeNodeIndex in range(numShapeNodes):
+
+    subdir = subdir_list[shapeNodeIndex]
+    path = wkdir + '\\' + subdir
+    os.chdir(path)
+    print 'Processing Node : ' + subdir
+
+    # OPEN ODB FILE
+    odb = openOdb(path + '\\' + 'job.odb')
+
+    # GET SHELL NODES
+    nodeSet = odb.rootAssembly.instances['Instance A'].nodeSets['SHELL']
+    numMeshNodes = len(nodeSet.nodes)
+
+    # GET RESULTS
+    numActuNodes = len(odb.steps)
+    stepNames = odb.steps.keys()
+
+    for actuNodeIndex in range(numActuNodes) :  
+        # extract step name
+        stepName = stepNames[actuNodeIndex]
+
+        # extract frames for the given step
+        numFrames = len(odb.steps[stepName].frames)
+
+        lastFrame = odb.steps[stepName].frames[-1]
+        field_Disp = lastFrame.fieldOutputs['U'].getSubset(region = nodeSet)
+
+        for meshNodeIndex in range(numMeshNodes):
+
+            field = field_Disp.values[meshNodeIndex]
+            node = nodeSet.nodes[meshNodeIndex]
+
+            values = (
+                int(actuNodeIndex + 1),
+                int(shapeNodeIndex + 1),
+                int(meshNodeIndex + 1),
+                float(node.coordinates[0]),
+                float(node.coordinates[1]),
+                float(node.coordinates[2]),
+                float(field.data[0]),
+                float(field.data[1]),
+                float(field.data[2])
+                )
+
+            try:
+				c.execute(sql_insert_field, values)            
+            except sqlite3.IntegrityError:
+                print('ERROR INSERTING FIELD ROW')
+            
+    conn.commit()
+    odb.close()
+            
+conn.close()
+            
+            ");
+            return s;
+        }
+
+        /// <summary>
+        /// Batch Run
+        /// </summary>
+        /// <returns></returns>
+        public static List<string> GetPy_RUN()
+        {
+            List<string> s = new List<String>();
+
+            s.AddRange(GetHeading());
+
+            s.Add(@"
+# GENERATE ABAQUS MODELS FROM INP FILES
+for subdir in GetSubdirectories(wkdir):
+
+    # LOAD INP FILE
+    path = wkdir + '\\' + subdir
+    os.chdir(path)
+    mdb = openMdb(path + '\\' + 'model.cae')
+    print ' '
+    print '-- ANALYSIS OF SHAPE : ' + str(subdir)
+    mdb.jobs['job'].submit(consistencyChecking = OFF)
+    mdb.jobs['job'].waitForCompletion()
+    mdb.save()
+    mdb.close()
+            ");
+            return s;
+        }
+
+        /// <summary>
+        /// Python script to create cae models from inp files.
+        /// Responsible for defining the steps.
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <param name="actuationGrid"></param>
+        /// <returns></returns>
+        public static List<string> GetPy_PRE(Grid actuationGrid)
         {
             List<string> s = new List<String>();
             var heading = GetHeading();
-            var functions = GetFunctions();
             var stepProp = GetStepProperties(true, 200, 0.01, 1e-6, 0.05);
             var actuNodes = GetActuation(actuationGrid);
 
             s.AddRange(heading);
-            s.Add("  ");
-
-            s.AddRange(functions);
             s.Add("  ");
 
             s.Add("# ACTUATION NODES");
@@ -101,87 +224,75 @@ namespace ShadingDevice.Kernel
             s.AddRange(stepProp);
             s.Add("  ");
 
-            s.Add("# WORKING DIRECTORY");
-            s.Add("wkdir = '" + dir + "'");
-            s.Add("  ");
+            s.Add(@"
+# GENERATE ABAQUS MODELS FROM INP FILES
+for subdir in GetSubdirectories(wkdir):
 
-            s.Add("# GENERATE ABAQUS MODELS FROM INP FILES");
-            s.Add("for subdir in GetSubdirectories(wkdir):");
-            s.Add("  ");
+    # LOAD INP FILE
+    path = wkdir + '\\' + subdir
+    mdb.ModelFromInputFile(inputFileName = path + '\\' + 'model.inp', name = 'model')
 
-            s.Add("  " + "# LOAD INP FILE");
-            s.Add("  " + "path = wkdir + '\\\\' + subdir");
-            s.Add("  " + "mdb.ModelFromInputFile(inputFileName = path + '\\\\' + 'model.inp', name = 'model')");
-            s.Add("  ");
+    # DELETE ALL OTHER EXISTING MODELS
+    for k in mdb.models.keys():
+        if k <> 'model': del mdb.models[k]
 
-            s.Add("  " + "# DELETE ALL OTHER EXISTING MODELS");
-            s.Add("  " + "for k in mdb.models.keys():");
-            s.Add("    " + "if k <> 'model': del mdb.models[k]");
-            s.Add("  ");
+    # CREATE FIELDS
+    # T1 : actuation field 1 | +1K => 1mm expansion | -1K => 1mm skrinkage
+    # T2 : actuation field 2 | +1K => 1mm expansion | -1K => 1mm skrinkage
+    mdb.models['model'].Temperature(createStepName = 'Initial', crossSectionDistribution = CONSTANT_THROUGH_THICKNESS, distributionType = UNIFORM, magnitudes = (0.0, ), name = 'T1', region = mdb.models['model'].rootAssembly.instances['Instance A'].sets['A1'])
+    mdb.models['model'].Temperature(createStepName = 'Initial', crossSectionDistribution = CONSTANT_THROUGH_THICKNESS, distributionType = UNIFORM, magnitudes = (0.0, ), name = 'T2', region = mdb.models['model'].rootAssembly.instances['Instance A'].sets['A2'])
 
-            s.Add("  " + "# CREATE FIELDS");
-            s.Add("  " + "# T1 : actuation field 1 | +1K => 1mm expansion | -1K => 1mm skrinkage");
-            s.Add("  " + "# T2 : actuation field 2 | +1K => 1mm expansion | -1K => 1mm skrinkage");
-            s.Add("  " + "mdb.models['model'].Temperature(createStepName = 'Initial', crossSectionDistribution = CONSTANT_THROUGH_THICKNESS, distributionType = UNIFORM, magnitudes = (0.0, ), name = 'T1', region = mdb.models['model'].rootAssembly.instances['Instance A'].sets['A1'])");
-            s.Add("  " + "mdb.models['model'].Temperature(createStepName = 'Initial', crossSectionDistribution = CONSTANT_THROUGH_THICKNESS, distributionType = UNIFORM, magnitudes = (0.0, ), name = 'T2', region = mdb.models['model'].rootAssembly.instances['Instance A'].sets['A2'])");
-            s.Add("  ");
+    # CREATE STEPS
+    stepName_prev = 'Initial'
+    stepName = ''
+    for i in range(len(actu)):
+        a = actu[i]
+        if i > 0: stepName_prev = stepName
+        stepName = '(' + str(int(a[0])) + ',' + str(int(a[1])) + ')'
+        mdb.models['model'].StaticStep(nlgeom = nlgeom, maxNumInc = maxNumInc, initialInc = initialInc, maxInc = maxInc, minInc = minInc, name = stepName, previous = stepName_prev)
+        mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes = (a[0], ), stepName = stepName)
+        mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes = (a[1], ), stepName = stepName)
 
-            s.Add("  " + "# CREATE STEPS");
-            s.Add("  " + "stepName_prev = 'Initial'");
-            s.Add("  " + "stepName = ''");
-            s.Add("  " + "for i in range(len(actu)):");
-            s.Add("    " + "a = actu[i]");
-            s.Add("    " + "if i > 0: stepName_prev = stepName");
-            s.Add("    " + "stepName = '(' + str(int(a[0])) + ',' + str(int(a[1])) + ')'");
-            s.Add("    " + "mdb.models['model'].StaticStep(nlgeom = nlgeom, maxNumInc = maxNumInc, initialInc = initialInc, maxInc = maxInc, minInc = minInc, name = stepName, previous = stepName_prev)");
-            s.Add("    " + "mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes = (a[0], ), stepName = stepName)");
-            s.Add("    " + "mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes = (a[1], ), stepName = stepName)");
-            s.Add("  ");
+    # CREATE NEW JOB
+    mdb.Job(atTime = None, contactPrint = OFF, description = '', echoPrint = OFF, explicitPrecision = SINGLE, getMemoryFromAnalysis = True, historyPrint = OFF, memory = 90, memoryUnits = PERCENTAGE, model = 'model', modelPrint = OFF, multiprocessingMode = DEFAULT, name = 'job', nodalOutputPrecision = SINGLE, numCpus = 1, numGPUs = 0, queue = None, scratch = '', type = ANALYSIS, userSubroutine = '', waitHours = 0, waitMinutes = 0)
 
-            s.Add("  " + "# CREATE NEW JOB");
-            s.Add("  " +    "mdb.Job(atTime = None, contactPrint = OFF, description = '', echoPrint = OFF, " +
-                            "explicitPrecision = SINGLE, getMemoryFromAnalysis = True, historyPrint = OFF, memory = 90, " +
-                            "memoryUnits = PERCENTAGE, model = 'model', modelPrint = OFF, multiprocessingMode = DEFAULT, name = 'job', " +
-                            "nodalOutputPrecision = SINGLE, numCpus = 1, numGPUs = 0, queue = None, scratch = '', type = ANALYSIS, userSubroutine = '', " +
-                            "waitHours = 0, waitMinutes = 0)"
-                            );
-            s.Add(" ");
-            s.Add("  " + "# SAVE CAE MODEL");
-            s.Add("  " + "mdb.saveAs(pathName = path + '\\\\' + 'model.cae')");
+    # SAVE CAE MODEL
+    mdb.saveAs(pathName = path + '\\' + 'model.cae')
+    mdb.close()
+");
             return s;
         }
-        private static string[] GetHeading()
+        private static List<string> GetHeading()
         {
             List<string> s = new List<string>();
 
             // imports
-            s.Add("from part import *");
-            s.Add("from material import *");
-            s.Add("from section import *");
-            s.Add("from assembly import *");
-            s.Add("from step import *");
-            s.Add("from interaction import *");
-            s.Add("from load import *");
-            s.Add("from mesh import *");
-            s.Add("from optimization import *");
-            s.Add("from job import *");
-            s.Add("from sketch import *");
-            s.Add("from visualization import *");
-            s.Add("from connectorBehavior import *");
+            s.Add(@"
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
 
-            return s.ToArray();
-        }
-        private static List<string> GetFunctions()
-        {
-            List<string> s = new List<string>();
+import sqlite3, inspect, os, sys
 
-            // imports
-            s.Add("def GetSubdirectories(dir):");
-            s.Add("\t return [name for name in os.listdir(dir)");
-            s.Add("\t\t if os.path.isdir(os.path.join(dir, name))]");
-            s.Add("");
+def GetSubdirectories(dir):
+    return [name for name in os.listdir(dir)
+	    if os.path.isdir(os.path.join(dir, name))]
 
-
+# WORKING DIRECTORY
+wkdir = 'C:\Users\Lionel\Documents\Abaqus\WorkingDir'
+wkdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+"
+            );
             return s;
         }
         private static List<string> GetStepProperties(
