@@ -1,0 +1,130 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.ModelFromInputFile(inputFileName=
+    'C:\\Users\\Lionel\\Documents\\Abaqus\\WorkingDir\\06\\model.inp', name=
+    'model')
+del mdb.models['Model-1']
+mdb.models['model'].Temperature(createStepName='Initial', 
+    crossSectionDistribution=CONSTANT_THROUGH_THICKNESS, distributionType=
+    UNIFORM, magnitudes=(0.0, ), name='T1', region=
+    mdb.models['model'].rootAssembly.instances['Instance A'].sets['A1'])
+mdb.models['model'].Temperature(createStepName='Initial', 
+    crossSectionDistribution=CONSTANT_THROUGH_THICKNESS, distributionType=
+    UNIFORM, magnitudes=(0.0, ), name='T2', region=
+    mdb.models['model'].rootAssembly.instances['Instance A'].sets['A2'])
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(-50,-50)', nlgeom=ON, previous='Initial')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(-50.0, )
+    , stepName='(-50,-50)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(-50.0, )
+    , stepName='(-50,-50)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(-25,-50)', nlgeom=ON, previous='(-50,-50)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(-25.0, )
+    , stepName='(-25,-50)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(-50.0, )
+    , stepName='(-25,-50)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(0,-50)', nlgeom=ON, previous='(-25,-50)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(0.0, ), 
+    stepName='(0,-50)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(-50.0, )
+    , stepName='(0,-50)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(25,-50)', nlgeom=ON, previous='(0,-50)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(25.0, ), 
+    stepName='(25,-50)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(-50.0, )
+    , stepName='(25,-50)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(-50,-25)', nlgeom=ON, previous='(25,-50)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(-50.0, )
+    , stepName='(-50,-25)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(-25.0, )
+    , stepName='(-50,-25)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(-25,-25)', nlgeom=ON, previous='(-50,-25)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(-25.0, )
+    , stepName='(-25,-25)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(-25.0, )
+    , stepName='(-25,-25)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(0,-25)', nlgeom=ON, previous='(-25,-25)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(0.0, ), 
+    stepName='(0,-25)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(-25.0, )
+    , stepName='(0,-25)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(25,-25)', nlgeom=ON, previous='(0,-25)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(25.0, ), 
+    stepName='(25,-25)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(-25.0, )
+    , stepName='(25,-25)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(-50,0)', nlgeom=ON, previous='(25,-25)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(-50.0, )
+    , stepName='(-50,0)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(0.0, ), 
+    stepName='(-50,0)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(-25,0)', nlgeom=ON, previous='(-50,0)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(-25.0, )
+    , stepName='(-25,0)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(0.0, ), 
+    stepName='(-25,0)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(0,0)', nlgeom=ON, previous='(-25,0)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(0.0, ), 
+    stepName='(0,0)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(0.0, ), 
+    stepName='(0,0)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(25,0)', nlgeom=ON, previous='(0,0)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(25.0, ), 
+    stepName='(25,0)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(0.0, ), 
+    stepName='(25,0)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(-50,25)', nlgeom=ON, previous='(25,0)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(-50.0, )
+    , stepName='(-50,25)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(25.0, ), 
+    stepName='(-50,25)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(-25,25)', nlgeom=ON, previous='(-50,25)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(-25.0, )
+    , stepName='(-25,25)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(25.0, ), 
+    stepName='(-25,25)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(0,25)', nlgeom=ON, previous='(-25,25)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(0.0, ), 
+    stepName='(0,25)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(25.0, ), 
+    stepName='(0,25)')
+mdb.models['model'].StaticStep(initialInc=0.01, maxInc=0.05, maxNumInc=200, 
+    minInc=1e-06, name='(25,25)', nlgeom=ON, previous='(0,25)')
+mdb.models['model'].predefinedFields['T1'].setValuesInStep(magnitudes=(25.0, ), 
+    stepName='(25,25)')
+mdb.models['model'].predefinedFields['T2'].setValuesInStep(magnitudes=(25.0, ), 
+    stepName='(25,25)')
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='model', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='job', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, scratch='', type=ANALYSIS, 
+    userSubroutine='', waitHours=0, waitMinutes=0)
+# Save by Lionel on 2016_12_16-10.12.33; build 6.12-1 2012_03_13-20.23.18 119612
+# Save by Lionel on 2016_12_16-10.23.11; build 6.12-1 2012_03_13-20.23.18 119612

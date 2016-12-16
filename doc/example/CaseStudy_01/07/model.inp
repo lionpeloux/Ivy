@@ -1,0 +1,2118 @@
+* Heading
+**Author : Lionel du Peloux
+**email : lionel.dupeloux@gmail.com
+**date : 16/12/2016 10:55:26
+**node : 07
+**
+*Preprint, echo=NO, model=NO, history=NO, contact=NO
+**
+** =============================================================================
+** PART
+** =============================================================================
+**
+*Part, name="Part A"
+*Node, nset="shell"
+   1,   -0.300000,    0.000000,    0.000000
+   2,   -0.300000,    0.004034,    0.049034
+   3,   -0.300000,    0.016048,    0.096748
+   4,   -0.300000,    0.035662,    0.141864
+   5,   -0.300000,    0.062416,    0.183147
+   6,   -0.300000,    0.095537,    0.219533
+   7,   -0.300000,    0.134169,    0.250000
+   8,   -0.300000,    0.184169,    0.250000
+   9,   -0.300000,    0.234169,    0.250000
+  10,   -0.300000,    0.284169,    0.250000
+  11,   -0.300000,    0.334169,    0.250000
+  12,   -0.300000,    0.384169,    0.250000
+  13,   -0.300000,    0.434169,    0.250000
+  14,   -0.300000,    0.484169,    0.250000
+  15,   -0.300000,    0.534169,    0.250000
+  16,   -0.300000,    0.584169,    0.250000
+  17,   -0.300000,    0.634169,    0.250000
+  18,   -0.300000,    0.684169,    0.250000
+  19,   -0.300000,    0.734169,    0.250000
+  20,   -0.248963,    0.033610,    0.000000
+  21,   -0.248963,    0.037192,    0.043541
+  22,   -0.248963,    0.047860,    0.085909
+  23,   -0.248963,    0.065276,    0.125970
+  24,   -0.248963,    0.089034,    0.162628
+  25,   -0.248963,    0.118443,    0.194938
+  26,   -0.248963,    0.152747,    0.221992
+  27,   -0.248963,    0.202747,    0.221992
+  28,   -0.248963,    0.252747,    0.221992
+  29,   -0.248963,    0.302747,    0.221992
+  30,   -0.248963,    0.352747,    0.221992
+  31,   -0.248963,    0.402747,    0.221992
+  32,   -0.248963,    0.452747,    0.221992
+  33,   -0.248963,    0.502747,    0.221992
+  34,   -0.248963,    0.552747,    0.221992
+  35,   -0.248963,    0.602747,    0.221992
+  36,   -0.248963,    0.652747,    0.221992
+  37,   -0.248963,    0.702747,    0.221992
+  38,   -0.248963,    0.752747,    0.221992
+  39,   -0.192308,    0.061538,    0.000000
+  40,   -0.192308,    0.064745,    0.038976
+  41,   -0.192308,    0.074295,    0.076902
+  42,   -0.192308,    0.089885,    0.112763
+  43,   -0.192308,    0.111151,    0.145578
+  44,   -0.192308,    0.137478,    0.174501
+  45,   -0.192308,    0.168185,    0.198718
+  46,   -0.192308,    0.218185,    0.198718
+  47,   -0.192308,    0.268185,    0.198718
+  48,   -0.192308,    0.318185,    0.198718
+  49,   -0.192308,    0.368185,    0.198718
+  50,   -0.192308,    0.418185,    0.198718
+  51,   -0.192308,    0.468185,    0.198718
+  52,   -0.192308,    0.518185,    0.198718
+  53,   -0.192308,    0.568185,    0.198718
+  54,   -0.192308,    0.618185,    0.198718
+  55,   -0.192308,    0.668185,    0.198718
+  56,   -0.192308,    0.718185,    0.198718
+  57,   -0.192308,    0.768185,    0.198718
+  58,   -0.131004,    0.082533,    0.000000
+  59,   -0.131004,    0.085457,    0.035545
+  60,   -0.131004,    0.094166,    0.070132
+  61,   -0.131004,    0.108384,    0.102836
+  62,   -0.131004,    0.127778,    0.132761
+  63,   -0.131004,    0.151786,    0.159137
+  64,   -0.131004,    0.179790,    0.181223
+  65,   -0.131004,    0.229790,    0.181223
+  66,   -0.131004,    0.279790,    0.181223
+  67,   -0.131004,    0.329790,    0.181223
+  68,   -0.131004,    0.379790,    0.181223
+  69,   -0.131004,    0.429790,    0.181223
+  70,   -0.131004,    0.479790,    0.181223
+  71,   -0.131004,    0.529790,    0.181223
+  72,   -0.131004,    0.579790,    0.181223
+  73,   -0.131004,    0.629790,    0.181223
+  74,   -0.131004,    0.679790,    0.181223
+  75,   -0.131004,    0.729790,    0.181223
+  76,   -0.131004,    0.779790,    0.181223
+  77,   -0.066372,    0.095575,    0.000000
+  78,   -0.066372,    0.098324,    0.033413
+  79,   -0.066372,    0.106511,    0.065926
+  80,   -0.066372,    0.119876,    0.096668
+  81,   -0.066372,    0.138107,    0.124799
+  82,   -0.066372,    0.160675,    0.149593
+  83,   -0.066372,    0.187000,    0.170354
+  84,   -0.066372,    0.237000,    0.170354
+  85,   -0.066372,    0.287000,    0.170354
+  86,   -0.066372,    0.337000,    0.170354
+  87,   -0.066372,    0.387000,    0.170354
+  88,   -0.066372,    0.437000,    0.170354
+  89,   -0.066372,    0.487000,    0.170354
+  90,   -0.066372,    0.537000,    0.170354
+  91,   -0.066372,    0.587000,    0.170354
+  92,   -0.066372,    0.637000,    0.170354
+  93,   -0.066372,    0.687000,    0.170354
+  94,   -0.066372,    0.737000,    0.170354
+  95,   -0.066372,    0.787000,    0.170354
+  96,    0.000000,    0.100000,    0.000000
+  97,    0.000000,    0.102690,    0.032690
+  98,    0.000000,    0.110699,    0.064499
+  99,    0.000000,    0.123774,    0.094576
+ 100,    0.000000,    0.141611,    0.122098
+ 101,    0.000000,    0.163691,    0.146355
+ 102,    0.000000,    0.189446,    0.166667
+ 103,    0.000000,    0.239446,    0.166667
+ 104,    0.000000,    0.289446,    0.166667
+ 105,    0.000000,    0.339446,    0.166667
+ 106,    0.000000,    0.389446,    0.166667
+ 107,    0.000000,    0.439446,    0.166667
+ 108,    0.000000,    0.489446,    0.166667
+ 109,    0.000000,    0.539446,    0.166667
+ 110,    0.000000,    0.589446,    0.166667
+ 111,    0.000000,    0.639446,    0.166667
+ 112,    0.000000,    0.689446,    0.166667
+ 113,    0.000000,    0.739446,    0.166667
+ 114,    0.000000,    0.789446,    0.166667
+ 115,    0.066372,    0.095575,    0.000000
+ 116,    0.066372,    0.098324,    0.033413
+ 117,    0.066372,    0.106511,    0.065926
+ 118,    0.066372,    0.119876,    0.096668
+ 119,    0.066372,    0.138107,    0.124799
+ 120,    0.066372,    0.160675,    0.149593
+ 121,    0.066372,    0.187000,    0.170354
+ 122,    0.066372,    0.237000,    0.170354
+ 123,    0.066372,    0.287000,    0.170354
+ 124,    0.066372,    0.337000,    0.170354
+ 125,    0.066372,    0.387000,    0.170354
+ 126,    0.066372,    0.437000,    0.170354
+ 127,    0.066372,    0.487000,    0.170354
+ 128,    0.066372,    0.537000,    0.170354
+ 129,    0.066372,    0.587000,    0.170354
+ 130,    0.066372,    0.637000,    0.170354
+ 131,    0.066372,    0.687000,    0.170354
+ 132,    0.066372,    0.737000,    0.170354
+ 133,    0.066372,    0.787000,    0.170354
+ 134,    0.131004,    0.082533,    0.000000
+ 135,    0.131004,    0.085457,    0.035545
+ 136,    0.131004,    0.094166,    0.070132
+ 137,    0.131004,    0.108384,    0.102836
+ 138,    0.131004,    0.127778,    0.132761
+ 139,    0.131004,    0.151786,    0.159137
+ 140,    0.131004,    0.179790,    0.181223
+ 141,    0.131004,    0.229790,    0.181223
+ 142,    0.131004,    0.279790,    0.181223
+ 143,    0.131004,    0.329790,    0.181223
+ 144,    0.131004,    0.379790,    0.181223
+ 145,    0.131004,    0.429790,    0.181223
+ 146,    0.131004,    0.479790,    0.181223
+ 147,    0.131004,    0.529790,    0.181223
+ 148,    0.131004,    0.579790,    0.181223
+ 149,    0.131004,    0.629790,    0.181223
+ 150,    0.131004,    0.679790,    0.181223
+ 151,    0.131004,    0.729790,    0.181223
+ 152,    0.131004,    0.779790,    0.181223
+ 153,    0.192308,    0.061538,    0.000000
+ 154,    0.192308,    0.064745,    0.038976
+ 155,    0.192308,    0.074295,    0.076902
+ 156,    0.192308,    0.089885,    0.112763
+ 157,    0.192308,    0.111151,    0.145578
+ 158,    0.192308,    0.137478,    0.174501
+ 159,    0.192308,    0.168185,    0.198718
+ 160,    0.192308,    0.218185,    0.198718
+ 161,    0.192308,    0.268185,    0.198718
+ 162,    0.192308,    0.318185,    0.198718
+ 163,    0.192308,    0.368185,    0.198718
+ 164,    0.192308,    0.418185,    0.198718
+ 165,    0.192308,    0.468185,    0.198718
+ 166,    0.192308,    0.518185,    0.198718
+ 167,    0.192308,    0.568185,    0.198718
+ 168,    0.192308,    0.618185,    0.198718
+ 169,    0.192308,    0.668185,    0.198718
+ 170,    0.192308,    0.718185,    0.198718
+ 171,    0.192308,    0.768185,    0.198718
+ 172,    0.248963,    0.033610,    0.000000
+ 173,    0.248963,    0.037192,    0.043541
+ 174,    0.248963,    0.047860,    0.085909
+ 175,    0.248963,    0.065276,    0.125970
+ 176,    0.248963,    0.089034,    0.162628
+ 177,    0.248963,    0.118443,    0.194938
+ 178,    0.248963,    0.152747,    0.221992
+ 179,    0.248963,    0.202747,    0.221992
+ 180,    0.248963,    0.252747,    0.221992
+ 181,    0.248963,    0.302747,    0.221992
+ 182,    0.248963,    0.352747,    0.221992
+ 183,    0.248963,    0.402747,    0.221992
+ 184,    0.248963,    0.452747,    0.221992
+ 185,    0.248963,    0.502747,    0.221992
+ 186,    0.248963,    0.552747,    0.221992
+ 187,    0.248963,    0.602747,    0.221992
+ 188,    0.248963,    0.652747,    0.221992
+ 189,    0.248963,    0.702747,    0.221992
+ 190,    0.248963,    0.752747,    0.221992
+ 191,    0.300000,    0.000000,    0.000000
+ 192,    0.300000,    0.004034,    0.049034
+ 193,    0.300000,    0.016048,    0.096748
+ 194,    0.300000,    0.035662,    0.141864
+ 195,    0.300000,    0.062416,    0.183147
+ 196,    0.300000,    0.095537,    0.219533
+ 197,    0.300000,    0.134169,    0.250000
+ 198,    0.300000,    0.184169,    0.250000
+ 199,    0.300000,    0.234169,    0.250000
+ 200,    0.300000,    0.284169,    0.250000
+ 201,    0.300000,    0.334169,    0.250000
+ 202,    0.300000,    0.384169,    0.250000
+ 203,    0.300000,    0.434169,    0.250000
+ 204,    0.300000,    0.484169,    0.250000
+ 205,    0.300000,    0.534169,    0.250000
+ 206,    0.300000,    0.584169,    0.250000
+ 207,    0.300000,    0.634169,    0.250000
+ 208,    0.300000,    0.684169,    0.250000
+ 209,    0.300000,    0.734169,    0.250000
+*Node, nset="A1"
+   210,   -0.300000,    0.000000,    0.000000
+   211,    0.300000,    0.134169,    0.250000
+*Node, nset="A2"
+   212,    0.300000,    0.000000,    0.000000
+   213,   -0.300000,    0.134169,    0.250000
+*Element, type=S4R, elset="shell"
+1,1,2,21,20
+2,2,3,22,21
+3,3,4,23,22
+4,4,5,24,23
+5,5,6,25,24
+6,6,7,26,25
+7,7,8,27,26
+8,8,9,28,27
+9,9,10,29,28
+10,10,11,30,29
+11,11,12,31,30
+12,12,13,32,31
+13,13,14,33,32
+14,14,15,34,33
+15,15,16,35,34
+16,16,17,36,35
+17,17,18,37,36
+18,18,19,38,37
+19,20,21,40,39
+20,21,22,41,40
+21,22,23,42,41
+22,23,24,43,42
+23,24,25,44,43
+24,25,26,45,44
+25,26,27,46,45
+26,27,28,47,46
+27,28,29,48,47
+28,29,30,49,48
+29,30,31,50,49
+30,31,32,51,50
+31,32,33,52,51
+32,33,34,53,52
+33,34,35,54,53
+34,35,36,55,54
+35,36,37,56,55
+36,37,38,57,56
+37,39,40,59,58
+38,40,41,60,59
+39,41,42,61,60
+40,42,43,62,61
+41,43,44,63,62
+42,44,45,64,63
+43,45,46,65,64
+44,46,47,66,65
+45,47,48,67,66
+46,48,49,68,67
+47,49,50,69,68
+48,50,51,70,69
+49,51,52,71,70
+50,52,53,72,71
+51,53,54,73,72
+52,54,55,74,73
+53,55,56,75,74
+54,56,57,76,75
+55,58,59,78,77
+56,59,60,79,78
+57,60,61,80,79
+58,61,62,81,80
+59,62,63,82,81
+60,63,64,83,82
+61,64,65,84,83
+62,65,66,85,84
+63,66,67,86,85
+64,67,68,87,86
+65,68,69,88,87
+66,69,70,89,88
+67,70,71,90,89
+68,71,72,91,90
+69,72,73,92,91
+70,73,74,93,92
+71,74,75,94,93
+72,75,76,95,94
+73,77,78,97,96
+74,78,79,98,97
+75,79,80,99,98
+76,80,81,100,99
+77,81,82,101,100
+78,82,83,102,101
+79,83,84,103,102
+80,84,85,104,103
+81,85,86,105,104
+82,86,87,106,105
+83,87,88,107,106
+84,88,89,108,107
+85,89,90,109,108
+86,90,91,110,109
+87,91,92,111,110
+88,92,93,112,111
+89,93,94,113,112
+90,94,95,114,113
+91,96,97,116,115
+92,97,98,117,116
+93,98,99,118,117
+94,99,100,119,118
+95,100,101,120,119
+96,101,102,121,120
+97,102,103,122,121
+98,103,104,123,122
+99,104,105,124,123
+100,105,106,125,124
+101,106,107,126,125
+102,107,108,127,126
+103,108,109,128,127
+104,109,110,129,128
+105,110,111,130,129
+106,111,112,131,130
+107,112,113,132,131
+108,113,114,133,132
+109,115,116,135,134
+110,116,117,136,135
+111,117,118,137,136
+112,118,119,138,137
+113,119,120,139,138
+114,120,121,140,139
+115,121,122,141,140
+116,122,123,142,141
+117,123,124,143,142
+118,124,125,144,143
+119,125,126,145,144
+120,126,127,146,145
+121,127,128,147,146
+122,128,129,148,147
+123,129,130,149,148
+124,130,131,150,149
+125,131,132,151,150
+126,132,133,152,151
+127,134,135,154,153
+128,135,136,155,154
+129,136,137,156,155
+130,137,138,157,156
+131,138,139,158,157
+132,139,140,159,158
+133,140,141,160,159
+134,141,142,161,160
+135,142,143,162,161
+136,143,144,163,162
+137,144,145,164,163
+138,145,146,165,164
+139,146,147,166,165
+140,147,148,167,166
+141,148,149,168,167
+142,149,150,169,168
+143,150,151,170,169
+144,151,152,171,170
+145,153,154,173,172
+146,154,155,174,173
+147,155,156,175,174
+148,156,157,176,175
+149,157,158,177,176
+150,158,159,178,177
+151,159,160,179,178
+152,160,161,180,179
+153,161,162,181,180
+154,162,163,182,181
+155,163,164,183,182
+156,164,165,184,183
+157,165,166,185,184
+158,166,167,186,185
+159,167,168,187,186
+160,168,169,188,187
+161,169,170,189,188
+162,170,171,190,189
+163,172,173,192,191
+164,173,174,193,192
+165,174,175,194,193
+166,175,176,195,194
+167,176,177,196,195
+168,177,178,197,196
+169,178,179,198,197
+170,179,180,199,198
+171,180,181,200,199
+172,181,182,201,200
+173,182,183,202,201
+174,183,184,203,202
+175,184,185,204,203
+176,185,186,205,204
+177,186,187,206,205
+178,187,188,207,206
+179,188,189,208,207
+180,189,190,209,208
+*Element, type=T3D2H, elset="A1"
+   181,   210,   211
+*Element, type=T3D2H, elset="A2"
+   182,   212,   213
+*Elset, elset="shell-1", internal
+1
+*Elset, elset="shell-2", internal
+2
+*Elset, elset="shell-3", internal
+3
+*Elset, elset="shell-4", internal
+4
+*Elset, elset="shell-5", internal
+5
+*Elset, elset="shell-6", internal
+6
+*Elset, elset="shell-7", internal
+7
+*Elset, elset="shell-8", internal
+8
+*Elset, elset="shell-9", internal
+9
+*Elset, elset="shell-10", internal
+10
+*Elset, elset="shell-11", internal
+11
+*Elset, elset="shell-12", internal
+12
+*Elset, elset="shell-13", internal
+13
+*Elset, elset="shell-14", internal
+14
+*Elset, elset="shell-15", internal
+15
+*Elset, elset="shell-16", internal
+16
+*Elset, elset="shell-17", internal
+17
+*Elset, elset="shell-18", internal
+18
+*Elset, elset="shell-19", internal
+19
+*Elset, elset="shell-20", internal
+20
+*Elset, elset="shell-21", internal
+21
+*Elset, elset="shell-22", internal
+22
+*Elset, elset="shell-23", internal
+23
+*Elset, elset="shell-24", internal
+24
+*Elset, elset="shell-25", internal
+25
+*Elset, elset="shell-26", internal
+26
+*Elset, elset="shell-27", internal
+27
+*Elset, elset="shell-28", internal
+28
+*Elset, elset="shell-29", internal
+29
+*Elset, elset="shell-30", internal
+30
+*Elset, elset="shell-31", internal
+31
+*Elset, elset="shell-32", internal
+32
+*Elset, elset="shell-33", internal
+33
+*Elset, elset="shell-34", internal
+34
+*Elset, elset="shell-35", internal
+35
+*Elset, elset="shell-36", internal
+36
+*Elset, elset="shell-37", internal
+37
+*Elset, elset="shell-38", internal
+38
+*Elset, elset="shell-39", internal
+39
+*Elset, elset="shell-40", internal
+40
+*Elset, elset="shell-41", internal
+41
+*Elset, elset="shell-42", internal
+42
+*Elset, elset="shell-43", internal
+43
+*Elset, elset="shell-44", internal
+44
+*Elset, elset="shell-45", internal
+45
+*Elset, elset="shell-46", internal
+46
+*Elset, elset="shell-47", internal
+47
+*Elset, elset="shell-48", internal
+48
+*Elset, elset="shell-49", internal
+49
+*Elset, elset="shell-50", internal
+50
+*Elset, elset="shell-51", internal
+51
+*Elset, elset="shell-52", internal
+52
+*Elset, elset="shell-53", internal
+53
+*Elset, elset="shell-54", internal
+54
+*Elset, elset="shell-55", internal
+55
+*Elset, elset="shell-56", internal
+56
+*Elset, elset="shell-57", internal
+57
+*Elset, elset="shell-58", internal
+58
+*Elset, elset="shell-59", internal
+59
+*Elset, elset="shell-60", internal
+60
+*Elset, elset="shell-61", internal
+61
+*Elset, elset="shell-62", internal
+62
+*Elset, elset="shell-63", internal
+63
+*Elset, elset="shell-64", internal
+64
+*Elset, elset="shell-65", internal
+65
+*Elset, elset="shell-66", internal
+66
+*Elset, elset="shell-67", internal
+67
+*Elset, elset="shell-68", internal
+68
+*Elset, elset="shell-69", internal
+69
+*Elset, elset="shell-70", internal
+70
+*Elset, elset="shell-71", internal
+71
+*Elset, elset="shell-72", internal
+72
+*Elset, elset="shell-73", internal
+73
+*Elset, elset="shell-74", internal
+74
+*Elset, elset="shell-75", internal
+75
+*Elset, elset="shell-76", internal
+76
+*Elset, elset="shell-77", internal
+77
+*Elset, elset="shell-78", internal
+78
+*Elset, elset="shell-79", internal
+79
+*Elset, elset="shell-80", internal
+80
+*Elset, elset="shell-81", internal
+81
+*Elset, elset="shell-82", internal
+82
+*Elset, elset="shell-83", internal
+83
+*Elset, elset="shell-84", internal
+84
+*Elset, elset="shell-85", internal
+85
+*Elset, elset="shell-86", internal
+86
+*Elset, elset="shell-87", internal
+87
+*Elset, elset="shell-88", internal
+88
+*Elset, elset="shell-89", internal
+89
+*Elset, elset="shell-90", internal
+90
+*Elset, elset="shell-91", internal
+91
+*Elset, elset="shell-92", internal
+92
+*Elset, elset="shell-93", internal
+93
+*Elset, elset="shell-94", internal
+94
+*Elset, elset="shell-95", internal
+95
+*Elset, elset="shell-96", internal
+96
+*Elset, elset="shell-97", internal
+97
+*Elset, elset="shell-98", internal
+98
+*Elset, elset="shell-99", internal
+99
+*Elset, elset="shell-100", internal
+100
+*Elset, elset="shell-101", internal
+101
+*Elset, elset="shell-102", internal
+102
+*Elset, elset="shell-103", internal
+103
+*Elset, elset="shell-104", internal
+104
+*Elset, elset="shell-105", internal
+105
+*Elset, elset="shell-106", internal
+106
+*Elset, elset="shell-107", internal
+107
+*Elset, elset="shell-108", internal
+108
+*Elset, elset="shell-109", internal
+109
+*Elset, elset="shell-110", internal
+110
+*Elset, elset="shell-111", internal
+111
+*Elset, elset="shell-112", internal
+112
+*Elset, elset="shell-113", internal
+113
+*Elset, elset="shell-114", internal
+114
+*Elset, elset="shell-115", internal
+115
+*Elset, elset="shell-116", internal
+116
+*Elset, elset="shell-117", internal
+117
+*Elset, elset="shell-118", internal
+118
+*Elset, elset="shell-119", internal
+119
+*Elset, elset="shell-120", internal
+120
+*Elset, elset="shell-121", internal
+121
+*Elset, elset="shell-122", internal
+122
+*Elset, elset="shell-123", internal
+123
+*Elset, elset="shell-124", internal
+124
+*Elset, elset="shell-125", internal
+125
+*Elset, elset="shell-126", internal
+126
+*Elset, elset="shell-127", internal
+127
+*Elset, elset="shell-128", internal
+128
+*Elset, elset="shell-129", internal
+129
+*Elset, elset="shell-130", internal
+130
+*Elset, elset="shell-131", internal
+131
+*Elset, elset="shell-132", internal
+132
+*Elset, elset="shell-133", internal
+133
+*Elset, elset="shell-134", internal
+134
+*Elset, elset="shell-135", internal
+135
+*Elset, elset="shell-136", internal
+136
+*Elset, elset="shell-137", internal
+137
+*Elset, elset="shell-138", internal
+138
+*Elset, elset="shell-139", internal
+139
+*Elset, elset="shell-140", internal
+140
+*Elset, elset="shell-141", internal
+141
+*Elset, elset="shell-142", internal
+142
+*Elset, elset="shell-143", internal
+143
+*Elset, elset="shell-144", internal
+144
+*Elset, elset="shell-145", internal
+145
+*Elset, elset="shell-146", internal
+146
+*Elset, elset="shell-147", internal
+147
+*Elset, elset="shell-148", internal
+148
+*Elset, elset="shell-149", internal
+149
+*Elset, elset="shell-150", internal
+150
+*Elset, elset="shell-151", internal
+151
+*Elset, elset="shell-152", internal
+152
+*Elset, elset="shell-153", internal
+153
+*Elset, elset="shell-154", internal
+154
+*Elset, elset="shell-155", internal
+155
+*Elset, elset="shell-156", internal
+156
+*Elset, elset="shell-157", internal
+157
+*Elset, elset="shell-158", internal
+158
+*Elset, elset="shell-159", internal
+159
+*Elset, elset="shell-160", internal
+160
+*Elset, elset="shell-161", internal
+161
+*Elset, elset="shell-162", internal
+162
+*Elset, elset="shell-163", internal
+163
+*Elset, elset="shell-164", internal
+164
+*Elset, elset="shell-165", internal
+165
+*Elset, elset="shell-166", internal
+166
+*Elset, elset="shell-167", internal
+167
+*Elset, elset="shell-168", internal
+168
+*Elset, elset="shell-169", internal
+169
+*Elset, elset="shell-170", internal
+170
+*Elset, elset="shell-171", internal
+171
+*Elset, elset="shell-172", internal
+172
+*Elset, elset="shell-173", internal
+173
+*Elset, elset="shell-174", internal
+174
+*Elset, elset="shell-175", internal
+175
+*Elset, elset="shell-176", internal
+176
+*Elset, elset="shell-177", internal
+177
+*Elset, elset="shell-178", internal
+178
+*Elset, elset="shell-179", internal
+179
+*Elset, elset="shell-180", internal
+180
+*Nset, nset="A1-1-shell"
+1
+*Nset, nset="A1-1-beam"
+210
+*Nset, nset="A1-2-shell"
+197
+*Nset, nset="A1-2-beam"
+211
+*Nset, nset="A2-1-shell"
+191
+*Nset, nset="A2-1-beam"
+212
+*Nset, nset="A2-2-shell"
+7
+*Nset, nset="A2-2-beam"
+213
+*Nset, nset="BC"
+99
+*Shell Section, elset="shell-1", material="shell-1"
+1.00e-002, 5
+*Shell Section, elset="shell-2", material="shell-2"
+1.00e-002, 5
+*Shell Section, elset="shell-3", material="shell-3"
+1.00e-002, 5
+*Shell Section, elset="shell-4", material="shell-4"
+1.00e-002, 5
+*Shell Section, elset="shell-5", material="shell-5"
+1.00e-002, 5
+*Shell Section, elset="shell-6", material="shell-6"
+1.00e-002, 5
+*Shell Section, elset="shell-7", material="shell-7"
+1.00e-002, 5
+*Shell Section, elset="shell-8", material="shell-8"
+1.00e-002, 5
+*Shell Section, elset="shell-9", material="shell-9"
+1.00e-002, 5
+*Shell Section, elset="shell-10", material="shell-10"
+1.00e-002, 5
+*Shell Section, elset="shell-11", material="shell-11"
+1.00e-002, 5
+*Shell Section, elset="shell-12", material="shell-12"
+1.00e-002, 5
+*Shell Section, elset="shell-13", material="shell-13"
+1.00e-002, 5
+*Shell Section, elset="shell-14", material="shell-14"
+1.00e-002, 5
+*Shell Section, elset="shell-15", material="shell-15"
+1.00e-002, 5
+*Shell Section, elset="shell-16", material="shell-16"
+1.00e-002, 5
+*Shell Section, elset="shell-17", material="shell-17"
+1.00e-002, 5
+*Shell Section, elset="shell-18", material="shell-18"
+1.00e-002, 5
+*Shell Section, elset="shell-19", material="shell-19"
+1.00e-002, 5
+*Shell Section, elset="shell-20", material="shell-20"
+1.00e-002, 5
+*Shell Section, elset="shell-21", material="shell-21"
+1.00e-002, 5
+*Shell Section, elset="shell-22", material="shell-22"
+1.00e-002, 5
+*Shell Section, elset="shell-23", material="shell-23"
+1.00e-002, 5
+*Shell Section, elset="shell-24", material="shell-24"
+1.00e-002, 5
+*Shell Section, elset="shell-25", material="shell-25"
+1.00e-002, 5
+*Shell Section, elset="shell-26", material="shell-26"
+1.00e-002, 5
+*Shell Section, elset="shell-27", material="shell-27"
+1.00e-002, 5
+*Shell Section, elset="shell-28", material="shell-28"
+1.00e-002, 5
+*Shell Section, elset="shell-29", material="shell-29"
+1.00e-002, 5
+*Shell Section, elset="shell-30", material="shell-30"
+1.00e-002, 5
+*Shell Section, elset="shell-31", material="shell-31"
+1.00e-002, 5
+*Shell Section, elset="shell-32", material="shell-32"
+1.00e-002, 5
+*Shell Section, elset="shell-33", material="shell-33"
+1.00e-002, 5
+*Shell Section, elset="shell-34", material="shell-34"
+1.00e-002, 5
+*Shell Section, elset="shell-35", material="shell-35"
+1.00e-002, 5
+*Shell Section, elset="shell-36", material="shell-36"
+1.00e-002, 5
+*Shell Section, elset="shell-37", material="shell-37"
+1.00e-002, 5
+*Shell Section, elset="shell-38", material="shell-38"
+1.00e-002, 5
+*Shell Section, elset="shell-39", material="shell-39"
+1.00e-002, 5
+*Shell Section, elset="shell-40", material="shell-40"
+1.00e-002, 5
+*Shell Section, elset="shell-41", material="shell-41"
+1.00e-002, 5
+*Shell Section, elset="shell-42", material="shell-42"
+1.00e-002, 5
+*Shell Section, elset="shell-43", material="shell-43"
+1.00e-002, 5
+*Shell Section, elset="shell-44", material="shell-44"
+1.00e-002, 5
+*Shell Section, elset="shell-45", material="shell-45"
+1.00e-002, 5
+*Shell Section, elset="shell-46", material="shell-46"
+1.00e-002, 5
+*Shell Section, elset="shell-47", material="shell-47"
+1.00e-002, 5
+*Shell Section, elset="shell-48", material="shell-48"
+1.00e-002, 5
+*Shell Section, elset="shell-49", material="shell-49"
+1.00e-002, 5
+*Shell Section, elset="shell-50", material="shell-50"
+1.00e-002, 5
+*Shell Section, elset="shell-51", material="shell-51"
+1.00e-002, 5
+*Shell Section, elset="shell-52", material="shell-52"
+1.00e-002, 5
+*Shell Section, elset="shell-53", material="shell-53"
+1.00e-002, 5
+*Shell Section, elset="shell-54", material="shell-54"
+1.00e-002, 5
+*Shell Section, elset="shell-55", material="shell-55"
+1.00e-002, 5
+*Shell Section, elset="shell-56", material="shell-56"
+1.00e-002, 5
+*Shell Section, elset="shell-57", material="shell-57"
+1.00e-002, 5
+*Shell Section, elset="shell-58", material="shell-58"
+1.00e-002, 5
+*Shell Section, elset="shell-59", material="shell-59"
+1.00e-002, 5
+*Shell Section, elset="shell-60", material="shell-60"
+1.00e-002, 5
+*Shell Section, elset="shell-61", material="shell-61"
+1.00e-002, 5
+*Shell Section, elset="shell-62", material="shell-62"
+1.00e-002, 5
+*Shell Section, elset="shell-63", material="shell-63"
+1.00e-002, 5
+*Shell Section, elset="shell-64", material="shell-64"
+1.00e-002, 5
+*Shell Section, elset="shell-65", material="shell-65"
+1.00e-002, 5
+*Shell Section, elset="shell-66", material="shell-66"
+1.00e-002, 5
+*Shell Section, elset="shell-67", material="shell-67"
+1.00e-002, 5
+*Shell Section, elset="shell-68", material="shell-68"
+1.00e-002, 5
+*Shell Section, elset="shell-69", material="shell-69"
+1.00e-002, 5
+*Shell Section, elset="shell-70", material="shell-70"
+1.00e-002, 5
+*Shell Section, elset="shell-71", material="shell-71"
+1.00e-002, 5
+*Shell Section, elset="shell-72", material="shell-72"
+1.00e-002, 5
+*Shell Section, elset="shell-73", material="shell-73"
+1.00e-002, 5
+*Shell Section, elset="shell-74", material="shell-74"
+1.00e-002, 5
+*Shell Section, elset="shell-75", material="shell-75"
+1.00e-002, 5
+*Shell Section, elset="shell-76", material="shell-76"
+1.00e-002, 5
+*Shell Section, elset="shell-77", material="shell-77"
+1.00e-002, 5
+*Shell Section, elset="shell-78", material="shell-78"
+1.00e-002, 5
+*Shell Section, elset="shell-79", material="shell-79"
+1.00e-002, 5
+*Shell Section, elset="shell-80", material="shell-80"
+1.00e-002, 5
+*Shell Section, elset="shell-81", material="shell-81"
+1.00e-002, 5
+*Shell Section, elset="shell-82", material="shell-82"
+1.00e-002, 5
+*Shell Section, elset="shell-83", material="shell-83"
+1.00e-002, 5
+*Shell Section, elset="shell-84", material="shell-84"
+1.00e-002, 5
+*Shell Section, elset="shell-85", material="shell-85"
+1.00e-002, 5
+*Shell Section, elset="shell-86", material="shell-86"
+1.00e-002, 5
+*Shell Section, elset="shell-87", material="shell-87"
+1.00e-002, 5
+*Shell Section, elset="shell-88", material="shell-88"
+1.00e-002, 5
+*Shell Section, elset="shell-89", material="shell-89"
+1.00e-002, 5
+*Shell Section, elset="shell-90", material="shell-90"
+1.00e-002, 5
+*Shell Section, elset="shell-91", material="shell-91"
+1.00e-002, 5
+*Shell Section, elset="shell-92", material="shell-92"
+1.00e-002, 5
+*Shell Section, elset="shell-93", material="shell-93"
+1.00e-002, 5
+*Shell Section, elset="shell-94", material="shell-94"
+1.00e-002, 5
+*Shell Section, elset="shell-95", material="shell-95"
+1.00e-002, 5
+*Shell Section, elset="shell-96", material="shell-96"
+1.00e-002, 5
+*Shell Section, elset="shell-97", material="shell-97"
+1.00e-002, 5
+*Shell Section, elset="shell-98", material="shell-98"
+1.00e-002, 5
+*Shell Section, elset="shell-99", material="shell-99"
+1.00e-002, 5
+*Shell Section, elset="shell-100", material="shell-100"
+1.00e-002, 5
+*Shell Section, elset="shell-101", material="shell-101"
+1.00e-002, 5
+*Shell Section, elset="shell-102", material="shell-102"
+1.00e-002, 5
+*Shell Section, elset="shell-103", material="shell-103"
+1.00e-002, 5
+*Shell Section, elset="shell-104", material="shell-104"
+1.00e-002, 5
+*Shell Section, elset="shell-105", material="shell-105"
+1.00e-002, 5
+*Shell Section, elset="shell-106", material="shell-106"
+1.00e-002, 5
+*Shell Section, elset="shell-107", material="shell-107"
+1.00e-002, 5
+*Shell Section, elset="shell-108", material="shell-108"
+1.00e-002, 5
+*Shell Section, elset="shell-109", material="shell-109"
+1.00e-002, 5
+*Shell Section, elset="shell-110", material="shell-110"
+1.00e-002, 5
+*Shell Section, elset="shell-111", material="shell-111"
+1.00e-002, 5
+*Shell Section, elset="shell-112", material="shell-112"
+1.00e-002, 5
+*Shell Section, elset="shell-113", material="shell-113"
+1.00e-002, 5
+*Shell Section, elset="shell-114", material="shell-114"
+1.00e-002, 5
+*Shell Section, elset="shell-115", material="shell-115"
+1.00e-002, 5
+*Shell Section, elset="shell-116", material="shell-116"
+1.00e-002, 5
+*Shell Section, elset="shell-117", material="shell-117"
+1.00e-002, 5
+*Shell Section, elset="shell-118", material="shell-118"
+1.00e-002, 5
+*Shell Section, elset="shell-119", material="shell-119"
+1.00e-002, 5
+*Shell Section, elset="shell-120", material="shell-120"
+1.00e-002, 5
+*Shell Section, elset="shell-121", material="shell-121"
+1.00e-002, 5
+*Shell Section, elset="shell-122", material="shell-122"
+1.00e-002, 5
+*Shell Section, elset="shell-123", material="shell-123"
+1.00e-002, 5
+*Shell Section, elset="shell-124", material="shell-124"
+1.00e-002, 5
+*Shell Section, elset="shell-125", material="shell-125"
+1.00e-002, 5
+*Shell Section, elset="shell-126", material="shell-126"
+1.00e-002, 5
+*Shell Section, elset="shell-127", material="shell-127"
+1.00e-002, 5
+*Shell Section, elset="shell-128", material="shell-128"
+1.00e-002, 5
+*Shell Section, elset="shell-129", material="shell-129"
+1.00e-002, 5
+*Shell Section, elset="shell-130", material="shell-130"
+1.00e-002, 5
+*Shell Section, elset="shell-131", material="shell-131"
+1.00e-002, 5
+*Shell Section, elset="shell-132", material="shell-132"
+1.00e-002, 5
+*Shell Section, elset="shell-133", material="shell-133"
+1.00e-002, 5
+*Shell Section, elset="shell-134", material="shell-134"
+1.00e-002, 5
+*Shell Section, elset="shell-135", material="shell-135"
+1.00e-002, 5
+*Shell Section, elset="shell-136", material="shell-136"
+1.00e-002, 5
+*Shell Section, elset="shell-137", material="shell-137"
+1.00e-002, 5
+*Shell Section, elset="shell-138", material="shell-138"
+1.00e-002, 5
+*Shell Section, elset="shell-139", material="shell-139"
+1.00e-002, 5
+*Shell Section, elset="shell-140", material="shell-140"
+1.00e-002, 5
+*Shell Section, elset="shell-141", material="shell-141"
+1.00e-002, 5
+*Shell Section, elset="shell-142", material="shell-142"
+1.00e-002, 5
+*Shell Section, elset="shell-143", material="shell-143"
+1.00e-002, 5
+*Shell Section, elset="shell-144", material="shell-144"
+1.00e-002, 5
+*Shell Section, elset="shell-145", material="shell-145"
+1.00e-002, 5
+*Shell Section, elset="shell-146", material="shell-146"
+1.00e-002, 5
+*Shell Section, elset="shell-147", material="shell-147"
+1.00e-002, 5
+*Shell Section, elset="shell-148", material="shell-148"
+1.00e-002, 5
+*Shell Section, elset="shell-149", material="shell-149"
+1.00e-002, 5
+*Shell Section, elset="shell-150", material="shell-150"
+1.00e-002, 5
+*Shell Section, elset="shell-151", material="shell-151"
+1.00e-002, 5
+*Shell Section, elset="shell-152", material="shell-152"
+1.00e-002, 5
+*Shell Section, elset="shell-153", material="shell-153"
+1.00e-002, 5
+*Shell Section, elset="shell-154", material="shell-154"
+1.00e-002, 5
+*Shell Section, elset="shell-155", material="shell-155"
+1.00e-002, 5
+*Shell Section, elset="shell-156", material="shell-156"
+1.00e-002, 5
+*Shell Section, elset="shell-157", material="shell-157"
+1.00e-002, 5
+*Shell Section, elset="shell-158", material="shell-158"
+1.00e-002, 5
+*Shell Section, elset="shell-159", material="shell-159"
+1.00e-002, 5
+*Shell Section, elset="shell-160", material="shell-160"
+1.00e-002, 5
+*Shell Section, elset="shell-161", material="shell-161"
+1.00e-002, 5
+*Shell Section, elset="shell-162", material="shell-162"
+1.00e-002, 5
+*Shell Section, elset="shell-163", material="shell-163"
+1.00e-002, 5
+*Shell Section, elset="shell-164", material="shell-164"
+1.00e-002, 5
+*Shell Section, elset="shell-165", material="shell-165"
+1.00e-002, 5
+*Shell Section, elset="shell-166", material="shell-166"
+1.00e-002, 5
+*Shell Section, elset="shell-167", material="shell-167"
+1.00e-002, 5
+*Shell Section, elset="shell-168", material="shell-168"
+1.00e-002, 5
+*Shell Section, elset="shell-169", material="shell-169"
+1.00e-002, 5
+*Shell Section, elset="shell-170", material="shell-170"
+1.00e-002, 5
+*Shell Section, elset="shell-171", material="shell-171"
+1.00e-002, 5
+*Shell Section, elset="shell-172", material="shell-172"
+1.00e-002, 5
+*Shell Section, elset="shell-173", material="shell-173"
+1.00e-002, 5
+*Shell Section, elset="shell-174", material="shell-174"
+1.00e-002, 5
+*Shell Section, elset="shell-175", material="shell-175"
+1.00e-002, 5
+*Shell Section, elset="shell-176", material="shell-176"
+1.00e-002, 5
+*Shell Section, elset="shell-177", material="shell-177"
+1.00e-002, 5
+*Shell Section, elset="shell-178", material="shell-178"
+1.00e-002, 5
+*Shell Section, elset="shell-179", material="shell-179"
+1.00e-002, 5
+*Shell Section, elset="shell-180", material="shell-180"
+1.00e-002, 5
+*Solid Section, elset="A1", material="actuator-1"
+3.14e-002
+*Solid Section, elset="A2", material="actuator-2"
+3.14e-002
+*End Part
+**
+** =============================================================================
+** ASSEMBLY
+** =============================================================================
+**
+*Assembly, name=Assembly
+**
+*Instance, name="Instance A", part="Part A"
+*End Instance
+**
+*Surface, type=NODE, name="A1-1-shell", internal
+"Instance A"."A1-1-shell", 1.
+*Surface, type=NODE, name="A1-1-beam", internal
+"Instance A"."A1-1-beam", 1.
+*Tie, name="A1-1", adjust=no, no rotation
+"A1-1-shell", "A1-1-beam"
+*Surface, type=NODE, name="A1-2-shell", internal
+"Instance A"."A1-2-shell", 1.
+*Surface, type=NODE, name="A1-2-beam", internal
+"Instance A"."A1-2-beam", 1.
+*Tie, name="A1-2", adjust=no, no rotation
+"A1-2-shell", "A1-2-beam"
+*Surface, type=NODE, name="A2-1-shell", internal
+"Instance A"."A2-1-shell", 1.
+*Surface, type=NODE, name="A2-1-beam", internal
+"Instance A"."A2-1-beam", 1.
+*Tie, name="A2-1", adjust=no, no rotation
+"A2-1-shell", "A2-1-beam"
+*Surface, type=NODE, name="A2-2-shell", internal
+"Instance A"."A2-2-shell", 1.
+*Surface, type=NODE, name="A2-2-beam", internal
+"Instance A"."A2-2-beam", 1.
+*Tie, name="A2-2", adjust=no, no rotation
+"A2-2-shell", "A2-2-beam"
+*End Assembly
+**
+** =============================================================================
+** MATERIALS
+** =============================================================================
+**
+*Material, name="shell-1"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-2"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-3"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-4"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-5"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-6"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-7"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-8"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-9"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-10"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-11"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-12"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-13"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-14"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-15"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-16"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-17"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-18"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-19"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-20"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-21"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-22"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-23"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-24"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-25"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-26"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-27"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-28"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-29"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-30"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-31"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-32"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-33"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-34"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-35"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-36"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-37"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-38"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-39"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-40"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-41"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-42"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-43"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-44"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-45"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-46"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-47"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-48"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-49"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-50"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-51"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-52"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-53"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-54"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-55"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-56"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-57"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-58"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-59"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-60"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-61"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-62"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-63"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-64"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-65"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-66"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-67"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-68"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-69"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-70"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-71"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-72"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-73"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-74"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-75"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-76"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-77"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-78"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-79"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-80"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-81"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-82"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-83"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-84"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-85"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-86"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-87"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-88"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-89"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-90"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-91"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-92"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-93"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-94"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-95"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-96"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-97"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-98"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-99"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-100"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-101"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-102"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-103"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-104"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-105"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-106"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-107"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-108"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-109"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-110"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-111"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-112"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-113"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-114"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-115"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-116"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-117"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-118"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-119"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-120"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-121"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-122"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-123"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-124"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-125"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-126"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-127"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-128"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-129"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-130"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-131"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-132"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-133"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-134"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-135"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-136"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-137"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-138"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-139"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-140"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-141"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-142"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-143"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-144"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-145"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-146"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-147"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-148"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-149"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-150"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-151"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-152"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-153"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-154"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-155"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-156"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-157"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-158"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-159"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-160"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-161"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-162"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-163"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-164"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-165"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-166"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-167"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-168"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-169"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-170"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-171"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-172"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-173"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-174"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-175"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-176"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-177"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-178"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-179"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="shell-180"
+*Density
+1.00,
+*Elastic
+5.000e+009, 0.30
+*Material, name="actuator-1"
+*Density
+8.00,
+*Elastic
+2.100e+011, 0.30
+*Expansion
+1.507e-003,
+*Material, name="actuator-2"
+*Density
+8.00,
+*Elastic
+2.100e+011, 0.30
+*Expansion
+1.507e-003,
+**
+** =============================================================================
+** BOUDARY CONDITIONS
+** =============================================================================
+**
+*Boundary
+"Instance A"."BC", ENCASTRE

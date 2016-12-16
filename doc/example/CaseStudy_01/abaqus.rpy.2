@@ -1,0 +1,20 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 6.12-1 replay file
+# Internal Version: 2012_03_13-20.23.18 119612
+# Run by Lionel on Fri Dec 16 10:32:45 2016
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(1.76563, 1.7625), width=259.9, 
+    height=174.84)
+session.viewports['Viewport: 1'].makeCurrent()
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+execfile('model_odb.py', __main__.__dict__)
+#* SyntaxError: ('invalid syntax', ('model_odb.py', 53, 26, '    print 
+#* `Processing Node : ` + subdir\n'))

@@ -1,0 +1,2859 @@
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:20:57
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+
+
+                         The Abaqus Software is a product of:
+
+                           Dassault Systemes Simulia Corp.
+                                 Rising Sun Mills
+                                 166 Valley Street
+                           Providence, RI 02909-2499, USA
+ 
+
+
+                   The Abaqus Software is available only under license
+                   from Dassault Systemes or its subsidiary and may be
+                   used or reproduced only in accordance with the terms
+                   of such license.
+ 
+                          On machine Macbook 
+                          you are authorized to run
+                          Abaqus/Standard until 07-Jul-2028
+
+                          Your site id is: AE125930 
+
+
+ 
+                    For assistance or any other information you may
+                    obtain contact information for your local office
+                    from the world wide web at:
+
+                      http://www.simulia.com/about/locations.html
+
+ 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+                *                                                         * 
+                *                   *****************                     * 
+                *                   *  N O T I C E  *                     * 
+                *                   *****************                     * 
+                *                                                         * 
+                *                                                         * 
+                *                    Abaqus 6.12-1                        * 
+                *                                                         * 
+                *          BUILD ID: 2012_03_13-20.23.18 119612           * 
+                *                                                         * 
+                *                                                         * 
+                *  Please make sure you are using release 6.12 manuals    * 
+                *  plus the notes accompanying this release.              * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+ 
+
+
+
+     PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   *******************************************************
+
+
+     END PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   ***********************************************************
+
+
+
+
+     OPTIONS BEING PROCESSED
+   ***************************
+
+
+  *Heading
+  *Node
+  *Element, type=S4R
+  *Element, type=T3D2H
+  *Nset, nset="ASSEMBLY_Instance A_A1"
+  *Nset, nset="ASSEMBLY_Instance A_A1-1-BEAM"
+  *Nset, nset="ASSEMBLY_Instance A_A1-1-SHELL"
+  *Nset, nset="ASSEMBLY_Instance A_A1-2-BEAM"
+  *Nset, nset="ASSEMBLY_Instance A_A1-2-SHELL"
+  *Nset, nset="ASSEMBLY_Instance A_A2"
+  *Nset, nset="ASSEMBLY_Instance A_A2-1-BEAM"
+  *Nset, nset="ASSEMBLY_Instance A_A2-1-SHELL"
+  *Nset, nset="ASSEMBLY_Instance A_A2-2-BEAM"
+  *Nset, nset="ASSEMBLY_Instance A_A2-2-SHELL"
+  *Nset, nset="ASSEMBLY_Instance A_BC"
+  *Nset, nset="ASSEMBLY_Instance A_SHELL"
+  *Elset, elset="ASSEMBLY_Instance A_A1"
+  *Elset, elset="ASSEMBLY_Instance A_A2"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-1"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-10"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-100"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-101"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-102"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-103"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-104"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-105"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-106"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-107"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-108"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-109"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-11"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-110"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-111"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-112"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-113"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-114"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-115"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-116"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-117"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-118"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-119"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-12"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-120"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-121"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-122"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-123"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-124"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-125"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-126"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-127"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-128"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-129"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-13"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-130"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-131"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-132"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-133"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-134"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-135"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-136"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-137"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-138"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-139"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-14"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-140"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-141"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-142"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-143"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-144"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-145"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-146"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-147"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-148"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-149"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-15"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-150"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-151"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-152"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-153"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-154"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-155"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-156"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-157"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-158"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-159"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-16"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-160"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-161"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-162"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-163"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-164"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-165"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-166"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-167"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-168"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-169"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-17"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-170"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-171"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-172"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-173"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-174"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-175"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-176"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-177"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-178"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-179"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-18"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-180"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-19"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-2"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-20"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-21"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-22"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-23"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-24"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-25"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-26"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-27"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-28"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-29"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-3"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-30"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-31"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-32"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-33"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-34"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-35"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-36"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-37"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-38"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-39"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-4"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-40"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-41"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-42"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-43"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-44"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-45"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-46"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-47"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-48"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-49"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-5"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-50"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-51"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-52"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-53"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-54"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-55"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-56"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-57"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-58"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-59"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-6"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-60"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-61"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-62"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-63"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-64"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-65"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-66"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-67"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-68"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-69"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-7"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-70"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-71"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-72"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-73"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-74"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-75"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-76"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-77"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-78"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-79"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-8"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-80"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-81"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-82"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-83"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-84"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-85"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-86"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-87"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-88"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-89"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-9"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-90"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-91"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-92"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-93"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-94"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-95"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-96"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-97"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-98"
+  *Elset, elset="ASSEMBLY_Instance A_SHELL-99"
+  *Nset, nset=ASSEMBLY_A1-1-BEAM
+  *Nset, nset=ASSEMBLY_A1-1-SHELL
+  *Nset, nset=ASSEMBLY_A1-2-BEAM
+  *Nset, nset=ASSEMBLY_A1-2-SHELL
+  *Nset, nset=ASSEMBLY_A2-1-BEAM
+  *Nset, nset=ASSEMBLY_A2-1-SHELL
+  *Nset, nset=ASSEMBLY_A2-2-BEAM
+  *Nset, nset=ASSEMBLY_A2-2-SHELL
+  *tie, name=A1-1-1, norotation, adjust=NO
+  *tie, name=A1-2-1, norotation, adjust=NO
+  *tie, name=A2-1-1, norotation, adjust=NO
+  *tie, name=A2-2-1, norotation, adjust=NO
+  *surface, type=NODE, name=ASSEMBLY_A1-1-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-1-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-2-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-2-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-1-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-1-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-2-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-2-SHELL_CNS_
+  *tie, name=A1-1-1, norotation, adjust=NO
+  *tie, name=A1-2-1, norotation, adjust=NO
+  *tie, name=A2-1-1, norotation, adjust=NO
+  *tie, name=A2-2-1, norotation, adjust=NO
+  *surface, type=NODE, name=ASSEMBLY_A1-1-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-1-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-2-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-2-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-1-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-1-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-2-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-2-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-1-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-1-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-2-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-2-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-1-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-1-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-2-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-2-SHELL_CNS_
+  *tie, name=A1-1-1, norotation, adjust=NO
+  *tie, name=A1-2-1, norotation, adjust=NO
+  *tie, name=A2-1-1, norotation, adjust=NO
+  *tie, name=A2-2-1, norotation, adjust=NO
+  *tie, name=A1-1-1, norotation, adjust=NO
+  *tie, name=A1-2-1, norotation, adjust=NO
+  *tie, name=A2-1-1, norotation, adjust=NO
+  *tie, name=A2-2-1, norotation, adjust=NO
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-1", material=SHELL-1
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-2", material=SHELL-2
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-3", material=SHELL-3
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-4", material=SHELL-4
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-5", material=SHELL-5
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-6", material=SHELL-6
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-7", material=SHELL-7
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-8", material=SHELL-8
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-9", material=SHELL-9
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-10", material=SHELL-10
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-11", material=SHELL-11
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-12", material=SHELL-12
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-13", material=SHELL-13
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-14", material=SHELL-14
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-15", material=SHELL-15
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-16", material=SHELL-16
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-17", material=SHELL-17
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-18", material=SHELL-18
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-19", material=SHELL-19
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-20", material=SHELL-20
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-21", material=SHELL-21
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-22", material=SHELL-22
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-23", material=SHELL-23
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-24", material=SHELL-24
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-25", material=SHELL-25
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-26", material=SHELL-26
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-27", material=SHELL-27
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-28", material=SHELL-28
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-29", material=SHELL-29
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-30", material=SHELL-30
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-31", material=SHELL-31
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-32", material=SHELL-32
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-33", material=SHELL-33
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-34", material=SHELL-34
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-35", material=SHELL-35
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-36", material=SHELL-36
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-37", material=SHELL-37
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-38", material=SHELL-38
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-39", material=SHELL-39
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-40", material=SHELL-40
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-41", material=SHELL-41
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-42", material=SHELL-42
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-43", material=SHELL-43
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-44", material=SHELL-44
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-45", material=SHELL-45
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-46", material=SHELL-46
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-47", material=SHELL-47
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-48", material=SHELL-48
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-49", material=SHELL-49
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-50", material=SHELL-50
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-51", material=SHELL-51
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-52", material=SHELL-52
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-53", material=SHELL-53
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-54", material=SHELL-54
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-55", material=SHELL-55
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-56", material=SHELL-56
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-57", material=SHELL-57
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-58", material=SHELL-58
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-59", material=SHELL-59
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-60", material=SHELL-60
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-61", material=SHELL-61
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-62", material=SHELL-62
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-63", material=SHELL-63
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-64", material=SHELL-64
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-65", material=SHELL-65
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-66", material=SHELL-66
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-67", material=SHELL-67
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-68", material=SHELL-68
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-69", material=SHELL-69
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-70", material=SHELL-70
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-71", material=SHELL-71
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-72", material=SHELL-72
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-73", material=SHELL-73
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-74", material=SHELL-74
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-75", material=SHELL-75
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-76", material=SHELL-76
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-77", material=SHELL-77
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-78", material=SHELL-78
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-79", material=SHELL-79
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-80", material=SHELL-80
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-81", material=SHELL-81
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-82", material=SHELL-82
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-83", material=SHELL-83
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-84", material=SHELL-84
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-85", material=SHELL-85
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-86", material=SHELL-86
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-87", material=SHELL-87
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-88", material=SHELL-88
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-89", material=SHELL-89
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-90", material=SHELL-90
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-91", material=SHELL-91
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-92", material=SHELL-92
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-93", material=SHELL-93
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-94", material=SHELL-94
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-95", material=SHELL-95
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-96", material=SHELL-96
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-97", material=SHELL-97
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-98", material=SHELL-98
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-99", material=SHELL-99
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-100", material=SHELL-100
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-101", material=SHELL-101
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-102", material=SHELL-102
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-103", material=SHELL-103
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-104", material=SHELL-104
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-105", material=SHELL-105
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-106", material=SHELL-106
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-107", material=SHELL-107
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-108", material=SHELL-108
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-109", material=SHELL-109
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-110", material=SHELL-110
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-111", material=SHELL-111
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-112", material=SHELL-112
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-113", material=SHELL-113
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-114", material=SHELL-114
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-115", material=SHELL-115
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-116", material=SHELL-116
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-117", material=SHELL-117
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-118", material=SHELL-118
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-119", material=SHELL-119
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-120", material=SHELL-120
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-121", material=SHELL-121
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-122", material=SHELL-122
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-123", material=SHELL-123
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-124", material=SHELL-124
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-125", material=SHELL-125
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-126", material=SHELL-126
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-127", material=SHELL-127
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-128", material=SHELL-128
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-129", material=SHELL-129
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-130", material=SHELL-130
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-131", material=SHELL-131
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-132", material=SHELL-132
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-133", material=SHELL-133
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-134", material=SHELL-134
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-135", material=SHELL-135
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-136", material=SHELL-136
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-137", material=SHELL-137
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-138", material=SHELL-138
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-139", material=SHELL-139
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-140", material=SHELL-140
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-141", material=SHELL-141
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-142", material=SHELL-142
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-143", material=SHELL-143
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-144", material=SHELL-144
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-145", material=SHELL-145
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-146", material=SHELL-146
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-147", material=SHELL-147
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-148", material=SHELL-148
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-149", material=SHELL-149
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-150", material=SHELL-150
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-151", material=SHELL-151
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-152", material=SHELL-152
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-153", material=SHELL-153
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-154", material=SHELL-154
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-155", material=SHELL-155
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-156", material=SHELL-156
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-157", material=SHELL-157
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-158", material=SHELL-158
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-159", material=SHELL-159
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-160", material=SHELL-160
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-161", material=SHELL-161
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-162", material=SHELL-162
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-163", material=SHELL-163
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-164", material=SHELL-164
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-165", material=SHELL-165
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-166", material=SHELL-166
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-167", material=SHELL-167
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-168", material=SHELL-168
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-169", material=SHELL-169
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-170", material=SHELL-170
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-171", material=SHELL-171
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-172", material=SHELL-172
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-173", material=SHELL-173
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-174", material=SHELL-174
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-175", material=SHELL-175
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-176", material=SHELL-176
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-177", material=SHELL-177
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-178", material=SHELL-178
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-179", material=SHELL-179
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-180", material=SHELL-180
+  *material, name=ACTUATOR-1
+  *density
+  *elastic
+  *expansion
+  *material, name=ACTUATOR-2
+  *density
+  *elastic
+  *expansion
+  *material, name=SHELL-1
+  *density
+  *elastic
+  *material, name=SHELL-2
+  *density
+  *elastic
+  *material, name=SHELL-3
+  *density
+  *elastic
+  *material, name=SHELL-4
+  *density
+  *elastic
+  *material, name=SHELL-5
+  *density
+  *elastic
+  *material, name=SHELL-6
+  *density
+  *elastic
+  *material, name=SHELL-7
+  *density
+  *elastic
+  *material, name=SHELL-8
+  *density
+  *elastic
+  *material, name=SHELL-9
+  *density
+  *elastic
+  *material, name=SHELL-10
+  *density
+  *elastic
+  *material, name=SHELL-11
+  *density
+  *elastic
+  *material, name=SHELL-12
+  *density
+  *elastic
+  *material, name=SHELL-13
+  *density
+  *elastic
+  *material, name=SHELL-14
+  *density
+  *elastic
+  *material, name=SHELL-15
+  *density
+  *elastic
+  *material, name=SHELL-16
+  *density
+  *elastic
+  *material, name=SHELL-17
+  *density
+  *elastic
+  *material, name=SHELL-18
+  *density
+  *elastic
+  *material, name=SHELL-19
+  *density
+  *elastic
+  *material, name=SHELL-20
+  *density
+  *elastic
+  *material, name=SHELL-21
+  *density
+  *elastic
+  *material, name=SHELL-22
+  *density
+  *elastic
+  *material, name=SHELL-23
+  *density
+  *elastic
+  *material, name=SHELL-24
+  *density
+  *elastic
+  *material, name=SHELL-25
+  *density
+  *elastic
+  *material, name=SHELL-26
+  *density
+  *elastic
+  *material, name=SHELL-27
+  *density
+  *elastic
+  *material, name=SHELL-28
+  *density
+  *elastic
+  *material, name=SHELL-29
+  *density
+  *elastic
+  *material, name=SHELL-30
+  *density
+  *elastic
+  *material, name=SHELL-31
+  *density
+  *elastic
+  *material, name=SHELL-32
+  *density
+  *elastic
+  *material, name=SHELL-33
+  *density
+  *elastic
+  *material, name=SHELL-34
+  *density
+  *elastic
+  *material, name=SHELL-35
+  *density
+  *elastic
+  *material, name=SHELL-36
+  *density
+  *elastic
+  *material, name=SHELL-37
+  *density
+  *elastic
+  *material, name=SHELL-38
+  *density
+  *elastic
+  *material, name=SHELL-39
+  *density
+  *elastic
+  *material, name=SHELL-40
+  *density
+  *elastic
+  *material, name=SHELL-41
+  *density
+  *elastic
+  *material, name=SHELL-42
+  *density
+  *elastic
+  *material, name=SHELL-43
+  *density
+  *elastic
+  *material, name=SHELL-44
+  *density
+  *elastic
+  *material, name=SHELL-45
+  *density
+  *elastic
+  *material, name=SHELL-46
+  *density
+  *elastic
+  *material, name=SHELL-47
+  *density
+  *elastic
+  *material, name=SHELL-48
+  *density
+  *elastic
+  *material, name=SHELL-49
+  *density
+  *elastic
+  *material, name=SHELL-50
+  *density
+  *elastic
+  *material, name=SHELL-51
+  *density
+  *elastic
+  *material, name=SHELL-52
+  *density
+  *elastic
+  *material, name=SHELL-53
+  *density
+  *elastic
+  *material, name=SHELL-54
+  *density
+  *elastic
+  *material, name=SHELL-55
+  *density
+  *elastic
+  *material, name=SHELL-56
+  *density
+  *elastic
+  *material, name=SHELL-57
+  *density
+  *elastic
+  *material, name=SHELL-58
+  *density
+  *elastic
+  *material, name=SHELL-59
+  *density
+  *elastic
+  *material, name=SHELL-60
+  *density
+  *elastic
+  *material, name=SHELL-61
+  *density
+  *elastic
+  *material, name=SHELL-62
+  *density
+  *elastic
+  *material, name=SHELL-63
+  *density
+  *elastic
+  *material, name=SHELL-64
+  *density
+  *elastic
+  *material, name=SHELL-65
+  *density
+  *elastic
+  *material, name=SHELL-66
+  *density
+  *elastic
+  *material, name=SHELL-67
+  *density
+  *elastic
+  *material, name=SHELL-68
+  *density
+  *elastic
+  *material, name=SHELL-69
+  *density
+  *elastic
+  *material, name=SHELL-70
+  *density
+  *elastic
+  *material, name=SHELL-71
+  *density
+  *elastic
+  *material, name=SHELL-72
+  *density
+  *elastic
+  *material, name=SHELL-73
+  *density
+  *elastic
+  *material, name=SHELL-74
+  *density
+  *elastic
+  *material, name=SHELL-75
+  *density
+  *elastic
+  *material, name=SHELL-76
+  *density
+  *elastic
+  *material, name=SHELL-77
+  *density
+  *elastic
+  *material, name=SHELL-78
+  *density
+  *elastic
+  *material, name=SHELL-79
+  *density
+  *elastic
+  *material, name=SHELL-80
+  *density
+  *elastic
+  *material, name=SHELL-81
+  *density
+  *elastic
+  *material, name=SHELL-82
+  *density
+  *elastic
+  *material, name=SHELL-83
+  *density
+  *elastic
+  *material, name=SHELL-84
+  *density
+  *elastic
+  *material, name=SHELL-85
+  *density
+  *elastic
+  *material, name=SHELL-86
+  *density
+  *elastic
+  *material, name=SHELL-87
+  *density
+  *elastic
+  *material, name=SHELL-88
+  *density
+  *elastic
+  *material, name=SHELL-89
+  *density
+  *elastic
+  *material, name=SHELL-90
+  *density
+  *elastic
+  *material, name=SHELL-91
+  *density
+  *elastic
+  *material, name=SHELL-92
+  *density
+  *elastic
+  *material, name=SHELL-93
+  *density
+  *elastic
+  *material, name=SHELL-94
+  *density
+  *elastic
+  *material, name=SHELL-95
+  *density
+  *elastic
+  *material, name=SHELL-96
+  *density
+  *elastic
+  *material, name=SHELL-97
+  *density
+  *elastic
+  *material, name=SHELL-98
+  *density
+  *elastic
+  *material, name=SHELL-99
+  *density
+  *elastic
+  *material, name=SHELL-100
+  *density
+  *elastic
+  *material, name=SHELL-101
+  *density
+  *elastic
+  *material, name=SHELL-102
+  *density
+  *elastic
+  *material, name=SHELL-103
+  *density
+  *elastic
+  *material, name=SHELL-104
+  *density
+  *elastic
+  *material, name=SHELL-105
+  *density
+  *elastic
+  *material, name=SHELL-106
+  *density
+  *elastic
+  *material, name=SHELL-107
+  *density
+  *elastic
+  *material, name=SHELL-108
+  *density
+  *elastic
+  *material, name=SHELL-109
+  *density
+  *elastic
+  *material, name=SHELL-110
+  *density
+  *elastic
+  *material, name=SHELL-111
+  *density
+  *elastic
+  *material, name=SHELL-112
+  *density
+  *elastic
+  *material, name=SHELL-113
+  *density
+  *elastic
+  *material, name=SHELL-114
+  *density
+  *elastic
+  *material, name=SHELL-115
+  *density
+  *elastic
+  *material, name=SHELL-116
+  *density
+  *elastic
+  *material, name=SHELL-117
+  *density
+  *elastic
+  *material, name=SHELL-118
+  *density
+  *elastic
+  *material, name=SHELL-119
+  *density
+  *elastic
+  *material, name=SHELL-120
+  *density
+  *elastic
+  *material, name=SHELL-121
+  *density
+  *elastic
+  *material, name=SHELL-122
+  *density
+  *elastic
+  *material, name=SHELL-123
+  *density
+  *elastic
+  *material, name=SHELL-124
+  *density
+  *elastic
+  *material, name=SHELL-125
+  *density
+  *elastic
+  *material, name=SHELL-126
+  *density
+  *elastic
+  *material, name=SHELL-127
+  *density
+  *elastic
+  *material, name=SHELL-128
+  *density
+  *elastic
+  *material, name=SHELL-129
+  *density
+  *elastic
+  *material, name=SHELL-130
+  *density
+  *elastic
+  *material, name=SHELL-131
+  *density
+  *elastic
+  *material, name=SHELL-132
+  *density
+  *elastic
+  *material, name=SHELL-133
+  *density
+  *elastic
+  *material, name=SHELL-134
+  *density
+  *elastic
+  *material, name=SHELL-135
+  *density
+  *elastic
+  *material, name=SHELL-136
+  *density
+  *elastic
+  *material, name=SHELL-137
+  *density
+  *elastic
+  *material, name=SHELL-138
+  *density
+  *elastic
+  *material, name=SHELL-139
+  *density
+  *elastic
+  *material, name=SHELL-140
+  *density
+  *elastic
+  *material, name=SHELL-141
+  *density
+  *elastic
+  *material, name=SHELL-142
+  *density
+  *elastic
+  *material, name=SHELL-143
+  *density
+  *elastic
+  *material, name=SHELL-144
+  *density
+  *elastic
+  *material, name=SHELL-145
+  *density
+  *elastic
+  *material, name=SHELL-146
+  *density
+  *elastic
+  *material, name=SHELL-147
+  *density
+  *elastic
+  *material, name=SHELL-148
+  *density
+  *elastic
+  *material, name=SHELL-149
+  *density
+  *elastic
+  *material, name=SHELL-150
+  *density
+  *elastic
+  *material, name=SHELL-151
+  *density
+  *elastic
+  *material, name=SHELL-152
+  *density
+  *elastic
+  *material, name=SHELL-153
+  *density
+  *elastic
+  *material, name=SHELL-154
+  *density
+  *elastic
+  *material, name=SHELL-155
+  *density
+  *elastic
+  *material, name=SHELL-156
+  *density
+  *elastic
+  *material, name=SHELL-157
+  *density
+  *elastic
+  *material, name=SHELL-158
+  *density
+  *elastic
+  *material, name=SHELL-159
+  *density
+  *elastic
+  *material, name=SHELL-160
+  *density
+  *elastic
+  *material, name=SHELL-161
+  *density
+  *elastic
+  *material, name=SHELL-162
+  *density
+  *elastic
+  *material, name=SHELL-163
+  *density
+  *elastic
+  *material, name=SHELL-164
+  *density
+  *elastic
+  *material, name=SHELL-165
+  *density
+  *elastic
+  *material, name=SHELL-166
+  *density
+  *elastic
+  *material, name=SHELL-167
+  *density
+  *elastic
+  *material, name=SHELL-168
+  *density
+  *elastic
+  *material, name=SHELL-169
+  *density
+  *elastic
+  *material, name=SHELL-170
+  *density
+  *elastic
+  *material, name=SHELL-171
+  *density
+  *elastic
+  *material, name=SHELL-172
+  *density
+  *elastic
+  *material, name=SHELL-173
+  *density
+  *elastic
+  *material, name=SHELL-174
+  *density
+  *elastic
+  *material, name=SHELL-175
+  *density
+  *elastic
+  *material, name=SHELL-176
+  *density
+  *elastic
+  *material, name=SHELL-177
+  *density
+  *elastic
+  *material, name=SHELL-178
+  *density
+  *elastic
+  *material, name=SHELL-179
+  *density
+  *elastic
+  *material, name=SHELL-180
+  *density
+  *elastic
+  *initialconditions, type=TEMPERATURE
+  *initialconditions, type=TEMPERATURE
+  *initialconditions, type=TEMPERATURE
+  *initialconditions, type=TEMPERATURE
+  *solidsection, elset="ASSEMBLY_Instance A_A1", material=ACTUATOR-1
+  *solidsection, elset="ASSEMBLY_Instance A_A2", material=ACTUATOR-2
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-1", material=SHELL-1
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-2", material=SHELL-2
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-3", material=SHELL-3
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-4", material=SHELL-4
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-5", material=SHELL-5
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-6", material=SHELL-6
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-7", material=SHELL-7
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-8", material=SHELL-8
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-9", material=SHELL-9
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-10", material=SHELL-10
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-11", material=SHELL-11
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-12", material=SHELL-12
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-13", material=SHELL-13
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-14", material=SHELL-14
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-15", material=SHELL-15
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-16", material=SHELL-16
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-17", material=SHELL-17
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-18", material=SHELL-18
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-19", material=SHELL-19
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-20", material=SHELL-20
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-21", material=SHELL-21
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-22", material=SHELL-22
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-23", material=SHELL-23
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-24", material=SHELL-24
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-25", material=SHELL-25
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-26", material=SHELL-26
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-27", material=SHELL-27
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-28", material=SHELL-28
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-29", material=SHELL-29
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-30", material=SHELL-30
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-31", material=SHELL-31
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-32", material=SHELL-32
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-33", material=SHELL-33
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-34", material=SHELL-34
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-35", material=SHELL-35
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-36", material=SHELL-36
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-37", material=SHELL-37
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-38", material=SHELL-38
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-39", material=SHELL-39
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-40", material=SHELL-40
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-41", material=SHELL-41
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-42", material=SHELL-42
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-43", material=SHELL-43
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-44", material=SHELL-44
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-45", material=SHELL-45
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-46", material=SHELL-46
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-47", material=SHELL-47
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-48", material=SHELL-48
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-49", material=SHELL-49
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-50", material=SHELL-50
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-51", material=SHELL-51
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-52", material=SHELL-52
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-53", material=SHELL-53
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-54", material=SHELL-54
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-55", material=SHELL-55
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-56", material=SHELL-56
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-57", material=SHELL-57
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-58", material=SHELL-58
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-59", material=SHELL-59
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-60", material=SHELL-60
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-61", material=SHELL-61
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-62", material=SHELL-62
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-63", material=SHELL-63
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-64", material=SHELL-64
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-65", material=SHELL-65
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-66", material=SHELL-66
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-67", material=SHELL-67
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-68", material=SHELL-68
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-69", material=SHELL-69
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-70", material=SHELL-70
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-71", material=SHELL-71
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-72", material=SHELL-72
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-73", material=SHELL-73
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-74", material=SHELL-74
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-75", material=SHELL-75
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-76", material=SHELL-76
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-77", material=SHELL-77
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-78", material=SHELL-78
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-79", material=SHELL-79
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-80", material=SHELL-80
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-81", material=SHELL-81
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-82", material=SHELL-82
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-83", material=SHELL-83
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-84", material=SHELL-84
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-85", material=SHELL-85
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-86", material=SHELL-86
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-87", material=SHELL-87
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-88", material=SHELL-88
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-89", material=SHELL-89
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-90", material=SHELL-90
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-91", material=SHELL-91
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-92", material=SHELL-92
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-93", material=SHELL-93
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-94", material=SHELL-94
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-95", material=SHELL-95
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-96", material=SHELL-96
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-97", material=SHELL-97
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-98", material=SHELL-98
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-99", material=SHELL-99
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-100", material=SHELL-100
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-101", material=SHELL-101
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-102", material=SHELL-102
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-103", material=SHELL-103
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-104", material=SHELL-104
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-105", material=SHELL-105
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-106", material=SHELL-106
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-107", material=SHELL-107
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-108", material=SHELL-108
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-109", material=SHELL-109
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-110", material=SHELL-110
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-111", material=SHELL-111
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-112", material=SHELL-112
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-113", material=SHELL-113
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-114", material=SHELL-114
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-115", material=SHELL-115
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-116", material=SHELL-116
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-117", material=SHELL-117
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-118", material=SHELL-118
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-119", material=SHELL-119
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-120", material=SHELL-120
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-121", material=SHELL-121
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-122", material=SHELL-122
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-123", material=SHELL-123
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-124", material=SHELL-124
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-125", material=SHELL-125
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-126", material=SHELL-126
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-127", material=SHELL-127
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-128", material=SHELL-128
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-129", material=SHELL-129
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-130", material=SHELL-130
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-131", material=SHELL-131
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-132", material=SHELL-132
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-133", material=SHELL-133
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-134", material=SHELL-134
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-135", material=SHELL-135
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-136", material=SHELL-136
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-137", material=SHELL-137
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-138", material=SHELL-138
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-139", material=SHELL-139
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-140", material=SHELL-140
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-141", material=SHELL-141
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-142", material=SHELL-142
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-143", material=SHELL-143
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-144", material=SHELL-144
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-145", material=SHELL-145
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-146", material=SHELL-146
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-147", material=SHELL-147
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-148", material=SHELL-148
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-149", material=SHELL-149
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-150", material=SHELL-150
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-151", material=SHELL-151
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-152", material=SHELL-152
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-153", material=SHELL-153
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-154", material=SHELL-154
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-155", material=SHELL-155
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-156", material=SHELL-156
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-157", material=SHELL-157
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-158", material=SHELL-158
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-159", material=SHELL-159
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-160", material=SHELL-160
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-161", material=SHELL-161
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-162", material=SHELL-162
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-163", material=SHELL-163
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-164", material=SHELL-164
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-165", material=SHELL-165
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-166", material=SHELL-166
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-167", material=SHELL-167
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-168", material=SHELL-168
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-169", material=SHELL-169
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-170", material=SHELL-170
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-171", material=SHELL-171
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-172", material=SHELL-172
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-173", material=SHELL-173
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-174", material=SHELL-174
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-175", material=SHELL-175
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-176", material=SHELL-176
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-177", material=SHELL-177
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-178", material=SHELL-178
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-179", material=SHELL-179
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-180", material=SHELL-180
+  *boundary
+  *tie, name=A1-1-1, norotation, adjust=NO
+
+ ***WARNING: SLAVE SURFACE ASSEMBLY_A1-1-SHELL_CNS_ IS A NODE-BASED SURFACE 
+             USED WITH SURFACE TO SURFACE APPROACH.  IN ORDER TO OBTAIN 
+             IMPROVED STRESS ACCURACY WITH THIS APPROACH, AN ELEMENT-BASED 
+             SURFACE SHOULD BE USED INSTEAD.
+
+ ***WARNING: IF SIGNIFICANT CLEARANCE/OVERCLOSURE EXISTS BETWEEN SURFACE PAIR 
+             (ASSEMBLY_A1-1-SHELL_CNS_,ASSEMBLY_A1-1-BEAM_CNS_) AND THE MASTER 
+             SURFACE DOES NOT HAVE ROTATIONAL DEGREES OF FREEDOM, ADJUSTMENT IS 
+             RECOMMENDED FOR CORRECT ENFORCEMENT OF THE TIE CONSTRAINT
+  *tie, name=A1-2-1, norotation, adjust=NO
+
+ ***WARNING: SLAVE SURFACE ASSEMBLY_A1-2-SHELL_CNS_ IS A NODE-BASED SURFACE 
+             USED WITH SURFACE TO SURFACE APPROACH.  IN ORDER TO OBTAIN 
+             IMPROVED STRESS ACCURACY WITH THIS APPROACH, AN ELEMENT-BASED 
+             SURFACE SHOULD BE USED INSTEAD.
+
+ ***WARNING: IF SIGNIFICANT CLEARANCE/OVERCLOSURE EXISTS BETWEEN SURFACE PAIR 
+             (ASSEMBLY_A1-2-SHELL_CNS_,ASSEMBLY_A1-2-BEAM_CNS_) AND THE MASTER 
+             SURFACE DOES NOT HAVE ROTATIONAL DEGREES OF FREEDOM, ADJUSTMENT IS 
+             RECOMMENDED FOR CORRECT ENFORCEMENT OF THE TIE CONSTRAINT
+  *tie, name=A2-1-1, norotation, adjust=NO
+
+ ***WARNING: SLAVE SURFACE ASSEMBLY_A2-1-SHELL_CNS_ IS A NODE-BASED SURFACE 
+             USED WITH SURFACE TO SURFACE APPROACH.  IN ORDER TO OBTAIN 
+             IMPROVED STRESS ACCURACY WITH THIS APPROACH, AN ELEMENT-BASED 
+             SURFACE SHOULD BE USED INSTEAD.
+
+ ***WARNING: IF SIGNIFICANT CLEARANCE/OVERCLOSURE EXISTS BETWEEN SURFACE PAIR 
+             (ASSEMBLY_A2-1-SHELL_CNS_,ASSEMBLY_A2-1-BEAM_CNS_) AND THE MASTER 
+             SURFACE DOES NOT HAVE ROTATIONAL DEGREES OF FREEDOM, ADJUSTMENT IS 
+             RECOMMENDED FOR CORRECT ENFORCEMENT OF THE TIE CONSTRAINT
+  *tie, name=A2-2-1, norotation, adjust=NO
+
+ ***WARNING: SLAVE SURFACE ASSEMBLY_A2-2-SHELL_CNS_ IS A NODE-BASED SURFACE 
+             USED WITH SURFACE TO SURFACE APPROACH.  IN ORDER TO OBTAIN 
+             IMPROVED STRESS ACCURACY WITH THIS APPROACH, AN ELEMENT-BASED 
+             SURFACE SHOULD BE USED INSTEAD.
+
+ ***WARNING: IF SIGNIFICANT CLEARANCE/OVERCLOSURE EXISTS BETWEEN SURFACE PAIR 
+             (ASSEMBLY_A2-2-SHELL_CNS_,ASSEMBLY_A2-2-BEAM_CNS_) AND THE MASTER 
+             SURFACE DOES NOT HAVE ROTATIONAL DEGREES OF FREEDOM, ADJUSTMENT IS 
+             RECOMMENDED FOR CORRECT ENFORCEMENT OF THE TIE CONSTRAINT
+  *tie, name=A1-1-1, norotation, adjust=NO
+  *tie, name=A1-2-1, norotation, adjust=NO
+  *tie, name=A2-1-1, norotation, adjust=NO
+  *tie, name=A2-2-1, norotation, adjust=NO
+  *tie, name=A1-1-1, norotation, adjust=NO
+  *tie, name=A1-2-1, norotation, adjust=NO
+  *tie, name=A2-1-1, norotation, adjust=NO
+  *tie, name=A2-2-1, norotation, adjust=NO
+  *solidsection, elset="ASSEMBLY_Instance A_A1", material=ACTUATOR-1
+  *solidsection, elset="ASSEMBLY_Instance A_A2", material=ACTUATOR-2
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-1", material=SHELL-1
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-2", material=SHELL-2
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-3", material=SHELL-3
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-4", material=SHELL-4
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-5", material=SHELL-5
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-6", material=SHELL-6
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-7", material=SHELL-7
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-8", material=SHELL-8
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-9", material=SHELL-9
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-10", material=SHELL-10
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-11", material=SHELL-11
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-12", material=SHELL-12
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-13", material=SHELL-13
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-14", material=SHELL-14
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-15", material=SHELL-15
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-16", material=SHELL-16
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-17", material=SHELL-17
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-18", material=SHELL-18
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-19", material=SHELL-19
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-20", material=SHELL-20
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-21", material=SHELL-21
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-22", material=SHELL-22
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-23", material=SHELL-23
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-24", material=SHELL-24
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-25", material=SHELL-25
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-26", material=SHELL-26
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-27", material=SHELL-27
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-28", material=SHELL-28
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-29", material=SHELL-29
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-30", material=SHELL-30
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-31", material=SHELL-31
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-32", material=SHELL-32
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-33", material=SHELL-33
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-34", material=SHELL-34
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-35", material=SHELL-35
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-36", material=SHELL-36
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-37", material=SHELL-37
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-38", material=SHELL-38
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-39", material=SHELL-39
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-40", material=SHELL-40
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-41", material=SHELL-41
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-42", material=SHELL-42
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-43", material=SHELL-43
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-44", material=SHELL-44
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-45", material=SHELL-45
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-46", material=SHELL-46
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-47", material=SHELL-47
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-48", material=SHELL-48
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-49", material=SHELL-49
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-50", material=SHELL-50
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-51", material=SHELL-51
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-52", material=SHELL-52
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-53", material=SHELL-53
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-54", material=SHELL-54
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-55", material=SHELL-55
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-56", material=SHELL-56
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-57", material=SHELL-57
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-58", material=SHELL-58
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-59", material=SHELL-59
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-60", material=SHELL-60
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-61", material=SHELL-61
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-62", material=SHELL-62
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-63", material=SHELL-63
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-64", material=SHELL-64
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-65", material=SHELL-65
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-66", material=SHELL-66
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-67", material=SHELL-67
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-68", material=SHELL-68
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-69", material=SHELL-69
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-70", material=SHELL-70
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-71", material=SHELL-71
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-72", material=SHELL-72
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-73", material=SHELL-73
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-74", material=SHELL-74
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-75", material=SHELL-75
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-76", material=SHELL-76
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-77", material=SHELL-77
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-78", material=SHELL-78
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-79", material=SHELL-79
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-80", material=SHELL-80
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-81", material=SHELL-81
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-82", material=SHELL-82
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-83", material=SHELL-83
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-84", material=SHELL-84
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-85", material=SHELL-85
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-86", material=SHELL-86
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-87", material=SHELL-87
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-88", material=SHELL-88
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-89", material=SHELL-89
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-90", material=SHELL-90
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-91", material=SHELL-91
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-92", material=SHELL-92
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-93", material=SHELL-93
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-94", material=SHELL-94
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-95", material=SHELL-95
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-96", material=SHELL-96
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-97", material=SHELL-97
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-98", material=SHELL-98
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-99", material=SHELL-99
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-100", material=SHELL-100
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-101", material=SHELL-101
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-102", material=SHELL-102
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-103", material=SHELL-103
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-104", material=SHELL-104
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-105", material=SHELL-105
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-106", material=SHELL-106
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-107", material=SHELL-107
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-108", material=SHELL-108
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-109", material=SHELL-109
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-110", material=SHELL-110
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-111", material=SHELL-111
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-112", material=SHELL-112
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-113", material=SHELL-113
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-114", material=SHELL-114
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-115", material=SHELL-115
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-116", material=SHELL-116
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-117", material=SHELL-117
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-118", material=SHELL-118
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-119", material=SHELL-119
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-120", material=SHELL-120
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-121", material=SHELL-121
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-122", material=SHELL-122
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-123", material=SHELL-123
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-124", material=SHELL-124
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-125", material=SHELL-125
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-126", material=SHELL-126
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-127", material=SHELL-127
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-128", material=SHELL-128
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-129", material=SHELL-129
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-130", material=SHELL-130
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-131", material=SHELL-131
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-132", material=SHELL-132
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-133", material=SHELL-133
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-134", material=SHELL-134
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-135", material=SHELL-135
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-136", material=SHELL-136
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-137", material=SHELL-137
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-138", material=SHELL-138
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-139", material=SHELL-139
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-140", material=SHELL-140
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-141", material=SHELL-141
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-142", material=SHELL-142
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-143", material=SHELL-143
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-144", material=SHELL-144
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-145", material=SHELL-145
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-146", material=SHELL-146
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-147", material=SHELL-147
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-148", material=SHELL-148
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-149", material=SHELL-149
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-150", material=SHELL-150
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-151", material=SHELL-151
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-152", material=SHELL-152
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-153", material=SHELL-153
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-154", material=SHELL-154
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-155", material=SHELL-155
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-156", material=SHELL-156
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-157", material=SHELL-157
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-158", material=SHELL-158
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-159", material=SHELL-159
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-160", material=SHELL-160
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-161", material=SHELL-161
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-162", material=SHELL-162
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-163", material=SHELL-163
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-164", material=SHELL-164
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-165", material=SHELL-165
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-166", material=SHELL-166
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-167", material=SHELL-167
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-168", material=SHELL-168
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-169", material=SHELL-169
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-170", material=SHELL-170
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-171", material=SHELL-171
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-172", material=SHELL-172
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-173", material=SHELL-173
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-174", material=SHELL-174
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-175", material=SHELL-175
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-176", material=SHELL-176
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-177", material=SHELL-177
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-178", material=SHELL-178
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-179", material=SHELL-179
+  *shellsection, elset="ASSEMBLY_Instance A_SHELL-180", material=SHELL-180
+  *surface, type=NODE, name=ASSEMBLY_A1-1-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-1-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-2-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A1-2-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-1-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-1-SHELL_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-2-BEAM_CNS_
+  *surface, type=NODE, name=ASSEMBLY_A2-2-SHELL_CNS_
+  *tie, name=A1-1-1, norotation, adjust=NO
+  *tie, name=A1-2-1, norotation, adjust=NO
+  *tie, name=A2-1-1, norotation, adjust=NO
+  *tie, name=A2-2-1, norotation, adjust=NO
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *initialconditions, type=TEMPERATURE
+  *initialconditions, type=TEMPERATURE
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *initialconditions, type=TEMPERATURE
+  *initialconditions, type=TEMPERATURE
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *Step, name="(-50,-50)", nlgeom=YES, inc=200
+  *Step, name="(-25,-50)", nlgeom=YES, inc=200
+  *Step, name="(0,-50)", nlgeom=YES, inc=200
+  *Step, name="(25,-50)", nlgeom=YES, inc=200
+  *Step, name="(-50,-25)", nlgeom=YES, inc=200
+  *Step, name="(-25,-25)", nlgeom=YES, inc=200
+  *Step, name="(0,-25)", nlgeom=YES, inc=200
+  *Step, name="(25,-25)", nlgeom=YES, inc=200
+  *Step, name="(-50,0)", nlgeom=YES, inc=200
+  *Step, name="(-25,0)", nlgeom=YES, inc=200
+  *Step, name="(0,0)", nlgeom=YES, inc=200
+  *Step, name="(25,0)", nlgeom=YES, inc=200
+  *Step, name="(-50,25)", nlgeom=YES, inc=200
+  *Step, name="(-25,25)", nlgeom=YES, inc=200
+  *Step, name="(0,25)", nlgeom=YES, inc=200
+  *Step, name="(25,25)", nlgeom=YES, inc=200
+  *Step, name="(-50,-50)", nlgeom=YES, inc=200
+  *Step, name="(-25,-50)", nlgeom=YES, inc=200
+  *Step, name="(0,-50)", nlgeom=YES, inc=200
+  *Step, name="(25,-50)", nlgeom=YES, inc=200
+  *Step, name="(-50,-25)", nlgeom=YES, inc=200
+  *Step, name="(-25,-25)", nlgeom=YES, inc=200
+  *Step, name="(0,-25)", nlgeom=YES, inc=200
+  *Step, name="(25,-25)", nlgeom=YES, inc=200
+  *Step, name="(-50,0)", nlgeom=YES, inc=200
+  *Step, name="(-25,0)", nlgeom=YES, inc=200
+  *Step, name="(0,0)", nlgeom=YES, inc=200
+  *Step, name="(25,0)", nlgeom=YES, inc=200
+  *Step, name="(-50,25)", nlgeom=YES, inc=200
+  *Step, name="(-25,25)", nlgeom=YES, inc=200
+  *Step, name="(0,25)", nlgeom=YES, inc=200
+  *Step, name="(25,25)", nlgeom=YES, inc=200
+  *Step, name="(-50,-50)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(-25,-50)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(0,-50)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(25,-50)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(-50,-25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(-25,-25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(0,-25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(25,-25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(-50,0)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(-25,0)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(0,0)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(25,0)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(-50,25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(-25,25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(0,25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *Step, name="(25,25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *boundary
+  *Step, name="(-50,-50)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(-25,-50)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(0,-50)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(25,-50)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(-50,-25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(-25,-25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(0,-25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(25,-25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(-50,0)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(-25,0)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(0,0)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(25,0)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(-50,25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(-25,25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(0,25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+  *Step, name="(25,25)", nlgeom=YES, inc=200
+  *static
+  *temperature
+  *temperature
+  *endstep
+
+
+
+                            P R O B L E M   S I Z E
+
+
+          NUMBER OF ELEMENTS IS                                   182
+          NUMBER OF NODES IS                                      215
+          NUMBER OF NODES DEFINED BY THE USER                     213
+          NUMBER OF INTERNAL NODES GENERATED BY THE PROGRAM         2
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                 1268
+          (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
+           VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
+
+
+
+                              END OF USER INPUT PROCESSING
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =  0.70000    
+       SYSTEM TIME (SEC)    =  0.20000    
+       TOTAL CPU TIME (SEC) =  0.90000    
+       WALLCLOCK TIME (SEC) =          1
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:00
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    1  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       1     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:03
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    2  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       2     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:05
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    3  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       3     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:07
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    4  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       4     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:10
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    5  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       5     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:13
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    6  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       6     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:15
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    7  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       7     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:17
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    8  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       8     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:21
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    9  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       9     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:24
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP   10  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P      10     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:26
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP   11  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P      11     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:29
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP   12  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P      12     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:32
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP   13  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P      13     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:35
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP   14  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P      14     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:37
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP   15  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P      15     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+1
+
+   Abaqus 6.12-1                                  Date 16-déc.-2016   Time 10:21:40
+   For use by  under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP   16  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P      16     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                5.000E-02
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION         (MBYTES)           (MBYTES)
+  
+     1         8.20E+006               17                 25
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+
+
+          THE ANALYSIS HAS BEEN COMPLETED
+
+
+
+                              ANALYSIS COMPLETE
+                              WITH      8 WARNING MESSAGES ON THE DAT FILE
+                              AND      73 WARNING MESSAGES ON THE MSG FILE
+                                       73 WARNINGS ARE FOR NEGATIVE EIGENVALUES
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =   36.200    
+       SYSTEM TIME (SEC)    =   4.8000    
+       TOTAL CPU TIME (SEC) =   41.000    
+       WALLCLOCK TIME (SEC) =         43
