@@ -279,3 +279,7 @@ _book/
 
 # Reveal
 reveal.js/
+
+# Api
+doc/api/
+_site/

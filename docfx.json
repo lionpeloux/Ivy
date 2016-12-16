@@ -1,0 +1,36 @@
+﻿{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [ "src/IvyGh/*.csproj" ],
+          "exclude": [ "**/bin/**", "**/obj/**","_site/**" ]
+        }
+      ],
+      "dest": "doc/api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [ "doc/api/*.yml" ],
+        "cwd": "obj/api",
+        "dest": "doc/api"
+      },
+      {
+        "files": [ "articles/**/*.md", "*.md", "toc.yml", "restapi/**" ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [ "articles/images/**"]
+      }
+    ],
+    "overwrite": "specs/*.md",
+    "globalMetadata": {
+      "_appTitle": "docfx seed website",
+      "_enableSearch": true
+    },
+    "dest": "_site"
+  }
+}
