@@ -13,3 +13,6 @@
   * [Grid](1-grid/1.2-grid.md)
   * [Node](1-grid/1.3-node.md)
   * [Cell](1-grid/1.4-cell.md)
+
+---
+[Slides](https://lionpeloux.github.io/Ivy/doc/slides/deck_01/)

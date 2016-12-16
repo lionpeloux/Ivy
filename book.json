@@ -4,6 +4,8 @@
         "mathjax",
         "-katex",
         "numbered-headings",
+        "edit-link",
+        "toolbar-button",
         "-theme-api",
         "image-captions",
         "-toggle-chapters",
@@ -21,7 +23,16 @@
         "image-captions": {
           "caption": "Figure _PAGE_IMAGE_NUMBER_ : _CAPTION_",
           "align": "center"
-      }
+        },
+        "edit-link": {
+            "base": "https://github.com/lionpeloux/Ivy/tree/master/doc",
+            "label": "Edit"
+        },
+        "toolbar-button": {
+            "icon": "fa-slideshare",
+            "url": "https://lionpeloux.github.io/Ivy/doc/slides/deck_01/",
+            "label": "Slides"
+        }
     },
     "structure": {
         "readme": "readme.md",
