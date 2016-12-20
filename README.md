@@ -15,6 +15,8 @@ Results can be imported back into **Rhino & Grasshopper** for further benchmarki
 
 Mainly, this tool is provided to compare environmental performances of shading devices and find some optimal solutions of efficient shading.
 
+![Grasshopper Toolbar](doc/img/Ivy_gh_toolbar.png)
+
 ## Authors
 Lionel du Peloux - 2016
 
