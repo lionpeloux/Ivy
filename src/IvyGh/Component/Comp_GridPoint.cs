@@ -1,24 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
-using IvyCore.Parametric;
-using Grasshopper.Kernel.Special;
-using System.Drawing;
-using Grasshopper;
-using Grasshopper.Kernel.Parameters;
-using System.Windows.Forms;
-using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
 using IvyGh.Type;
+using IvyCore.MultiDimGrid;
+using IvyGh.Properties;
 
 namespace IvyGh
 {
     public class Comp_GridPoint : GH_Component
     {
         GH_Grid ghGrid;
-        IvyCore.Parametric.Point point;
+        Point point;
         double[] coord;
 
         public override Guid ComponentGuid
@@ -27,24 +19,24 @@ namespace IvyGh
         }
 
         public Comp_GridPoint()
-          : base("Point On Grid", "Point",
-              "Create a point on a grid regarding its coordinates",
-              "Ivy", "Grid")
+          : base("Point From Coordinates", "Point",
+              "Creates a point on a grid from coordinates. The point will be constrained to be in the space defined by the Grid.",
+              "Ivy", "Node")
         {
         }
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Grid", "G", "The grid.", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Point coordinates", "P", "The coordinates of the point to evaluate.", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Input Grid", "grid", "The input Grid.", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Point coordinates", "ptCoord", "The coordinates of the point to evaluate.", GH_ParamAccess.list);
             pManager[0].Optional = false;
             pManager[1].Optional = false;
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddNumberParameter("Point Coordinates", "P", "The coordinates of the point on the grid.", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Cell Number", "C", "The cell this point belongs to.", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Point Coordinates", "ptCoord", "The coordinates of the point in the Grid.", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Cell Number", "cellIndex", "The index of the Cell this Point belongs to.", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -55,13 +47,20 @@ namespace IvyGh
             if (!DA.GetData(0, ref ghGrid)) { return; }
             if (!DA.GetDataList(1, list)) { return; }
 
-            point = new IvyCore.Parametric.Point(ghGrid.Value, list.ToArray());
+            point = new IvyCore.MultiDimGrid.Point(ghGrid.Value, list.ToArray());
 
             DA.SetDataList(0, point.Coord);
             DA.SetData(1, point.CellIndex());
         }
 
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.point;
+            }
+        }
+    }
 
-
-}
+    
 }

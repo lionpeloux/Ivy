@@ -1,16 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
-using IvyCore.Parametric;
-using Grasshopper.Kernel.Special;
-using System.Drawing;
-using Grasshopper;
-using Grasshopper.Kernel.Parameters;
-using System.Windows.Forms;
-using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
 using IvyGh.Type;
 
 namespace IvyGh
@@ -25,7 +15,7 @@ namespace IvyGh
         }
 
         public Comp_GridNode()
-          : base("Grid Node", "Grid Node",
+          : base("Select Node", "Node",
               "Get one or all Nodes in a given Grid.",
               "Ivy", "Node")
         {
@@ -33,8 +23,8 @@ namespace IvyGh
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Grid", "G", "The grid.", GH_ParamAccess.item);
-            pManager.AddIntegerParameter("Node Index", "i", "The i-th Node if it exists. All the Nodes otherwise.", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Input Grid", "grid", "The input Grid.", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Index of the Node", "nodeIndex", "The i-th Node if it exists. All the Nodes otherwise if i<0.", GH_ParamAccess.item);
             pManager[0].Optional = false;
             pManager[1].Optional = true;
 
@@ -42,7 +32,7 @@ namespace IvyGh
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Node(s)", "N", "The selected Nodes in the Grid.", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Node(s)", "node", "The selected Node(s) in the Grid.", GH_ParamAccess.list);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -63,17 +53,13 @@ namespace IvyGh
             }
             else
             {
-                if (index < 0 || index >= ghGrid.Value.NodeCount)
+                if (index < 0)
                 {
                     for (int i = 0; i < ghGrid.Value.NodeCount; i++)
                     {
                         nodes.Add(new GH_Node(ghGrid.Value.Nodes[i]));
                     }
-                }
-                else
-                {
-                    nodes.Add(new GH_Node(ghGrid.Value.Nodes[index]));
-                }       
+                } 
             }
 
             DA.SetDataList(0, nodes);

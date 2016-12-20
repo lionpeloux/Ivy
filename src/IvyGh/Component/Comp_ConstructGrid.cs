@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Grasshopper.Kernel;
-using Rhino.Geometry;
-using Grasshopper.Kernel.Types;
+﻿using Grasshopper.Kernel;
 using Grasshopper.Kernel.Data;
+using Grasshopper.Kernel.Types;
+using IvyGh.Properties;
 using IvyGh.Type;
+using System;
+using System.Collections.Generic;
 
 namespace IvyGh.Component
 {
-    public class Comp_CreateGrid : GH_Component
+    public class Comp_ConstructGrid : GH_Component
     {
 
         GH_Grid ghGrid;
 
-        public Comp_CreateGrid()
-          : base("Create Grid", "Grid",
+        public Comp_ConstructGrid()
+          : base("Construct Grid", "Grid",
               "Create a new Grid from a tree of numbers and an (optional) set of labels.",
               "Ivy", "Grid")
         {
@@ -31,7 +30,7 @@ namespace IvyGh.Component
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("Grid Info", "info", "Detailed information about the Grid.", GH_ParamAccess.item);
+            pManager.AddTextParameter("Grid Informations", "info", "Detailed informations about the Grid.", GH_ParamAccess.item);
             pManager.AddGenericParameter("Grid", "G", "A N-dimensional grid.", GH_ParamAccess.item);
         }
 
@@ -70,6 +69,14 @@ namespace IvyGh.Component
         public override Guid ComponentGuid
         {
             get { return new Guid("{ebab2030-8d6d-4e28-8aa7-0b9baefa62d1}"); }
+        }
+
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.grid;
+            }
         }
 
     }

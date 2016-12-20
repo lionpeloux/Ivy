@@ -1,21 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
-using IvyCore.Parametric;
-using Grasshopper.Kernel.Special;
-using System.Drawing;
-using Grasshopper;
-using Grasshopper.Kernel.Parameters;
-using System.Windows.Forms;
-using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
-using IvyGh.Type;
+using IvyCore.MultiDimGrid;
+using IvyGh.Properties;
 
 namespace IvyGh
 {
-    public class Comp_CartesianProduct : GH_Component // make it expandable
+    public class Comp_TupleProduct : GH_Component // make it expandable
     {
 
         public override Guid ComponentGuid
@@ -23,8 +14,8 @@ namespace IvyGh
             get { return new Guid("{5a30403a-a364-4617-838b-d60c4e32bb1a}"); }
         }
 
-        public Comp_CartesianProduct()
-          : base("Cartesian Product of Tuples", "T1xT2",
+        public Comp_TupleProduct()
+          : base("Cartesian Product", "T1xT2",
               "Create a new tuple as the cartesian product of two tuples.",
               "Ivy", "Tuple")
         {
@@ -40,7 +31,7 @@ namespace IvyGh
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddNumberParameter("Cartesian Product", "T", "The cartesian product T1xT2.", GH_ParamAccess.list);
+            pManager.AddNumberParameter("The Cartesian Product", "T", "The cartesian product T1xT2.", GH_ParamAccess.list);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -51,12 +42,20 @@ namespace IvyGh
             if (!DA.GetDataList(0, tuple1)) { return; }
             if (!DA.GetDataList(1, tuple2)) { return; }
 
-            var tuple = ITuple.CartesianProduct(tuple1, tuple2);
+            var tuple = IAddress.CartesianProduct(tuple1, tuple2);
 
             DA.SetDataList(0, tuple);
         }
 
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.grid_prod;
+            }
+        }
 
 
-}
+
+    }
 }

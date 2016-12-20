@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 
 using Grasshopper.Kernel;
-using Rhino.Geometry;
 using System.IO;
-using ShadingDevice.Kernel;
-using IvyCore.Parametric;
 using IvyGh.Type;
 using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
 using Grasshopper;
-using System.Globalization;
 using System.Data.SQLite;
+using IvyCore.MultiDimGrid;
 
 namespace ShadingDevice
 {
@@ -49,9 +45,9 @@ namespace ShadingDevice
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            var path_wd = "";
+            var path_db = "";
             
-            if (!DA.GetData(0, ref path_wd)) { return; }
+            if (!DA.GetData(0, ref path_db)) { return; }
 
             Grid grid_act;
             Grid grid_shp;
@@ -63,8 +59,8 @@ namespace ShadingDevice
 
 
             // OPEN DB FILE
-            string workingDir = Path.GetDirectoryName(path_wd.ToString());
-            string dbName = "data.db";
+            string workingDir = Path.GetDirectoryName(path_db);
+            string dbName = Path.GetFileName("data.db");
             string dbPath = workingDir + "\\" + dbName;
 
             using (var connection = new SQLiteConnection("Data Source = " + dbPath))
@@ -102,9 +98,9 @@ namespace ShadingDevice
                             var nodeActIndex = reader.GetInt32(0)-1;
                             var nodeShpIndex = reader.GetInt32(1)-1;
 
-                            var tuple_act = grid_act.Nodes[nodeActIndex].Tuple.Value;
-                            var tuple_shp = grid_shp.Nodes[nodeShpIndex].Tuple.Value;
-                            var tuple_glb = ITuple.CartesianProduct(tuple_act, tuple_shp);
+                            var tuple_act = grid_act.Nodes[nodeActIndex].Address.Value;
+                            var tuple_shp = grid_shp.Nodes[nodeShpIndex].Address.Value;
+                            var tuple_glb = IAddress.CartesianProduct(tuple_act, tuple_shp);
 
 
                             var nodeGlbIndex = grid_glb.NodeIndex(tuple_glb);
@@ -168,7 +164,7 @@ namespace ShadingDevice
                 while (reader.Read())
                 {
                     double[] range;
-                    ITuple.TryParseDouble(reader.GetString(2), out range);
+                    IAddress.TryParseDouble(reader.GetString(2), out range);
                     data.Add(range);
                     labels.Add(reader.GetString(1));
                 }

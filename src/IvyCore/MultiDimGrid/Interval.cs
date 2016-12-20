@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IvyCore.Parametric
+namespace IvyCore.MultiDimGrid
 {
     /// <summary>
     /// An ordered interval [T0,T1] in R (T0 <= T1).

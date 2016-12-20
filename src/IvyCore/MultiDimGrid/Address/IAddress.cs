@@ -4,47 +4,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IvyCore.Parametric
+namespace IvyCore.MultiDimGrid
 {
     /// <summary>
-    /// Tuple interface as an abstract base class.
+    /// Address interface as an abstract base class.
     /// </summary>
-    public abstract class ITuple : ICloneable, IComparable<ITuple>
+    public abstract class IAddress : ICloneable, IComparable<IAddress>
     {
         #region FIELDS
-        protected int[] tuple;
+        protected int[] address;
         #endregion
 
         #region PROPERTIES   
 
         /// <summary>
-        /// Tuple dimension.
+        /// Address dimension.
         /// </summary>
         public int Dim
         {
-            get { return tuple.Length; }
+            get { return address.Length; }
         }
 
         public int this[int i]
         {
             get
             {
-                return tuple[i];
+                return address[i];
             }
             set
             {
-                this.tuple[i] = value; 
+                this.address[i] = value; 
             }
         }
 
-        public int[] Value { get { return tuple.ToArray<int>(); } }
+        public int[] Value { get { return address.ToArray<int>(); } }
 
         #endregion
 
         #region CONSTRUCTORS
-        protected ITuple(IList<int> tuple)
+        protected IAddress(IList<int> tuple)
         {
-            this.tuple = tuple.ToArray<int>();
+            this.address = tuple.ToArray<int>();
         }
         #endregion
 
@@ -57,60 +57,63 @@ namespace IvyCore.Parametric
         /// </summary>
         /// <param name="count">
         /// An array that holds for each dimension the number of indices tu use 
-        /// for the computation of the Tuple's index.
+        /// for the computation of the Address's index.
         /// Count = [n{0}, n{1}, ..., n{D-1}]
         /// </param>
         /// <returns>The contiguous index.</returns>
-        protected int IndexFromTuple(IList<int> count)
+        protected int IndexFromAddress(IList<int> count)
         {
-            int index = this.tuple[0];
+            int index = this.address[0];
             int nprod = 1;
-            for (int i = 0; i < this.tuple.Length - 1; i++)
+            for (int i = 0; i < this.address.Length - 1; i++)
             {
                 nprod *= count[i];
-                index += nprod * tuple[i + 1];
+                index += nprod * address[i + 1];
             }
             return index;
         }
 
         /// <summary>
-        /// Fast computation of Tuple index with a given coefficient basis.
+        /// Fast computation of Address index with a given coefficient basis.
+        /// </summary>
+        /// <remarks>
         /// i{0} ∈ [0,n{0}-1] | i{1} ∈ [0,n{1}-1] | ... | i{D-1} ∈ [0,n{D-1}-1]
         /// Count = [n{0}, n{1}, ..., n{D-1}]
         /// Basis = [1, n{0}, n{0}*n{1}, ..., n{0}*n{1}*...*n{D-2}]
         /// index = i0 + n0 * (i1 + n1 * (i2 + n2 * (i3 + ... + n{D-2} * i{D-1}))).
         /// index = 1*i0 + n0*i1 + n0*n1*i2 + ... + n0*n1*...*n{D-2}*i{D-1}.
-        /// </summary>
+        /// </remarks>
         /// <param name="basis">
-        /// An array that hodls the basis to use for fast computation of the Tuple's index.
+        /// An array that hodls the basis to use for fast computation of the Address's index.
         /// [1, n{0}, n{0}*n{1}, ..., n{0}*n{1}*...*n{D-2}]
         /// </param>
         /// <returns>The contiguous index.</returns>
-        protected int FastIndexFromTuple(IList<int> basis)
+        protected int FastIndexFromAddress(IList<int> basis)
         {
             int index = 0;
-            for (int d = 0; d < tuple.Length; d++)
+            for (int d = 0; d < address.Length; d++)
             {
-                index += basis[d] * tuple[d];
+                index += basis[d] * address[d];
             }
             return index;
         }
 
         /// <summary>
-        /// Get a tuple from its contiguous index.
-        /// This is achived by recursive euclidean division.
+        /// Get a tuple from its contiguous index. This is achived by recursive euclidean division.
+        /// </summary>
+        /// <remarks>
         /// i{0} ∈ [0,n{0}-1] | i{1} ∈ [0,n{1}-1] | ... | i{D-1} ∈ [0,n{D-1}-1]
         /// Count = [n{0}, n{1}, ..., n{D-1}]
         /// index = i0 + n0 * (i1 + n1 * (i2 + n2 * (i3 + ... + n{D-2} * i{D-1})))
-        /// </summary>
+        /// </remarks>
         /// <param name="index">The index to convert.</param>
         /// <param name = "count">
         /// An array that holds for each dimension the number of indices tu use 
-        /// for the computation of the Tuple's index.
+        /// for the computation of the Address's index.
         /// Count = [n{0}, n{1}, ..., n{D-1}]
         /// </param>
         /// <returns>The tuple corresponding to the given index.</returns>
-        protected static int[] TupleFromIndex(int index, IList<int> count)
+        protected static int[] AddressFromIndex(int index, IList<int> count)
         {
             int n = count.Count;
             var tuple = new int[n];
@@ -128,21 +131,21 @@ namespace IvyCore.Parametric
 
         public int[] Add(IList<int> tuple)
         {
-            return Add(this.tuple, tuple);
+            return Add(this.address, tuple);
         }
         
-        public int CompareTo(ITuple tuple)
+        public int CompareTo(IAddress address)
         {
-            int dim = tuple.Dim;
+            int dim = address.Dim;
             if (dim != this.Dim)
             {
-                throw new System.ArgumentOutOfRangeException("The tuples must be of same dimension to be comparable");
+                throw new System.ArgumentOutOfRangeException("The address must be of same dimension to be comparable");
             }
             // Backward Loop
             for (int d = dim; d > 0; d--)
             {
                 int i1 = this[d];
-                int i2 = tuple[d];
+                int i2 = address[d];
 
                 if (i2 > i1)
                 {
@@ -163,14 +166,14 @@ namespace IvyCore.Parametric
         /// <summary>
         /// String representation of a tuple.
         /// </summary>
-        /// <param name="tuple">The tuple.</param>
+        /// <param name="address">The tuple.</param>
         /// <returns>A string representing the tuple (i0,i1,...,in-1).</returns>
         public override string ToString()
         {
-            var s = "(" + this.tuple[0];
-            for (int i = 1; i < this.tuple.Length; i++)
+            var s = "(" + this.address[0];
+            for (int i = 1; i < this.address.Length; i++)
             {
-                s += ", " + tuple[i];
+                s += ", " + address[i];
             }
             return s += ")";
         }
@@ -179,12 +182,18 @@ namespace IvyCore.Parametric
 
         #region STATIC METHODS
 
-        public static int FastIndexFromTuple(IList<int> basis, IList<int> tuple)
+        /// <summary>
+        /// Converts an address to the corresponding index.
+        /// </summary>
+        /// <param name="basis">The conversion basis to use for the conversion.</param>
+        /// <param name="address">The address to convert.</param>
+        /// <returns>The index.</returns>
+        public static int FastIndexFromAddress(IList<int> basis, IList<int> address)
         {
             int index = 0;
-            for (int d = 0; d < tuple.Count; d++)
+            for (int d = 0; d < address.Count; d++)
             {
-                index += basis[d] * tuple[d];
+                index += basis[d] * address[d];
             }
             return index;
         }
@@ -255,6 +264,12 @@ namespace IvyCore.Parametric
             return tuple;
         }
 
+        /// <summary>
+        /// Parse a string representation of a tuple of doubles.
+        /// </summary>
+        /// <param name="str">The input string : "(1.234,2.23,-0.20938)".</param>
+        /// <param name="tuple">The parsed tuple as an array of doubles.</param>
+        /// <returns>True if parsing was successful.</returns>
         public static bool TryParseDouble(string str, out double[] tuple)
         {
             var values = str.TrimStart('(').TrimEnd(')').Split(',');
@@ -265,6 +280,13 @@ namespace IvyCore.Parametric
 
             return true;
         }
+
+        /// <summary>
+        /// Parse a string representation of a tuple of integers.
+        /// </summary>
+        /// <param name="str">The input string : "(1,7,-18)".</param>
+        /// <param name="tuple">The parsed tuple as an array of integers.</param>
+        /// <returns>True if parsing was successful.</returns>
         public static bool TryParseInt(string str, out int[] tuple)
         {
             var values = str.TrimStart('(').TrimEnd(')').Split(',');
@@ -275,21 +297,32 @@ namespace IvyCore.Parametric
             return true;
         }
 
-        public static string ToString(IList<double> array)
+        /// <summary>
+        /// Gets the string representation of a tuple of integers.
+        /// </summary>
+        /// <param name="tuple">The tuple of integers.</param>
+        /// <returns>The string representation of the tuple.</returns>
+        public static string ToString(IList<double> tuple)
         {
-            var s = "(" + String.Format("{0:F2}", array[0]);
-            for (int i = 1; i < array.Count; i++)
+            var s = "(" + String.Format("{0:F2}", tuple[0]);
+            for (int i = 1; i < tuple.Count; i++)
             {
-                s += ", " + String.Format("{0:F2}", array[i]);
+                s += ", " + String.Format("{0:F2}", tuple[i]);
             }
             return s += ")";
         }
-        public static string ToString(IList<int> array)
+
+        /// <summary>
+        /// Gets the string representation of a tuple of doubles.
+        /// </summary>
+        /// <param name="tuple">The tuple of doubles.</param>
+        /// <returns>The string representation of the tuple.</returns>
+        public static string ToString(IList<int> tuple)
         {
-            var s = "(" + array[0];
-            for (int i = 1; i < array.Count; i++)
+            var s = "(" + tuple[0];
+            for (int i = 1; i < tuple.Count; i++)
             {
-                s += ", " + array[i];
+                s += ", " + tuple[i];
             }
             return s += ")";
         }

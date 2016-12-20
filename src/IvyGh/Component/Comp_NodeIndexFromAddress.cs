@@ -1,16 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
-using IvyCore.Parametric;
-using Grasshopper.Kernel.Special;
-using System.Drawing;
-using Grasshopper;
-using Grasshopper.Kernel.Parameters;
-using System.Windows.Forms;
-using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
 using IvyGh.Type;
 
 namespace IvyGh
@@ -25,7 +15,7 @@ namespace IvyGh
         }
 
         public Comp_NodeIndexFromAddress()
-          : base("Node Index From Address", "Node Index",
+          : base("Node Address to Index", "Node Index",
               "Convert a Node Address to its corresponding Index.",
               "Ivy", "Node")
         {
@@ -33,14 +23,14 @@ namespace IvyGh
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Grid", "G", "The Grid the Node belongs to.", GH_ParamAccess.item);
-            pManager.AddIntegerParameter("Address", "A", "The Node address in the Grid.", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Grid", "grid", "The Grid this Node belongs to.", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Address", "nodeAddr", "The Node Address in the Grid.", GH_ParamAccess.list);
             pManager[0].Optional = false;
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddIntegerParameter("Index", "I", "The Node Index in the Grid.", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Index", "nodeIndex", "The Node Index in the Grid.", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)

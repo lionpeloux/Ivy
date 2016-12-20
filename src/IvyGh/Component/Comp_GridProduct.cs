@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
-using IvyCore.Parametric;
-using Grasshopper.Kernel.Special;
-using System.Drawing;
-using Grasshopper;
-using Grasshopper.Kernel.Parameters;
-using System.Windows.Forms;
-using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
 using IvyGh.Type;
+using IvyGh.Properties;
 
 namespace IvyGh
 {
@@ -45,7 +35,7 @@ namespace IvyGh
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddTextParameter("Info", "info", "Grid info.", GH_ParamAccess.item);
-            pManager.AddGenericParameter("Cartesian Product", "G", "The cartesian product (G1xG2).", GH_ParamAccess.item);
+            pManager.AddGenericParameter("The Cartesian Product G1xG2", "G", "The cartesian product G1xG2.", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -59,7 +49,14 @@ namespace IvyGh
             DA.SetData(1, ghGrid);
         }
 
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.grid_prod;
+            }
+        }
 
 
-}
+    }
 }

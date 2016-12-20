@@ -99,10 +99,12 @@
     <ProjectReference Include="..\IvyCore\IvyCore.csproj">
       <Project>{eac59114-1935-4853-8e6c-13b3fddc89e5}</Project>
       <Name>IvyCore</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\IvyGh\IvyGh.csproj">
       <Project>{d9d3b74c-4d08-497e-91f7-e42c5ee42a52}</Project>
       <Name>IvyGh</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -118,8 +120,20 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
-Erase "$(TargetPath)"</PostBuildEvent>
+    <PostBuildEvent>cmd /x /c mkdir "$(SolutionDir)\bin\"
+cmd /x /c mkdir "$(SolutionDir)bin\x86\"
+cmd /x /c mkdir "$(SolutionDir)bin\x64\"
+
+Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
+Copy "$(TargetPath)" "$(SolutionDir)bin\$(ProjectName).gha"
+Copy "$(TargetDir)System.Data.SQLite.dll" "$(SolutionDir)bin\System.Data.SQLite.dll"
+Copy "$(TargetDir)System.Data.SQLite.EF6.dll" "$(SolutionDir)bin\System.Data.SQLite.EF6.dll"
+Copy "$(TargetDir)EntityFramework.dll" "$(SolutionDir)bin\EntityFramework.dll"
+Copy "$(TargetDir)EntityFramework.SqlServer.dll" "$(SolutionDir)bin\EntityFramework.SqlServer.dll"
+
+Copy "$(TargetDir)\x86\SQLite.Interop.dll" "$(SolutionDir)\bin\x86\SQLite.Interop.dll"
+Copy "$(TargetDir)\x64\SQLite.Interop.dll" "$(SolutionDir)\bin\x64\SQLite.Interop.dll"
+</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug32|AnyCPU' ">
     <StartArguments>
@@ -137,6 +151,7 @@ Erase "$(TargetPath)"</PostBuildEvent>
     </StartArguments>
     <StartAction>Program</StartAction>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\ShadingDevice.XML</DocumentationFile>
   </PropertyGroup>
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -145,4 +160,8 @@ Erase "$(TargetPath)"</PostBuildEvent>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IvyCore.Parametric
+namespace IvyCore.MultiDimGrid
 {
     /// <summary>
     /// A continuous N-cube manifold.

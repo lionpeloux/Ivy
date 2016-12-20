@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
-using IvyCore.Parametric;
-using Grasshopper.Kernel.Special;
-using System.Drawing;
 using Grasshopper;
-using Grasshopper.Kernel.Parameters;
-using System.Windows.Forms;
 using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Types;
 using IvyGh.Type;
@@ -18,7 +11,7 @@ namespace IvyGh
     public class Comp_InterpolateFields : GH_Component
     {
         GH_Grid ghGrid;
-        IvyCore.Parametric.Point point;
+        IvyCore.MultiDimGrid.Point point;
         double[] coord;
 
         public override Guid ComponentGuid

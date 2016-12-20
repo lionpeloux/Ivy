@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IvyCore.Interpolation;
 
-namespace IvyCore.Parametric
+namespace IvyCore.MultiDimGrid
 {
     /// <summary>
     /// A Cell element of 2^D connected Nodes.
     /// </summary>
     public class Cell : ISortedGridElement<Cell>
     {
+        #region FIELDS
         private Node[][] nodes;
+        #endregion
+
+        #region PROPERTIES
 
         /// <summary>
         /// The Grid this Cell belongs to.
@@ -24,9 +29,9 @@ namespace IvyCore.Parametric
         public int Index { get; protected set; }
 
         /// <summary>
-        /// The Tuple representing the position of the Cell in the Grid.
+        /// The Address representing the position of the Cell in the Grid.
         /// </summary>
-        public Tuple Tuple { get; protected set; }
+        public Address Address { get; protected set; }
 
         /// <summary>
         /// Cell dimension.
@@ -34,16 +39,19 @@ namespace IvyCore.Parametric
         public int Dim { get { return this.Grid.Dim; } }
 
         /// <summary>
-        /// Return the index of the Nodes that bound the Cell.
+        /// Returns the index of the Corner Nodes that bound the Cell.
         /// This array is ordered according to the permutation scheme.
         /// </summary>
-        public int[] VerticesIndex { get; protected set; }
+        public int[] CornerNodeIndexes { get; protected set; }
 
         /// <summary>
-        /// Cell Volume for Lerp.
+        /// Gets the Cell Volume (usefull for interpolation).
         /// </summary>
         public double Volume { get; protected set; }
 
+        /// <summary>
+        /// Gets the list of Cells this Cell belongs to.
+        /// </summary>
         public IList<Cell> List
         {
             get
@@ -52,11 +60,20 @@ namespace IvyCore.Parametric
             }
         }
 
+        #endregion
+
+        #region CONSTRUCTORS
+
+        /// <summary>
+        /// Creates a Cell in a given Grid.
+        /// </summary>
+        /// <param name="grid">The Grid that this Cell belongs to.</param>
+        /// <param name="address">The Cell address in the Grid.</param>
         public Cell(Grid grid, IList<int> tuple)
         {
             this.Grid = grid;
-            this.Tuple = Tuple.CreateCellTuple(grid, tuple);
-            this.Index = this.Tuple.Index;
+            this.Address = Address.CreateCellAddress(grid, tuple);
+            this.Index = this.Address.Index;
 
             var nperm = Grid.PermutationCount;
             var nodes = new Node[nperm];
@@ -65,7 +82,7 @@ namespace IvyCore.Parametric
             double V = 1;
             for (int d = 0; d < Dim; d++)
             {
-                int i = this.Tuple[d];
+                int i = this.Address[d];
                 double x0 = Grid.Data[d][i];
                 double x1 = Grid.Data[d][i + 1];
                 V *= (x1 - x0);
@@ -76,11 +93,15 @@ namespace IvyCore.Parametric
             var nodesIndex = new int[Grid.PermutationCount];
             for (int i = 0; i < nodesIndex.Length; i++)
             {
-                var index = Grid.NodeIndex(this.Tuple.Add(Grid.Permutations[i]));
+                var index = Grid.NodeIndex(this.Address.Add(Grid.Permutations[i]));
                 nodesIndex[i] = index;
             }
-            this.VerticesIndex = nodesIndex;
+            this.CornerNodeIndexes = nodesIndex;
         }
+
+        #endregion
+
+        #region INSTANCE METHODS
 
         /// <summary>
         /// Multi-Linear interpolation inside the Cell.
@@ -157,7 +178,7 @@ namespace IvyCore.Parametric
 
             for (int d = 0; d < Dim; d++)
             {
-                int i = this.Tuple[d];
+                int i = this.Address[d];
 
                 double x = p[d];
                 double x0 = Grid.Data[d][i];
@@ -180,16 +201,18 @@ namespace IvyCore.Parametric
                 }
                 LERP[i] = Vi / Volume;
             }
-            return new Interpolant(LERP, VerticesIndex);
+            return new Interpolant(LERP, CornerNodeIndexes);
         }
 
         public override string ToString()
         {
-            return this.Tuple.ToString();
+            return this.Address.ToString();
         }
         public string Info()
         {
-            return "CELL[" + this.Index + "|" + this.Tuple + "] : volume = " + String.Format("{0:F2}", Volume);
+            return "CELL[" + this.Index + "|" + this.Address + "] : volume = " + String.Format("{0:F2}", Volume);
         }
+
+        #endregion
     }
 }

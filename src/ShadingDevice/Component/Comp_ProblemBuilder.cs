@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using System.IO;
 using ShadingDevice.Kernel;
-using IvyCore.Parametric;
 using IvyGh.Type;
 using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Types;
 using Grasshopper;
 using System.Globalization;
 using System.Data.SQLite;
+using IvyCore.MultiDimGrid;
 
 namespace ShadingDevice
 {
@@ -19,7 +18,7 @@ namespace ShadingDevice
     {
 
         public Comp_ProblemBuilder()
-          : base("Abaqus Builder", "Builder", "Build .inp and .py file for abaqus analysis", "Ivy", "Shading Device")
+          : base("Abaqus Builder", "Problem Builder", "Build .inp and .py file for abaqus analysis", "Ivy", "Shading Device")
         {
         }
 
@@ -205,7 +204,7 @@ namespace ShadingDevice
                         "INSERT INTO " + "GNODE_" + name + " (NODE, TUPLE, COORD) " +
                         "VALUES ({0},\"{1}\",\"{2}\")",
                         node.Index + 1,
-                        node.Tuple.ToString(),
+                        node.Address.ToString(),
                         node.ToString()
                     );
                 cmd.ExecuteNonQuery();
@@ -222,7 +221,7 @@ namespace ShadingDevice
                         "VALUES ({0},\"{1}\",\"{2}\")",
                         i + 1,
                         grid.Labels[i],
-                        ITuple.ToString(range)
+                        IAddress.ToString(range)
                     );
                 cmd.ExecuteNonQuery();
             }

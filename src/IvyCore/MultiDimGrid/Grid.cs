@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IvyCore.Parametric
+namespace IvyCore.MultiDimGrid
 {
 
     /// <summary>
@@ -439,11 +439,11 @@ namespace IvyCore.Parametric
             {
                 if(Labels[i] != "")
                 {
-                    s.Add(String.Format("DATA[{0}|{1}] = {2}", i, Labels[i], ITuple.ToString(data[i])));
+                    s.Add(String.Format("DATA[{0}|{1}] = {2}", i, Labels[i], IAddress.ToString(data[i])));
                 }
                 else
                 {
-                    s.Add(String.Format("DATA[{0}] = {1}", i, ITuple.ToString(data[i])));
+                    s.Add(String.Format("DATA[{0}] = {1}", i, IAddress.ToString(data[i])));
                 }
             }
             s.Add("");
@@ -465,7 +465,7 @@ namespace IvyCore.Parametric
             s.Add("==========================");
             for (int i = 0; i < PermutationCount; i++)
             {
-                s.Add("PERM[" + i + "] = " + Tuple.ToString(Permutations[i]));
+                s.Add("PERM[" + i + "] = " + Address.ToString(Permutations[i]));
             }
 
             return String.Join(Environment.NewLine, s);
@@ -607,11 +607,11 @@ namespace IvyCore.Parametric
         #region INDEX HELPER
         public int NodeIndex(IList<int> tuple)
         {
-            return Tuple.FastIndexFromTuple(this.NodeIndexBasis, tuple);
+            return Address.FastIndexFromAddress(this.NodeIndexBasis, tuple);
         }
         public int CellIndex(IList<int> tuple)
         {
-            return Tuple.FastIndexFromTuple(this.CellIndexBasis, tuple);
+            return Address.FastIndexFromAddress(this.CellIndexBasis, tuple);
         }
         #endregion
     }

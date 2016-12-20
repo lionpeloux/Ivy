@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
-using IvyCore.Parametric;
-using Grasshopper.Kernel.Special;
-using System.Drawing;
-using Grasshopper;
-using Grasshopper.Kernel.Parameters;
-using System.Windows.Forms;
-using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
 using IvyGh.Type;
 
 namespace IvyGh
@@ -25,7 +14,7 @@ namespace IvyGh
         }
 
         public Comp_NodeProperties()
-          : base("Node Properties", "Node Prop",
+          : base("Node Properties", "Node",
               "Get Node's properties.",
               "Ivy", "Node")
         {
@@ -33,16 +22,17 @@ namespace IvyGh
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Node", "N", "The Node.", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Node", "node", "The Node.", GH_ParamAccess.item);
             pManager[0].Optional = false;
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddIntegerParameter("Node Index", "Index", "The NodeIndex in the Grid.", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Coordinates", "Coord", "The coordinates of the Node.", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Normalized Coordinates", "NCoord", "The normalized coordinates of the Node.", GH_ParamAccess.list);
-            pManager.AddIntegerParameter("Address Tuple", "Addr", "The tuple address of the Node.", GH_ParamAccess.list);
+            pManager.AddIntegerParameter("Node Index", "index", "The NodeIndex in the Grid.", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Coordinates", "coord", "The coordinates of the Node.", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Normalized Coordinates", "normCoord", "The normalized coordinates of the Node.", GH_ParamAccess.list);
+            pManager.AddIntegerParameter("Node Address", "addr", "The Address of the Node.", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Normalized Node Address", "normAddr", "The Address of the Node.", GH_ParamAccess.list);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -54,10 +44,12 @@ namespace IvyGh
             DA.SetData(0, ghNode.Value.Index);
             DA.SetDataList(1, ghNode.Value.Coord);
             DA.SetDataList(2, ghNode.Value.Normalized());
-            DA.SetDataList(3, ghNode.Value.Tuple.Value);
+            DA.SetDataList(3, ghNode.Value.Address.Value);
+
+            // Normalized address not implemented yet.
+           // DA.SetDataList(4, ghNode.Value.Tuple.Value);
+
         }
-
-
 
     }
 }

@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
-using IvyCore.Parametric;
-using Grasshopper.Kernel.Special;
-using System.Drawing;
-using Grasshopper;
-using Grasshopper.Kernel.Parameters;
-using System.Windows.Forms;
-using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
 using IvyGh.Type;
+using IvyGh.Properties;
 
 namespace IvyGh
 {
@@ -27,21 +17,20 @@ namespace IvyGh
 
         public Comp_GridNormalize()
           : base("Normalize", "Normalize",
-              "Create normalized grid.",
+              "Normalize a Grid.",
               "Ivy", "Grid")
         {
         }
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Grid", "G", "Input grid to normalize.", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Grid", "grid", "Input grid to normalized.", GH_ParamAccess.item);
             pManager[0].Optional = false;
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("Info", "info", "Grid info.", GH_ParamAccess.item);
-            pManager.AddGenericParameter("Grid", "G", "The normalized grid.", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Grid", "grid", "The normalized grid.", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -50,11 +39,18 @@ namespace IvyGh
 
             ghGrid2 = new GH_Grid(ghGrid1.Value.Normalize());
 
-            DA.SetData(0, ghGrid2.Value.Info());
-            DA.SetData(1, ghGrid2);
+            DA.SetData(0, ghGrid2);
+        }
+
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.grid_norm;
+            }
         }
 
 
 
-}
+    }
 }

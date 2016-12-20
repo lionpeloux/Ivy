@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
-using IvyCore.Parametric;
+using IvyCore.MultiDimGrid;
 using Grasshopper.Kernel.Special;
 using System.Drawing;
-using Grasshopper;
 using Grasshopper.Kernel.Parameters;
 using System.Windows.Forms;
-using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
 using IvyGh.Type;
+using IvyGh.Properties;
 
 namespace IvyGh
 {
     public class Comp_GridSlider : GH_Component, IGH_VariableParameterComponent
     {
         private GH_Grid ghGrid, ghGridCache;
-        private IvyCore.Parametric.Point point;
+        private IvyCore.MultiDimGrid.Point point;
         private bool hasValidControls = false;
 
         public override Guid ComponentGuid
@@ -27,15 +23,15 @@ namespace IvyGh
         }
 
         public Comp_GridSlider()
-          : base("Grid Slider", "Slider",
-              "Construct a multidimensional grid from a tree. Gives controls to explore the grid (see right clic menu).",
+          : base("MultiDimensional Slider", "Slider",
+              "Explore a MuliDimGrid seamlessly. Select sliding options from the rigth-clic menu.",
               "Ivy", "Grid")
         {
         }
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Grid", "grid", "The grid to browse.", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Grid", "grid", "The grid to explore.", GH_ParamAccess.item);
             pManager[0].Optional = false;
 
             //this.Params.ParameterSourcesChanged += OnParameterSourcesChanged;
@@ -89,8 +85,8 @@ namespace IvyGh
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddTextParameter("Info", "info", "Grid info.", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Active Point", "P", "Selected point on the grid.", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Active Cell", "C", "Active cell index.", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Active Point Coordinates", "ptCoord", "Selected Point coordinates in the Grid.", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Active Cell Index", "cellIndex", "Active Cell index.", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -102,7 +98,7 @@ namespace IvyGh
             if(GridHasChanged())
             {
                 hasValidControls = false;
-                point = new IvyCore.Parametric.Point(ghGrid.Value);
+                point = new IvyCore.MultiDimGrid.Point(ghGrid.Value);
                 // cache a DeepCopy
                 ghGridCache = ghGrid.DeepCopy();
                 this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Grid Has Changed. Reset Controls via Menu.");
@@ -347,5 +343,12 @@ namespace IvyGh
         }
         #endregion
 
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.grid_slider;
+            }
+        }
     }
 }

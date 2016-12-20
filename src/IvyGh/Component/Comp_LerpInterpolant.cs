@@ -1,24 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
-using IvyCore.Parametric;
-using Grasshopper.Kernel.Special;
-using System.Drawing;
-using Grasshopper;
-using Grasshopper.Kernel.Parameters;
-using System.Windows.Forms;
-using Grasshopper.Kernel.Data;
-using Grasshopper.Kernel.Types;
 using IvyGh.Type;
+using IvyCore.MultiDimGrid;
 
 namespace IvyGh
 {
     public class Comp_LerpInterpolant : GH_Component
     {
         GH_Grid ghGrid;
-        IvyCore.Parametric.Point point;
+        IvyCore.MultiDimGrid.Point point;
         double[] coord;
 
         public override Guid ComponentGuid
@@ -57,7 +48,7 @@ namespace IvyGh
             if (!DA.GetData(0, ref ghGrid)) { return; }
             if (!DA.GetDataList(1, list)) { return; }
 
-            point = new IvyCore.Parametric.Point(ghGrid.Value, list.ToArray());
+            point = new Point(ghGrid.Value, list.ToArray());
             var cellIndex = point.CellIndex();
             var LERP = ghGrid.Value.Cells[cellIndex].GetInterpolant(point);
 

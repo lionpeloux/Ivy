@@ -64,7 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Component\Comp_CreateGrid.cs" />
+    <Compile Include="Component\Comp_ConstructGrid.cs" />
     <Compile Include="Component\Comp_GridInfo.cs" />
     <Compile Include="Component\Comp_NodeIndexFromAddress.cs" />
     <Compile Include="Component\Comp_NodeProperties.cs" />
@@ -73,16 +73,19 @@
     <Compile Include="Component\Comp_InterpolateFields.cs" />
     <Compile Include="Component\Comp_LerpInterpolant.cs" />
     <Compile Include="Component\Comp_GridPoint.cs" />
-    <Compile Include="Component\Comp_CartesianProduct.cs" />
+    <Compile Include="Component\Comp_TupleProduct.cs" />
     <Compile Include="Component\Comp_GridProduct.cs" />
     <Compile Include="Parameter\Param_Interpolant.cs" />
     <Compile Include="Parameter\Param_Node.cs" />
     <Compile Include="Parameter\Param_Grid.cs" />
-    <Compile Include="GHComponentLerpTest.cs" />
-    <Compile Include="GHComponentLoadOneTopo.cs" />
     <Compile Include="Component\Comp_GridSlider.cs" />
     <Compile Include="IvyGhInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Type\GH_Interpolant.cs" />
     <Compile Include="Type\GH_Node.cs" />
     <Compile Include="Type\GH_Grid.cs" />
@@ -91,9 +94,42 @@
     <ProjectReference Include="..\IvyCore\IvyCore.csproj">
       <Project>{eac59114-1935-4853-8e6c-13b3fddc89e5}</Project>
       <Name>IvyCore</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid_info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid_norm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid_prod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid_slider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\point.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\param_grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\param_node.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -103,7 +139,11 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"</PostBuildEvent>
+    <PostBuildEvent>cmd /x /c mkdir "$(SolutionDir)\bin\"
+cmd /x /c mkdir "$(SolutionDir)bin\x86\"
+cmd /x /c mkdir "$(SolutionDir)bin\x64\"
+Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
+Copy "$(TargetPath)" "$(SolutionDir)bin\$(ProjectName).gha"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug32|AnyCPU' ">
     <StartArguments>
@@ -121,5 +161,10 @@
     </StartArguments>
     <StartAction>Program</StartAction>
     <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\IvyGh.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>

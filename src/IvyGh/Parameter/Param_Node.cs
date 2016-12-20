@@ -5,6 +5,7 @@ using Grasshopper.Kernel;
 using Rhino.Geometry;
 using Grasshopper.Kernel.Types;
 using IvyGh.Type;
+using IvyGh.Properties;
 
 namespace IvyGh.Component
 {
@@ -24,6 +25,14 @@ namespace IvyGh.Component
         public override GH_Exposure Exposure
         {
             get { return GH_Exposure.primary; }
+        }
+
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.param_node;
+            }
         }
     }
 }

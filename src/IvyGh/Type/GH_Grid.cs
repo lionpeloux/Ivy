@@ -1,14 +1,7 @@
 ﻿using Grasshopper.Kernel.Types;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GH_IO.Serialization;
-using IvyCore.Parametric;
-using Grasshopper.Kernel.Data;
-using Grasshopper;
-using Grasshopper.Kernel;
+using IvyCore.MultiDimGrid;
 
 namespace IvyGh.Type
 {
