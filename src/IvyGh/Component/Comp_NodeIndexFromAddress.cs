@@ -42,7 +42,7 @@ namespace IvyGh
             if (!DA.GetDataList(1, address)) { return; }
 
 
-            var index = ghGrid.Value.NodeIndex(address);
+            var index = ghGrid.Value.NodeAddressToIndex(address);
             DA.SetData(0, index);
         }
 

@@ -103,7 +103,7 @@ namespace ShadingDevice
                             var tuple_glb = IAddress.CartesianProduct(tuple_act, tuple_shp);
 
 
-                            var nodeGlbIndex = grid_glb.NodeIndex(tuple_glb);
+                            var nodeGlbIndex = grid_glb.NodeAddressToIndex(tuple_glb);
 
                             var nodeShell = reader.GetInt32(2) - 1;
 

@@ -9,16 +9,34 @@ namespace IvyGh
     {
         GH_Grid ghGrid;
 
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("{b5917e00-9704-4713-9524-0bcae2adfa75}"); }
-        }
+       
 
         public Comp_GridInfo()
           : base("Grid Info", "Info",
               "Display grid informations.",
               "Ivy", "Grid")
         {
+        }
+
+        public override Guid ComponentGuid
+        {
+            get { return new Guid("{b5917e00-9704-4713-9524-0bcae2adfa75}"); }
+        }
+
+        public override GH_Exposure Exposure
+        {
+            get
+            {
+                return GH_Exposure.primary;
+            }
+        }
+
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.grid_info;
+            }
         }
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
@@ -40,13 +58,7 @@ namespace IvyGh
             DA.SetData(0, ghGrid.Value.Info());
         }
 
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                return Resources.grid_info;
-            }
-        }
+        
 
 
 

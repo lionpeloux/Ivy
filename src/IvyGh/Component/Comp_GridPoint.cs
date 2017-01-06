@@ -50,7 +50,7 @@ namespace IvyGh
             point = new IvyCore.MultiDimGrid.Point(ghGrid.Value, list.ToArray());
 
             DA.SetDataList(0, point.Coord);
-            DA.SetData(1, point.CellIndex());
+            DA.SetData(1, point.GetCellIndex());
         }
 
         protected override System.Drawing.Bitmap Icon

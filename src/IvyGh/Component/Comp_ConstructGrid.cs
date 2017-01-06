@@ -20,6 +20,27 @@ namespace IvyGh.Component
         {
         }
 
+        public override GH_Exposure Exposure
+        {
+            get
+            {
+                return GH_Exposure.primary;
+            }
+        }
+
+        public override Guid ComponentGuid
+        {
+            get { return new Guid("{ebab2030-8d6d-4e28-8aa7-0b9baefa62d1}"); }
+        }
+
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.grid;
+            }
+        }
+
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddNumberParameter("Input Range", "D", "The data to create the grid from. As a tree of numbers.", GH_ParamAccess.tree);
@@ -63,21 +84,7 @@ namespace IvyGh.Component
             DA.SetData(1, ghGrid);
         }
 
-        /// <summary>
-        /// Gets the unique ID for this component. Do not change this ID after release.
-        /// </summary>
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("{ebab2030-8d6d-4e28-8aa7-0b9baefa62d1}"); }
-        }
-
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                return Resources.grid;
-            }
-        }
+        
 
     }
 }

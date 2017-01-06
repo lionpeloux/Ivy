@@ -41,6 +41,8 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MultiDimGrid\Address\CellAddress.cs" />
+    <Compile Include="MultiDimGrid\Address\NodeAddress.cs" />
     <Compile Include="MultiDimGrid\Cell\Cell.cs" />
     <Compile Include="Interpolation\Interpolant.cs" />
     <Compile Include="MultiDimGrid\ISortedGridElement.cs" />

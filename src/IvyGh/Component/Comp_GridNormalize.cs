@@ -10,10 +10,7 @@ namespace IvyGh
         GH_Grid ghGrid1;
         GH_Grid ghGrid2;
 
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("{05c90214-ff50-4e02-8e66-461ace615147}"); }
-        }
+        
 
         public Comp_GridNormalize()
           : base("Normalize", "Normalize",
@@ -22,6 +19,27 @@ namespace IvyGh
         {
         }
 
+        public override Guid ComponentGuid
+        {
+            get { return new Guid("{05c90214-ff50-4e02-8e66-461ace615147}"); }
+        }
+
+        public override GH_Exposure Exposure
+        {
+            get
+            {
+                return GH_Exposure.secondary;
+            }
+        }
+
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.grid_norm;
+            }
+        }
+        
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("Grid", "grid", "Input grid to normalized.", GH_ParamAccess.item);
@@ -42,13 +60,6 @@ namespace IvyGh
             DA.SetData(0, ghGrid2);
         }
 
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                return Resources.grid_norm;
-            }
-        }
 
 
 

@@ -12,10 +12,6 @@ namespace IvyGh
         GH_Grid ghGrid;
 
 
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("{4ae212dd-72de-4d5f-942e-3d5a480b0f8b}"); }
-        }
 
         public Comp_GridProduct()
           : base("Cartesian Product", "G1xG2",
@@ -23,6 +19,28 @@ namespace IvyGh
               "Ivy", "Grid")
         {
         }
+
+        public override Guid ComponentGuid
+        {
+            get { return new Guid("{4ae212dd-72de-4d5f-942e-3d5a480b0f8b}"); }
+        }
+        
+        public override GH_Exposure Exposure
+        {
+            get
+            {
+                return GH_Exposure.secondary;
+            }
+        }
+
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.grid_prod;
+            }
+        }
+
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
@@ -49,13 +67,7 @@ namespace IvyGh
             DA.SetData(1, ghGrid);
         }
 
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                return Resources.grid_prod;
-            }
-        }
+        
 
 
     }

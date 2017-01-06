@@ -82,9 +82,9 @@ namespace IvyCore.MultiDimGrid
         /// Get the Cell index this point belongs to. 
         /// </summary>
         /// <returns>The corresponding Cell Index in the grid.</returns>
-        public int CellIndex()
+        public int GetCellIndex()
         {
-            var tuple = new int[Dim];
+            var addr = new int[Dim];
             for (int d = 0; d < Dim; d++)
             {
                 var x = this[d];
@@ -93,12 +93,12 @@ namespace IvyCore.MultiDimGrid
                     var xi = Grid.Data[d][i];
                     if (x <= xi)
                     {
-                        tuple[d] = i - 1;
+                        addr[d] = i - 1;
                         break;
                     }
                 }
             }
-            return Grid.CellIndex(tuple);
+            return Grid.CellAddressToIndex(addr);
         }
 
         /// <summary>
@@ -128,19 +128,49 @@ namespace IvyCore.MultiDimGrid
         }
 
         /// <summary>
-        /// Normalized a given point in [0,1]^D.
+        /// Normalize a given point in [0,1]^D.
         /// It is not consistent to return a Point object
         /// as it may not be in the Grid domain.
         /// </summary>
         /// <returns>A new normalized vector in [0,1]^D.</returns>
-        public double[] Normalized()
+        public double[] Normalize()
         {
-            var p = new double[Dim];
+            var coord = new double[Dim];
             for (int d = 0; d < Dim; d++)
             {
-                p[d] = Grid.Intervals[d].Normalize(this[d]);
+                coord[d] = Grid.Intervals[d].Normalize(this[d]);
             }
-            return p;
+            return coord;
+        }
+
+        /// <summary>
+        /// Gets the Address of a Point. 
+        /// This definition is a little bit abusive as an Address is first define at (discrete) Nodes.
+        /// However, it is useful to extend this definition to Points for vizualization.
+        /// </summary>
+        /// <returns>The point Address.</returns>
+        public double[] GetAddress()
+        {
+            var addr = new double[Dim];
+            for (int d = 0; d < Dim; d++)
+            {
+                var x = this[d];
+                for (int i = 1; i < Grid.Data[d].Length; i++)
+                {
+                    var xi = Grid.Data[d][i];
+                    if (x <= xi) // The  d-th coordinate is in [x{i-1}, x{i}]
+                    {
+                        // this is the base integer for the closest node (from the bottom) to this point,
+                        // in the d-th dimension.
+                        addr[d] = i - 1;
+
+                        // we add to this base integer the normalized [0,1] coordinate of the point in the d-th dimension
+                        addr[d] += 1 - (xi - x) / (xi - Grid.Data[d][i - 1]);
+                        break;
+                    }
+                }
+            }
+            return addr;
         }
 
         public virtual string Info()

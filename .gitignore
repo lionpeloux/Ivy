@@ -283,3 +283,5 @@ reveal.js/
 # Api
 doc/api/
 _site/
+
+*.DS_Store

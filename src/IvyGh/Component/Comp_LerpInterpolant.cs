@@ -49,11 +49,11 @@ namespace IvyGh
             if (!DA.GetDataList(1, list)) { return; }
 
             point = new Point(ghGrid.Value, list.ToArray());
-            var cellIndex = point.CellIndex();
+            var cellIndex = point.GetCellIndex();
             var LERP = ghGrid.Value.Cells[cellIndex].GetInterpolant(point);
 
             DA.SetDataList(0, point.Coord);
-            DA.SetDataList(1, point.Normalized());
+            DA.SetDataList(1, point.Normalize());
             DA.SetData(2, cellIndex);
             DA.SetData(3, new GH_Interpolant(LERP));
         }

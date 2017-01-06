@@ -17,10 +17,6 @@ namespace IvyGh
         private IvyCore.MultiDimGrid.Point point;
         private bool hasValidControls = false;
 
-        public override Guid ComponentGuid
-        {
-            get { return new Guid("{479434ce-3e14-4f0b-abec-2bc675c40eb4}"); }
-        }
 
         public Comp_GridSlider()
           : base("MultiDimensional Slider", "Slider",
@@ -29,6 +25,27 @@ namespace IvyGh
         {
         }
 
+        public override Guid ComponentGuid
+        {
+            get { return new Guid("{479434ce-3e14-4f0b-abec-2bc675c40eb4}"); }
+        }
+
+        public override GH_Exposure Exposure
+        {
+            get
+            {
+                return GH_Exposure.tertiary;
+            }
+        }
+
+        protected override System.Drawing.Bitmap Icon
+        {
+            get
+            {
+                return Resources.grid_slider;
+            }
+        }
+        
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("Grid", "grid", "The grid to explore.", GH_ParamAccess.item);
@@ -110,7 +127,7 @@ namespace IvyGh
             {
                 UpdatePoint(DA);
                 DA.SetDataList(1, point.Coord);
-                DA.SetData(2, point.CellIndex());
+                DA.SetData(2, point.GetCellIndex());
             }
             else
             {          
@@ -343,12 +360,5 @@ namespace IvyGh
         }
         #endregion
 
-        protected override System.Drawing.Bitmap Icon
-        {
-            get
-            {
-                return Resources.grid_slider;
-            }
-        }
     }
 }

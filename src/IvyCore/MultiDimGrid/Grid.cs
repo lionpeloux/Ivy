@@ -605,13 +605,13 @@ namespace IvyCore.MultiDimGrid
         #endregion
 
         #region INDEX HELPER
-        public int NodeIndex(IList<int> tuple)
+        public int NodeAddressToIndex(IList<int> address)
         {
-            return Address.FastIndexFromAddress(this.NodeIndexBasis, tuple);
+            return Address.FastAddressToIndex(address, this.NodeIndexBasis);
         }
-        public int CellIndex(IList<int> tuple)
+        public int CellAddressToIndex(IList<int> address)
         {
-            return Address.FastIndexFromAddress(this.CellIndexBasis, tuple);
+            return Address.FastAddressToIndex(address, this.CellIndexBasis);
         }
         #endregion
     }

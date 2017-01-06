@@ -93,7 +93,7 @@ namespace IvyCore.MultiDimGrid
             var nodesIndex = new int[Grid.PermutationCount];
             for (int i = 0; i < nodesIndex.Length; i++)
             {
-                var index = Grid.NodeIndex(this.Address.Add(Grid.Permutations[i]));
+                var index = Grid.NodeAddressToIndex(this.Address.Add(Grid.Permutations[i]));
                 nodesIndex[i] = index;
             }
             this.CornerNodeIndexes = nodesIndex;

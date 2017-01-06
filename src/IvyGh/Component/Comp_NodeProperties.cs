@@ -43,7 +43,7 @@ namespace IvyGh
 
             DA.SetData(0, ghNode.Value.Index);
             DA.SetDataList(1, ghNode.Value.Coord);
-            DA.SetDataList(2, ghNode.Value.Normalized());
+            DA.SetDataList(2, ghNode.Value.Normalize());
             DA.SetDataList(3, ghNode.Value.Address.Value);
 
             // Normalized address not implemented yet.

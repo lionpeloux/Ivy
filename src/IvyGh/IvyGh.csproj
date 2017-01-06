@@ -76,6 +76,7 @@
     <Compile Include="Component\Comp_TupleProduct.cs" />
     <Compile Include="Component\Comp_GridProduct.cs" />
     <Compile Include="Parameter\Param_Interpolant.cs" />
+    <Compile Include="Parameter\Param_Cell.cs" />
     <Compile Include="Parameter\Param_Node.cs" />
     <Compile Include="Parameter\Param_Grid.cs" />
     <Compile Include="Component\Comp_GridSlider.cs" />
@@ -87,6 +88,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Type\GH_Interpolant.cs" />
+    <Compile Include="Type\GH_Cell.cs" />
     <Compile Include="Type\GH_Node.cs" />
     <Compile Include="Type\GH_Grid.cs" />
   </ItemGroup>
