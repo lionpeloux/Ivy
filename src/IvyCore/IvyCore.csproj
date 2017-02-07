@@ -18,20 +18,20 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\IvyCore.XML</DocumentationFile>
+    <DocumentationFile>bin\IvyCore.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\IvyCore.XML</DocumentationFile>
+    <DocumentationFile>bin\IvyCore.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,7 +63,8 @@
     <PostBuildEvent>cmd /x /c mkdir "$(SolutionDir)\bin\"
 cmd /x /c mkdir "$(SolutionDir)bin\x86\"
 cmd /x /c mkdir "$(SolutionDir)bin\x64\"
-Copy "$(TargetPath)" "$(SolutionDir)bin\$(ProjectName).dll"</PostBuildEvent>
+Copy "$(TargetPath)" "$(SolutionDir)bin\$(ProjectName).dll"
+</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>

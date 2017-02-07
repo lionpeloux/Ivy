@@ -43,15 +43,13 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RhinoCommon">
+      <HintPath>C:\Program Files\Rhinoceros 5 (64-bit)\System\RhinoCommon.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="RhinoCommon">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>c:\Program Files (x86)\Rhinoceros 5\System\rhinocommon.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Grasshopper">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Common Files\McNeel\Rhinoceros\5.0\Plug-ins\Grasshopper (b45a29b1-4343-4035-989e-044e8580d9cf)\0.9.76.0\Grasshopper.dll</HintPath>
@@ -93,19 +91,14 @@
     <Compile Include="Type\GH_Grid.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IvyCore\IvyCore.csproj">
-      <Project>{eac59114-1935-4853-8e6c-13b3fddc89e5}</Project>
-      <Name>IvyCore</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="Resources\cell.png" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +124,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\param_node.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IvyCore\IvyCore.csproj">
+      <Project>{eac59114-1935-4853-8e6c-13b3fddc89e5}</Project>
+      <Name>IvyCore</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

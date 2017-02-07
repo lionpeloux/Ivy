@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RhinoCommon">
+      <HintPath>C:\Program Files\Rhinoceros 5 (64-bit)\System\RhinoCommon.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -67,11 +70,6 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="RhinoCommon">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>c:\Program Files (x86)\Rhinoceros 5\System\rhinocommon.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Grasshopper">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Common Files\McNeel\Rhinoceros\5.0\Plug-ins\Grasshopper (b45a29b1-4343-4035-989e-044e8580d9cf)\0.9.76.0\Grasshopper.dll</HintPath>
@@ -96,20 +94,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\IvyCore\IvyCore.csproj">
       <Project>{eac59114-1935-4853-8e6c-13b3fddc89e5}</Project>
       <Name>IvyCore</Name>
-      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\IvyGh\IvyGh.csproj">
       <Project>{d9d3b74c-4d08-497e-91f7-e42c5ee42a52}</Project>
       <Name>IvyGh</Name>
-      <Private>False</Private>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -133,6 +129,7 @@ Copy "$(TargetDir)EntityFramework.SqlServer.dll" "$(SolutionDir)bin\EntityFramew
 
 Copy "$(TargetDir)\x86\SQLite.Interop.dll" "$(SolutionDir)\bin\x86\SQLite.Interop.dll"
 Copy "$(TargetDir)\x64\SQLite.Interop.dll" "$(SolutionDir)\bin\x64\SQLite.Interop.dll"
+
 </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug32|AnyCPU' ">

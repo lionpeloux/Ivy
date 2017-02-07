@@ -59,6 +59,10 @@ namespace IvyGh
                     {
                         nodes.Add(new GH_Node(ghGrid.Value.Nodes[i]));
                     }
+                }
+                else
+                {
+                    nodes.Add(new GH_Node(ghGrid.Value.Nodes[index]));
                 } 
             }
 

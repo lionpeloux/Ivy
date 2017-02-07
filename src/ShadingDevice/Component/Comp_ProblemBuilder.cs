@@ -24,7 +24,7 @@ namespace ShadingDevice
 
         public override Guid ComponentGuid
         {
-            get { return new Guid("{64906d57-b708-41e2-b685-b9858534e4b7}"); }
+            get { return new Guid("{5bbfc254-f39b-4120-bfb0-59245dda8f1d}"); }
         }
 
 
